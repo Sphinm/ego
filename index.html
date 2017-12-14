@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <title>EGO漫画</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/module/util.js"></script>
+    <script src="js/module/tab.js"></script>
+    <script src="js/module/search.js"></script>
+    <script src="js/module/slider.js"></script>
+    <!--<script src="js/module/cursor.js"></script>-->
+</head>
+<body>
+    <header>
+        <!-- 顶栏区 -->
+        <div class="g-header">
+            <div class="m-logo"></div>
+            <!-- 将m-tab模板渲染到m-tabs里面 -->
+            <div class="m-tabs"></div>
+            <div class="m-search"></div>
+            <div class="m-login">
+                <i class="u-login-logo"></i>
+                <span>登录</span>
+            </div>
+            <div class="m-register">
+                <span>注册</span>
+            </div>
+        </div>
+        <!-- 轮播图 -->
+        <div class="g-banner">
+            <!-- g-banner 轮播区域 -->
+            <!-- 轮播组件 m-slider 及对应的 圆点指示器 m-cursor-->
+            <!--<div class="m-slider">-->
+                <!--<div class="slider"></div>-->
+                <!--<div class="slider"></div>-->
+                <!--<div class="slider"></div>-->
+            <!--</div>-->
+
+            <ul class="m-cursor">
+                <li class='prev'><</li>
+                <li class='cursor'>1</li>
+                <li class='cursor'>2</li>
+                <li class='cursor'>3</li>
+                <li class='next'>></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 内容区 -->
+    <content>
+        <div class="g-body f-cb">
+            <!-- 主栏 -->
+            <div class="g-main"></div>
+            <!-- 侧边栏 -->
+            <div class="g-side"></div>
+        </div>
+    </content>
+
+    <!-- 底部区 -->
+    <footer>
+        <div class="g-footer f-cb"></div>
+        <!-- 友情链接 -->
+
+        <!-- 关于我们 -->
+    </footer>
+
+    <script>
+        var tab = new Tabs();
+        tab.init();
+    </script>
+    <script>
+        var search = new Search();
+        search.init();
+    </script>
+    <script>
+        var slider = new Slider({
+            //视口容器
+            container: document.querySelector('.g-banner'),
+            // 图片列表
+            images: [
+                "img/banner1.jpg",
+                "img/banner2.jpg",
+                "img/banner3.jpg",
+                "img/banner4.jpg"
+            ],
+
+            // 是否允许拖拽
+            drag: true,
+            // 是否自动轮播
+            auto: true
+        });
+
+        var $ = function( selector ){
+            return [].slice.call(document.querySelectorAll(selector))
+        }
+
+        var cursors = $('.m-cursor .cursor');
+        var prev = $('.m-cursor .prev')[0];
+        var next = $('.m-cursor .next')[0];
+
+        cursors.forEach(function(cursor, index){
+            cursor.addEventListener('click', function(){
+                slider.nav(index);
+            })
+        })
+
+        prev.addEventListener('click', function(){
+            slider.prev();
+            //传入true表示在一定时间内不点击，则自动开启轮播动画
+            slider._autoEnd(true);
+        });
+        next.addEventListener('click', function(){
+            slider.next();
+            slider._autoEnd(true);
+        });
+
+        // 每次slider图片位置变化，cursor也变化，增加监听处理
+        slider.on('nav', function( ev ){
+            var pageIndex = ev.pageIndex;
+            cursors.forEach(function(cursor, index){
+                if(index === pageIndex ){
+                    cursor.className = 'z-active';
+                }else{
+                    cursor.className = '';
+                }
+            })
+        });
+
+        // 直接跳到第二页
+        slider.nav(2)
+    </script>
+    <script>
+
+    </script>
+</body>
+</html>
