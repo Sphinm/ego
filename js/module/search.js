@@ -1,4 +1,4 @@
-(function ($) {
+(function (_) {
    var template =
    '<div class="m-search-in">\
        <form target="_blank" action="./html/search.html" method="GET">\
@@ -16,8 +16,8 @@
        this.init();
    }
 
-   $.extend(Search.prototype, {
-       _layout: $.html2node(template),
+   _.extend(Search.prototype, {
+       _layout: _.html2node(template),
 
        // 1.判断输入的内容是否为空，空的话就不做搜索
        // 2.满足条件后，无论是回车还是点击button都进行搜索

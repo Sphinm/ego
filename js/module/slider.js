@@ -15,36 +15,33 @@
         // 组件节点，并转换为数组
         this.slider = this._layout.cloneNode(true);
         this.slides = [].slice.call(this.slider.querySelectorAll('.slide'));
-
+        // 根据节点显示当前图片的数量
+        this.showNum = this.slides.length;
         // 拖拽相关
         this.offsetWidth = this.container.offsetWidth;
-        this.breakPoint = this.offsetWidth / 4;
+        this.breakPoint = this.offsetWidth / this.showNum;
 
         // 轮播项数量
-        this.pageNum =  this.images? this.images.length : 4;
-        // 当前显示的数量
-        this.showNum = this.slides.length;
+        this.pageNum =  this.images? this.images.length : this.showNum;
 
         // 内部数据结构
         this.slideIndex = 1;
         this.pageIndex = this.pageIndex || 0;
         this.offsetAll = this.pageIndex;
 
-
+        // 把dom节点渲染到HTML
         this.container.appendChild(this.slider);
 
         // 动画设置
-        this.fadeTime = this.fadeTime || 500;
+        this.fadeTime = this.fadeTime || 200;
 
-        // 轮播，并响应鼠标移动上去暂停轮播事件
+        // 响应鼠标移动上去暂停轮播事件移出后重新计时
         if(this.auto) {
             this.intervalTime = this.intervalTime || 10000;
             this._initAuto();
         }
-
         // 如果需要拖拽切换
         if(this.drag) this._initDrag();
-
     }
 
     _.extend( Slider.prototype, _.emitter );
@@ -53,10 +50,8 @@
 
         _layout: _.html2node(template),
 
-
         // 直接跳转到指定页
         nav: function(pageIndex){
-
             this.pageIndex = pageIndex;
             this.slideIndex = typeof this.slideIndex === 'number'? this.slideIndex: (pageIndex+1) % this.showNum;
             this.offsetAll = pageIndex;
@@ -76,7 +71,7 @@
             this.offsetAll += offset;
             this.pageIndex += offset;
             this.slideIndex +=offset;
-            this.slider.style.transitionDuration = '.5s';
+            this.slider.style.transitionDuration = '0.5s';
             this._calcSlide();
         },
         // 执行Slide
@@ -89,7 +84,6 @@
             var prevslideIndex = this._normIndex(this.slideIndex-1,showNum);
             var nextslideIndex = this._normIndex(this.slideIndex+1,showNum);
             var offsetAll = this.offsetAll;
-            var pageNum = this.pageNum;
             var slides = this.slides;
 
             // 三个slide的偏移
@@ -103,9 +97,7 @@
             this.slider.style.transform = 'translateX('+ (-offsetAll * 100)+'%) translateZ(0)';
 
             // 当前slide 添加 'z-active'的className
-            slides.forEach(function(node){
-                _.delClassName(node, 'z-active')
-            });
+            slides.forEach(function(node){ _.delClassName(node, 'z-active') });
             _.addClassName(slides[slideIndex], 'z-active');
 
             // 图片url处理
@@ -114,7 +106,8 @@
 
         // 淡入效果
         _fadeIn: function(ele) {
-            var stepLength = 1/50;
+            var stepLength = 1/100;
+            var setIntervalId = setInterval(step, this.fadeTime/100);
             if (parseFloat(ele.style.opacity)) {
                 ele.style.opacity = 0;
             }
@@ -126,7 +119,6 @@
                     clearInterval(setIntervalId);
                 }
             }
-            var setIntervalId = setInterval(step, this.fadeTime/50);
         },
 
         // index标准化下标
@@ -141,12 +133,12 @@
             // 图片下标和slide下标由0开始
             for(var i =-1; i<= this.showNum-1; i++){
                 var index = this._normIndex((slideIndex+i),this.showNum);
-                var img = slides[index].querySelector('img')
+                var img = slides[index].querySelector('img');
                 if(!img){
                     img = document.createElement('img');
                     slides[index].appendChild(img);
                 }
-                img.src = 'img/banner' + ( this._normIndex(pageIndex + i, this.pageNum)+1 ) + '.jpg';
+                img.src = 'img/banner' + ( this._normIndex(pageIndex + i, this.pageNum) + 1 ) + '.jpg';
             }
 
             // 触发nav事件
@@ -160,7 +152,6 @@
         _initAuto: function() {
             this.timmer = null;
             this.autoStart();
-
             this.slider.addEventListener("mouseover", this._autoEnd.bind(this));
             this.slider.addEventListener("mouseout", this._autoStart.bind(this));
         },
@@ -173,11 +164,9 @@
         _autoEnd: function() {
             var timmer = this.timmer;
             if(!timmer) return;
-
             clearInterval(this.timmer);
         },
-
-        // 对外接口，开启轮播
+        // 自动轮播
         autoStart: function(time) {
             this.intervalTime = time || this.intervalTime;
             this._autoStart();
@@ -195,6 +184,7 @@
         _dragstart: function(ev){
             var dragInfo = this._dragInfo;
             dragInfo.start = {x: ev.pageX, y: ev.pageY};
+            ev.preventDefault();
         },
 
         _dragmove: function(ev){

@@ -9,7 +9,6 @@
     <script src="js/module/tab.js"></script>
     <script src="js/module/search.js"></script>
     <script src="js/module/slider.js"></script>
-    <!--<script src="js/module/cursor.js"></script>-->
 </head>
 <body>
     <header>
@@ -31,19 +30,13 @@
         <div class="g-banner">
             <!-- g-banner 轮播区域 -->
             <!-- 轮播组件 m-slider 及对应的 圆点指示器 m-cursor-->
-            <!--<div class="m-slider">-->
-                <!--<div class="slider"></div>-->
-                <!--<div class="slider"></div>-->
-                <!--<div class="slider"></div>-->
-            <!--</div>-->
-
-            <ul class="m-cursor">
-                <li class='prev'><</li>
-                <li class='cursor'>1</li>
-                <li class='cursor'>2</li>
-                <li class='cursor'>3</li>
-                <li class='next'>></li>
+            <ul class="m-cursor f-cb">
+                <li class='cursor'></li>
+                <li class='cursor'></li>
+                <li class='cursor'></li>
             </ul>
+            <div class="arrow" id="prev"><</div>
+            <div class="arrow" id="next">></div>
         </div>
     </header>
 
@@ -74,45 +67,30 @@
         search.init();
     </script>
     <script>
+        var cursors = document.querySelectorAll('.m-cursor .cursor');
+        var prev = document.querySelectorAll('.g-banner #prev')[0];
+        var next = document.querySelectorAll('.g-banner #next')[0];
+
         var slider = new Slider({
             //视口容器
             container: document.querySelector('.g-banner'),
-            // 图片列表
-            images: [
-                "img/banner1.jpg",
-                "img/banner2.jpg",
-                "img/banner3.jpg",
-                "img/banner4.jpg"
-            ],
-
             // 是否允许拖拽
             drag: true,
             // 是否自动轮播
             auto: true
         });
 
-        var $ = function( selector ){
-            return [].slice.call(document.querySelectorAll(selector))
-        }
-
-        var cursors = $('.m-cursor .cursor');
-        var prev = $('.m-cursor .prev')[0];
-        var next = $('.m-cursor .next')[0];
-
         cursors.forEach(function(cursor, index){
             cursor.addEventListener('click', function(){
                 slider.nav(index);
             })
-        })
+        });
 
         prev.addEventListener('click', function(){
             slider.prev();
-            //传入true表示在一定时间内不点击，则自动开启轮播动画
-            slider._autoEnd(true);
         });
         next.addEventListener('click', function(){
             slider.next();
-            slider._autoEnd(true);
         });
 
         // 每次slider图片位置变化，cursor也变化，增加监听处理
@@ -121,16 +99,15 @@
             cursors.forEach(function(cursor, index){
                 if(index === pageIndex ){
                     cursor.className = 'z-active';
+                    cursor.style.backgroundColor = '#5ed0ba';
                 }else{
                     cursor.className = '';
+                    cursor.style.backgroundColor = '#dedfdf';
                 }
             })
         });
-
-        // 直接跳到第二页
-        slider.nav(2)
-    </script>
-    <script>
+        // 从当前页开始轮播
+        slider.nav(3);
 
     </script>
 </body>

@@ -1,4 +1,4 @@
-(function ($) {
+(function (_) {
 
     // 模板部分
     // 后面需要把链接加上   等把后面页面实现以后
@@ -24,19 +24,19 @@
         this.nbody = document.getElementsByClassName('m-tabs')[0];
         this.nTabs = this.nTab.children;
         this.nThumb = this.container.getElementsByClassName('tabs-thumb')[0];
-        $.extend(this, index);
+        _.extend(this, index);
         // 动态构建滑动条
         this.init();
     }
 
-    $.extend(Tabs.prototype,{
+    _.extend(Tabs.prototype,{
 
-        _layout: $.html2node(template),
+        _layout: _.html2node(template),
 
         setCurrent: function (index) {
-            $.delClassName(this.nTabs[this.index],'z-active');
+            _.delClassName(this.nTabs[this.index],'z-active');
             this.index = index;
-            $.addClassName(this.nTabs[index],'z-active');
+            _.addClassName(this.nTabs[index],'z-active');
             this.highlight(index);
         },
 
@@ -51,7 +51,7 @@
             for (var i = 0; i<this.nTabs.length; i++) {
                 this.nTabs[i].addEventListener('mouseenter', function (index) {
                     this.highlight(index)
-                }.bind(this,[i]))
+                }.bind(this,[i]));
                 this.nTabs[i].addEventListener('click', function (index) {
                     this.setCurrent(index)
                 }.bind(this,[i]))

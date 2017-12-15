@@ -31,64 +31,6 @@ var util  =(function () {
             return o1;
          },
 
-        // 事件代理
-        delegateEvent: function(element, tag, eventName, listener) {
-            addEventListener(element, eventName, function (){
-                var event = arguments[0] || window.event,
-                    target = event.target || event.srcElement;
-                if (target && target.tagName === tag.toUpperCase()) {
-                    listener.call(target, event);
-                }
-            });
-        },
-
-        getTarget: function(event) {
-            return event.target || event.srcElement;
-        },
-
-        getDataset: function(ele,str) {
-            if(!ele.dataset){
-                var data_attributes ={};
-                var arrs = ele.attributes,
-                    length=arrs.length;
-                for(var i=0;i<length;i++){
-                    if(/^data-/.test(arrs[i].name)){
-                        var key=arrs[i].name.match(/^data-(.+)/)[1];
-                        var value=arrs[i].value;
-                        key=key.replace(/-\w/g,function(match){
-                            return match.substring(1).toUppserCase();
-                        });
-                        data_attributes[key]=value;
-                    }
-                }
-                return data_attributes [str];
-            }else{
-                return ele.dataset[str];
-            }
-        },
-
-        setDataset: function(ele,str,value) {
-            if(!ele.dataset){
-                var finalStr = "data-";
-                var originPos = 0;
-                var pos = 0;
-                do {
-                    pos = str.search(/[A-Z]/);
-                    if (pos === -1) {
-                        finalStr += str.substring(originPos);
-                    } else {
-                        finalStr += str.substring(originPos,pos);
-                        originPos = pos;
-                        str = str.substring(pos);
-                    }
-                } while (pos !== -1);
-
-                ele.setAttribute(finalStr,value);
-            }else{
-                ele.dataset[str] = value;
-            }
-        },
-
 
         emitter: {
             // 注册事件
