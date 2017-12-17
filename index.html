@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <title>EGO漫画</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/module/util.js"></script>
+    <script src="js/module/tab.js"></script>
+    <script src="js/module/search.js"></script>
+    <script src="js/module/slider.js"></script>
+</head>
+<body>
+    <header>
+        <!-- 顶栏区 -->
+        <div class="maintain-head">
+            <div class="g-header">
+                <div class="m-logo"></div>
+                <!-- 将m-tab模板渲染到m-tabs里面 -->
+                <div class="m-tabs"></div>
+                <div class="m-search"></div>
+                <div class="m-login">
+                    <i class="u-login-logo"></i>
+                    <span>登录</span>
+                </div>
+                <div class="m-register">
+                    <span>注册</span>
+                </div>
+            </div>
+        </div>
+        <!-- 轮播图 -->
+        <div class="g-banner">
+            <!-- g-banner 轮播区域 -->
+            <!-- 轮播组件 m-slider 及对应的 圆点指示器 m-cursor-->
+            <ul class="m-cursor f-cb">
+                <li class='cursor'></li>
+                <li class='cursor'></li>
+                <li class='cursor'></li>
+            </ul>
+            <div class="arrow" id="prev"><</div>
+            <div class="arrow" id="next">></div>
+        </div>
+    </header>
+
+    <!-- 内容区 -->
+    <content>
+        <div class="g-body f-cb">
+            <!-- 主栏 -->
+            <!-- 精选推荐 -->
+            <div class="g-main">
+                <div class="m-section col-section">
+                    <h4 class="section-head">
+                        <i class="u-icon-diamond"></i>
+                        <div class="section-more">
+                            <span class="more">更多</span>
+                            <i class="u-icon-moreright"></i>
+                        </div>
+                    </h4>
+                </div>
+                <div class="section-cnt">
+                    <ul class="m-list">
+                        <li><img src="img/works_01.png" alt="作品1"></li>
+                        <li><img src="img/works_02.png" alt="作品2"></li>
+                        <li><img src="img/works_03.png" alt="作品3"></li>
+                        <li><img src="img/works_04.png" alt="作品4"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 明日之星 -->
+            <div class="g-main g-mains">
+                <div class="m-section m-section-header">
+                    <h4 class="section-head">
+                        <i class="u-icon-star"></i>
+                        <div class="section-more">
+                            <span class="more">更多</span>
+                            <i class="u-icon-moreright"></i>
+                        </div>
+                    </h4>
+                </div>
+                <div class="section-content">
+                    <ul class="m-list2" id="startList">
+                        <li class="m-card">
+                            <img src="img/icon_01.png" alt="头像" class="card-avatar">
+                            <div class="card-info">
+                                <div class="card-name">Grinch</div>
+                                <div class="card-fans"><span class="works">作品 377</span>粉丝 1706</div>
+                            </div>
+                            <button class="u-btn-follow" data-userId="10">
+                                <span class="u-icon-ok"></span>已关注
+                            </button>
+                        </li>
+                        <li class="m-card">
+                            <img src="img/icon_02.png" alt="头像" class="card-avatar">
+                            <div class="card-info">
+                                <div class="card-name">苞谷</div>
+                                <div class="card-fans"><span class="works">作品  608</span>粉丝  2498</div>
+                            </div>
+                            <button class="u-btn-follow" data-userId="10">
+                                <span class="u-icon-ok"></span>已关注
+                            </button>
+                        </li>
+                        <li class="m-card">
+                            <img src="img/icon_03.png" alt="头像" class="card-avatar">
+                            <div class="card-info">
+                                <div class="card-name">Grinch</div>
+                                <div class="card-fans"><span class="works">作品 377</span>粉丝 1706</div>
+                            </div>
+                            <button class="u-btn-follow" data-userId="10">
+                                <span class="u-icon-ok"></span>已关注
+                            </button>
+                        </li>
+                        <li class="m-card">
+                            <img src="img/icon_04.png" alt="头像" class="card-avatar">
+                            <div class="card-info">
+                                <div class="card-name">龙与地下室</div>
+                                <div class="card-fans"><span class="works">作品 52</span>粉丝 375</div>
+                            </div>
+                            <button class="u-btn-follow" data-userId="10">
+                                <span class="u-icon-ok"></span>已关注
+                            </button>
+                        </li>
+                        <li class="m-card">
+                            <img src="img/icon_05.png" alt="头像" class="card-avatar">
+                            <div class="card-info">
+                                <div class="card-name">Grinch</div>
+                                <div class="card-fans"><span class="works">作品 377</span>粉丝 1706</div>
+                            </div>
+                            <button class="u-btn-follow" data-userId="10">
+                                <span class="u-icon-ok"></span>已关注
+                            </button>
+                        </li>
+                        <li class="m-card">
+                            <img src="img/icon_06.png" alt="头像" class="card-avatar">
+                            <div class="card-info">
+                                <div class="card-name">朝抄潮爺</div>
+                                <div class="card-fans"><span class="works">作品 72</span>粉丝 529</div>
+                            </div>
+                            <button class="u-btn-follow" data-userId="10">
+                                <span class="u-icon-ok"></span>已关注
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="g-main g-mains">
+                <div class="m-section m-section-header">
+                    <h4 class="section-head">
+                        <i class="u-icon-works"></i>
+                        <div class="section-more">
+                            <span class="more">更多</span>
+                            <i class="u-icon-moreright"></i>
+                        </div>
+                    </h4>
+                </div>
+                <div class="section-content">
+                    <ul class="m-list3">
+                        <li><img src="img/works_05.png" alt="作品1"><div>我是作品名称</div></li>
+                        <li><img src="img/works_05.png" alt="作品1"><div>我是作品名称</div></li>
+                        <li><img src="img/works_06.png" alt="作品2"><div>我是作品名称</div></li>
+                        <li><img src="img/works_05.png" alt="作品1"><div>我是作品名称</div></li>
+                        <li><img src="img/works_05.png" alt="作品1"><div>我是作品名称</div></li>
+                        <li><img src="img/works_05.png" alt="作品1"><div>我是作品名称</div></li>
+                        <li><img src="img/works_05.png" alt="作品1"><div>我是作品名称</div></li>
+                        <li><img src="img/works_06.png" alt="作品2"><div>我是作品名称</div></li>
+                        <li><img src="img/works_05.png" alt="作品1"><div>我是作品名称</div></li>
+                        <li><img src="img/works_05.png" alt="作品1"><div>我是作品名称</div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 侧边栏 -->
+        <div class="g-side"></div>
+    </content>
+
+    <!-- 底部区 -->
+    <footer>
+        <div class="g-footer f-cb"></div>
+        <!-- 友情链接 -->
+
+        <!-- 关于我们 -->
+    </footer>
+
+    <script>
+        var tab = new Tabs();
+        tab.init();
+    </script>
+    <script>
+        var search = new Search();
+        search.init();
+    </script>
+    <script>
+        var cursors = document.querySelectorAll('.m-cursor .cursor');
+        var prev = document.querySelectorAll('.g-banner #prev')[0];
+        var next = document.querySelectorAll('.g-banner #next')[0];
+
+        var slider = new Slider({
+            //视口容器
+            container: document.querySelector('.g-banner'),
+            // 是否允许拖拽
+            drag: true,
+            // 是否自动轮播
+            auto: true
+        });
+
+        cursors.forEach(function(cursor, index){
+            cursor.addEventListener('click', function(){
+                slider.nav(index);
+            })
+        });
+
+        prev.addEventListener('click', function(){
+            slider.prev();
+        });
+        next.addEventListener('click', function(){
+            slider.next();
+        });
+
+        // 每次slider图片位置变化，cursor也变化，增加监听处理
+        slider.on('nav', function( ev ){
+            var pageIndex = ev.pageIndex;
+            cursors.forEach(function(cursor, index){
+                if(index === pageIndex ){
+                    cursor.className = 'z-active';
+                    cursor.style.backgroundColor = '#5ed0ba';
+                }else{
+                    cursor.className = '';
+                    cursor.style.backgroundColor = '#dedfdf';
+                }
+            })
+        });
+        // 从当前页开始轮播
+        slider.nav(3);
+
+    </script>
+</body>
+</html>
