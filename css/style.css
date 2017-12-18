@@ -16,7 +16,7 @@ label,summary{cursor:default;}
 a,button{cursor:pointer;}
 h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
 del,ins,u,s,a,a:hover{text-decoration:none;}
-body,textarea,input,button,select,keygen,legend{font:12px/1.14 arial,kaiTi_GB2312;color:#333;outline:0;}
+body,textarea,input,button,select,keygen,legend{font:12px/1.14 arial,宋体;color:#333;outline:0;}
 body{background-color: #efefef;}
 a,a:hover{color:#333;}
 
@@ -80,23 +80,44 @@ a,a:hover{color:#333;}
 .g-mains{margin: 25px auto 0;height: 382px;}
 .g-main .m-section-header{border: 1px solid #e4e5e5;height: 73px;}
 .g-main .m-section .u-icon-star{float: left;width:160px;height:36px;background: url("../img/shouye.png") no-repeat 0 -153px;margin: 18px 0 20px 27px;}
-.g-main .section-content{height: 308px;border: 1px solid #e4e5e5;}
-.g-main .section-content .m-card{float:left;width: 360px;height: 94px;border: 1px solid #dfe0e0;margin-left:12px;}
-.g-main .section-content .m-card:nth-child(-n+2){margin-top: 10px;}
+.g-main .section-content{height: 307px;border: 1px solid #e4e5e5;}
+.g-main .section-content .m-card{float:left;width: 360px;height: 94px;border: 1px solid #dfe0e0;margin-left:11px;}
+.g-main .section-content .m-card:nth-child(-n+2){margin-top: 9px;}
 .g-main .section-content .m-card .card-avatar{float: left;width: 69px;height: 69px;margin:12px 25px;border-radius: 50%;vertical-align: middle;}
 .g-main .section-content .m-card .card-info{float: left;margin-top:30px; }
 .g-main .section-content .m-card .card-info .card-name{font-size: 14px;color: #000;font-weight: bold;letter-spacing: 3px;}
 .g-main .section-content .m-card .card-info .card-fans{font-size: 9px;color: #727171;margin-top: 15px;}
 .g-main .section-content .m-card .card-info .card-fans .works{margin-right: 20px;}
-.g-main .section-content .u-btn-follow{}
+.g-main .section-content .u-btn-follow{float: right;width: 62px;height: 26px;margin: 33px 27px 33px 0;}
 
 /* 最新作品 */
 .g-main .m-section .u-icon-works{float: left;width:160px;height:35px;background: url("../img/shouye.png") no-repeat 0 -86px;margin: 18px 0 20px 27px;}
 .g-main .section-content .m-list3{text-align: center;}
 .g-main .section-content .m-list3 >li{float: left;margin: 12px 6px 7px 7px;}
 .g-main .section-content .m-list3 >li:nth-child(5n+1){margin-left: 12px;}
-    /* side */
+
+/* 活动进行时 */
+.section-height{height: 400px;background-color: #fff;}
+.g-main .m-section .u-icon-active{float: left;width:180px;height:36px;background: url("../img/shouye.png") no-repeat 0 -190px;margin: 18px 0 20px 27px;}
+.g-main .cnt-height{height: 325px;border: 1px solid #e4e5e5;}
+.g-main .section-content .m-list4 .u-btn-active1{position:absolute;float:right;width: 74px;height: 26px;background-color: #5ed0ba;color: #fff;border: 1px solid #5ed0ba;border-radius: 5px;display:inline-block;margin: 49px 20px;}
+.g-main .section-content .m-list4 .u-btn-active2{position:absolute;float:right;width: 74px;height: 26px;background-color: #5ed0ba;color: #fff;border: 1px solid #5ed0ba;border-radius: 5px;margin: 88px 20px;}
+.g-main .section-content .m-list4 li{margin-right: 0;}
+.g-main .section-content .m-list4 img{margin: 8px 0 0 23px;}
+
+/* 我们都爱原创 */
+.g-main .m-section .u-icon-yuan{float: left;width:204px;height:31px;background: url("../img/shouye.png") no-repeat 0 -226px;margin: 18px 0 20px 27px;}
+/* 我们都是同人粉 */
+.g-main .m-section .u-icon-tong{float: left;width:229px;height:27px;background: url("../img/shouye.png") no-repeat 0 -342px;margin: 18px 0 20px 27px;}
+/* 看谁临摹的最好 */
+.g-main .m-section .u-icon-linmo{float: left;width:219px;height:35px;background: url("../img/shouye.png") no-repeat 0 -308px;margin: 18px 0 20px 27px;}
+
+/* side */
 .g-side{width: 295px;float: right;}
 
 /* footer */
 .g-footer{width: 1080px;margin: 0 auto;}
+.g-footer .g-footer-left{display: flex;align-items: center; justify-content: center; float: left;width: 760px;height: 85px;margin:39px 0 100px;color: #fff;background-color: #5ed0ba;margin-right: -100px;}
+.g-footer .g-footer-left .cnt-footer{width:126px;height:15px;font-size: 14px;font-weight: bold;letter-spacing: 10px;}
+.g-footer .g-footer-right{display: flex;align-items: center; justify-content: center; float: right;width: 295px;height: 85px;margin:39px 0 100px 25px;color: #000;background-color: #fff;}
+.g-footer .g-footer-right .cnt-footer{width:126px;height:15px;font-size: 14px;font-weight: bold;letter-spacing: 10px;}
