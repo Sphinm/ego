@@ -32,7 +32,7 @@
            this.sbody.appendChild(this.container);
 
            // 由于button在sbody里面 所以需要在外层设置submit事件
-           this.sbody.addEventListener('submit',function (event) {
+           _.addEvent(this.sbody,'submit',function (event) {
                this.show(event)
            }.bind(this))
        }

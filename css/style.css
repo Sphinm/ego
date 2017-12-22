@@ -36,12 +36,16 @@ a,a:hover{color:#333;}
 .m-search-in::-webkit-input-placeholder{color: #898989;}
 .m-search-in .u-search-btn{position: absolute;width: 36px;height: 35px;background: #fff;margin-top: -37px;margin-left:174px; cursor: pointer;border-radius: 5px;}
 .m-search-in .u-search-logo{position: absolute;border:none; width: 20px;height: 20px;margin-left: 8px;margin-top: 8px;background: url("../img/small.png") no-repeat 0 -114px;}
-.m-login{float: left;width: 87px;height: 36px;margin-left: 30px;margin-top: 24px;background-color: #5ed0ba;color: #fff;border: 1px solid #5ed0ba;border-radius: 5px;cursor: pointer;}
-.m-login span{margin: 7px;font-size: 14px;}
-.m-login .u-login-logo{display: inline-block;margin: 11px 0 0 20px;width: 13px;height: 13px;background: url("../img/small.png") no-repeat 0 -61px;}
+.m-login{float: left;width: 87px;height: 36px;margin-left: 30px;margin-top: 25px;background-color: #5ed0ba;color: #fff;border: 1px solid #5ed0ba;border-radius: 5px;cursor: pointer;}
+.m-login span{margin: 7px;font-size: 12px;}
+.m-login .u-login-logo{display: inline-block;margin: 10px 0 0 20px;width: 13px;height: 13px;background: url("../img/small.png") no-repeat 0 -61px;}
+.m-display-login{float: left;width: 87px;height: 36px;margin-left: 30px;margin-top: 25px;background-color: #fff;color: #5ed0ba;border: 1px solid #fff;border-radius: 5px;cursor: pointer;}
+.m-display-login span{margin: 7px;font-size: 12px;}
+.m-display-login .u-login-logo{display: inline-block;margin: 10px 0 0 20px;width: 13px;height: 13px;background: url("../img/icon_login.png") no-repeat;}
 .m-register{float: left;width: 87px;height: 36px;margin-top: 25px;color: #5ed0ba;border: 1px solid transparent;background-color: #fff;border-radius: 5px;cursor: pointer;}
-.m-register span{display: inline-block;margin: 11px 0 0 30px;font-size: 14px;}
-
+.m-register span{display: inline-block;margin: 12px 0 0 30px;font-size: 12px;}
+.m-display-register{float: left;width: 87px;height: 36px;margin-top: 25px;color: #fff;border: 1px solid #5ed0ba;background-color: #5ed0ba;border-radius: 5px;cursor: pointer;}
+.m-display-register span{display: inline-block;margin: 12px 0 0 30px;font-size: 12px;}
 /* 轮播图 */
 .g-banner{position:relative;left:50%;height:357px;width:100%;min-width:1200px;margin-left:-50%;overflow:hidden;}
 /* 轮播组件 */

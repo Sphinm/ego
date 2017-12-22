@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
     <title>EGO漫画</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/module/util.js"></script>
+    <script src="js/util/util.js"></script>
     <script src="js/module/tab.js"></script>
     <script src="js/module/search.js"></script>
     <script src="js/module/slider.js"></script>
@@ -277,7 +277,9 @@
             </div>
         </div>
         <!-- 侧边栏 -->
-        <div class="g-side"></div>
+        <div class="g-side">
+
+        </div>
     </content>
 
     <!-- 底部区 -->
@@ -293,12 +295,21 @@
     </footer>
 
     <script>
-        var tab = new Tabs();
-        tab.init();
-    </script>
-    <script>
-        var search = new Search();
-        search.init();
+        var login = document.querySelector('.m-login');
+        var register =document.querySelector('.m-register');
+
+        new Tabs();
+        new Search();
+
+        login.addEventListener('click',function () {
+                login.className = ' m-login';
+                register.className = ' m-register';
+        });
+
+        register.addEventListener('click',function () {
+            login.className += ' m-display-login';
+            register.className += ' m-display-register';
+        })
     </script>
     <script>
         var cursors = document.querySelectorAll('.m-cursor .cursor');

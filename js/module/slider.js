@@ -152,8 +152,8 @@
         _initAuto: function() {
             this.timmer = null;
             this.autoStart();
-            this.slider.addEventListener("mouseenter", this._autoEnd.bind(this));
-            this.slider.addEventListener("mouseleave", this._autoStart.bind(this));
+            _.addEvent(this.slider,"mouseenter", this._autoEnd.bind(this));
+            _.addEvent(this.slider,"mouseleave", this._autoStart.bind(this));
         },
         _autoStart: function() {
             var time = this.intervalTime;
@@ -175,10 +175,10 @@
         // 拖拽
         _initDrag: function(){
             this._dragInfo = {};
-            this.slider.addEventListener('mousedown', this._dragstart.bind(this));
-            this.slider.addEventListener('mousemove', this._dragmove.bind(this));
-            this.slider.addEventListener('mouseup', this._dragend.bind(this));
-            this.slider.addEventListener('mouseleave', this._dragend.bind(this));
+            _.addEvent(this.slider,'mousedown', this._dragstart.bind(this));
+            _.addEvent(this.slider,'mousemove', this._dragmove.bind(this));
+            _.addEvent(this.slider,'mouseup', this._dragend.bind(this));
+            _.addEvent(this.slider,'mouseleave', this._dragend.bind(this));
         },
 
         _dragstart: function(ev){

@@ -49,14 +49,14 @@
         init : function () {
             this.nbody.appendChild(this.container);
             for (var i = 0; i<this.nTabs.length; i++) {
-                this.nTabs[i].addEventListener('mouseenter', function (index) {
+                _.addEvent(this.nTabs[i],'mouseenter', function (index) {
                     this.highlight(index)
                 }.bind(this,[i]));
-                this.nTabs[i].addEventListener('click', function (index) {
+                _.addEvent(this.nTabs[i],'click', function (index) {
                     this.setCurrent(index)
                 }.bind(this,[i]))
             }
-            this.nTab.addEventListener('mouseleave',function () {
+            _.addEvent(this.nTab,'mouseleave',function () {
                 this.highlight(this.index);
             }.bind(this));
             this.setCurrent(this.index);
