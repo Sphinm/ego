@@ -43,9 +43,9 @@ a,a:hover{color:#333;}
 .m-display-login span{margin: 7px;font-size: 12px;}
 .m-display-login .u-login-logo{display: inline-block;margin: 10px 0 0 20px;width: 13px;height: 13px;background: url("../img/icon_login.png") no-repeat;}
 .m-register{float: left;width: 87px;height: 36px;margin-top: 25px;color: #5ed0ba;border: 1px solid transparent;background-color: #fff;border-radius: 5px;cursor: pointer;}
-.m-register span{display: inline-block;margin: 12px 0 0 30px;font-size: 12px;}
+.m-register span{display: inline-block;margin: 13px 0 0 39px;font-size: 12px;}
 .m-display-register{float: left;width: 87px;height: 36px;margin-top: 25px;color: #fff;border: 1px solid #5ed0ba;background-color: #5ed0ba;border-radius: 5px;cursor: pointer;}
-.m-display-register span{display: inline-block;margin: 12px 0 0 30px;font-size: 12px;}
+.m-display-register span{display: inline-block;margin: 13px 0 0 39px;font-size: 12px;}
 /* 轮播图 */
 .g-banner{position:relative;left:50%;height:357px;width:100%;min-width:1200px;margin-left:-50%;overflow:hidden;}
 /* 轮播组件 */
