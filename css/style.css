@@ -80,13 +80,44 @@ a,a:hover{color:#333;}
 .g-main .section-cnt .m-list >li{display: inline-block;margin: 12px 6px 14px 13px;}
 .g-main .section-cnt .m-list >li+li{margin-left: 6px;}
 
-/* 明日之星 */
+
+/* side */
+.g-side{width: 295px;float: right; margin:50px auto 0;}
+.g-side .section-more{width: 74px;height: 29px;margin:0 0 11px 112px;}
+.g-side .section-more .more{display:inline-block;color:#727171;margin: 9px 0;letter-spacing: 9px;font-weight: bold;}
+.g-side .section-more .u-icon-moreright{float:right;width:29px;height: 29px;background: url("../img/shouye.png") no-repeat 0 -29px;}
+.g-side .m-side1{height: 318px;border: 1px solid #e4e5e5;background-color: #fff;}
+.g-side .m-side1 .side1-top{height: 10px;margin: -65px 0 0 -15px;}
+.g-side .m-side1 .side1-top .mywork{width: 238px;height: 111px;float: left;background: url("../img/side.png") no-repeat;}
+.g-side .m-side1 .side1-top .side1-right{width: 70px;height: 70px;float: right;border: 1px solid #e4e5e5;background: #fff;margin: -92.5px -1px 1px 0;}
+.g-side .m-side1 .side1-top .u-icon-down{position:absolute;margin:20px  0 0 20px;width: 29px;height: 29px;background: url("../img/shouye.png") no-repeat 0 0;}
+.g-side .m-side1 .side1-cnt{width: 270px;height:270px; margin:90px 0 0 12px;background: url("../img/myworks.png") no-repeat;}
+
+.g-side .m-side2{height: 408px;margin-top: -27px;border: 1px solid #e4e5e5;}
+.g-side .m-side2 .side2-top{height: 72px;border-bottom: 1px solid #e4e5e5;}
+.g-side .m-side2 .side2-top .act-circle{width: 146px;height: 72px;background: #5ed0ba;float: left;display: flex;justify-content: center;align-items: center;}
+.g-side .m-side2 .side2-top .act-circle .txt-circle{color: #fff;letter-spacing: 10px;font-weight: bold;}
+.g-side .m-side2 .side2-top .cre-circle{width:147px;height: 72px;background: #fff;float: right;display: flex;justify-content: center;align-items: center;}
+.g-side .m-side2 .side2-top .cre-circle .txt-circle{color: #727171;letter-spacing: 10px;font-weight: bold;}
+.g-side .m-side2 .side2-cnt{height: 336px;background: #fff;}
+.g-side .m-side2 .side2-cnt .side2-cnt-list{height: 86px;padding-top: 12px;}
+.g-side .m-side2 .side2-cnt .side2-cnt-list .image{float:left;margin: 0 12px 0 12px;}
+.g-side .m-side2 .side2-cnt .side2-cnt-list .cnt-circle{float:left;width: 168px;height: 85px;border-bottom: 1px solid #e5e6e6;}
+.g-side .m-side2 .side2-cnt .side2-cnt-list .cnt-last{border-bottom: none;}
+.g-side .m-side2 .side2-cnt .side2-cnt-list .cnt-circle .cnt-title{display: block;margin:20px 0 12px 37px;font-weight: bold;color: black;}
+.g-side .m-side2 .side2-cnt .side2-cnt-list .cnt-circle i{font-size: 9px;color: #727171;margin-left: 37px;padding-top: 12px;}
+
+
+
+
+    /* 明日之星 */
 .g-mains{margin: 25px auto 0;height: 382px;}
 .g-main .m-section-header{border: 1px solid #e4e5e5;height: 73px;}
 .g-main .m-section .u-icon-star{float: left;width:160px;height:36px;background: url("../img/shouye.png") no-repeat 0 -153px;margin: 18px 0 20px 27px;}
-.g-main .section-content{height: 307px;border: 1px solid #e4e5e5;}
+.g-main .section-content{height: 307px;border: 1px solid #e4e5e5;border-top: none;}
 .g-main .section-content .m-card{float:left;width: 360px;height: 94px;border: 1px solid #dfe0e0;margin-left:11px;}
 .g-main .section-content .m-card:nth-child(-n+2){margin-top: 9px;}
+.g-main .section-content .m-card:nth-child(-n+4){border-bottom: none;}
 .g-main .section-content .m-card .card-avatar{float: left;width: 69px;height: 69px;margin:12px 25px;border-radius: 50%;vertical-align: middle;}
 .g-main .section-content .m-card .card-info{float: left;margin-top:30px; }
 .g-main .section-content .m-card .card-info .card-name{font-size: 14px;color: #000;font-weight: bold;letter-spacing: 3px;}
@@ -103,7 +134,7 @@ a,a:hover{color:#333;}
 /* 活动进行时 */
 .section-height{height: 400px;background-color: #fff;}
 .g-main .m-section .u-icon-active{float: left;width:180px;height:36px;background: url("../img/shouye.png") no-repeat 0 -190px;margin: 18px 0 20px 27px;}
-.g-main .cnt-height{height: 325px;border: 1px solid #e4e5e5;}
+.g-main .cnt-height{height: 325px;border: 1px solid #e4e5e5;border-top: none;}
 .g-main .section-content .m-list4 .u-btn-active1{position:absolute;float:right;width: 74px;height: 26px;background-color: #5ed0ba;color: #fff;border: 1px solid #5ed0ba;border-radius: 5px;display:inline-block;margin: 49px 20px;}
 .g-main .section-content .m-list4 .u-btn-active2{position:absolute;float:right;width: 74px;height: 26px;background-color: #5ed0ba;color: #fff;border: 1px solid #5ed0ba;border-radius: 5px;margin: 88px 20px;}
 .g-main .section-content .m-list4 li{margin-right: 0;}
@@ -116,10 +147,9 @@ a,a:hover{color:#333;}
 /* 看谁临摹的最好 */
 .g-main .m-section .u-icon-linmo{float: left;width:219px;height:35px;background: url("../img/shouye.png") no-repeat 0 -308px;margin: 18px 0 20px 27px;}
 
-/* side */
-.g-side{width: 295px;float: right;}
 
-/* footer */
+
+    /* footer */
 .g-footer{width: 1080px;margin: 0 auto;}
 .g-footer .g-footer-left{display: flex;align-items: center; justify-content: center; float: left;width: 760px;height: 85px;margin:39px 0 100px;color: #fff;background-color: #5ed0ba;margin-right: -100px;}
 .g-footer .g-footer-left .cnt-footer{width:126px;height:15px;font-size: 14px;font-weight: bold;letter-spacing: 10px;}
