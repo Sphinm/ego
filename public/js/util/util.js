@@ -32,6 +32,14 @@ var util  =(function () {
             var current = node.className || "";
             node.className = (" " + current + " ").replace(" " + className + " ", " ").trim();
         },
+        hasClassName: function (node, className){
+            var current = node.className || "";
+            if ((" " + current + " ").indexOf(" " + className + " ") === 1){
+                return 1;}
+            else {
+                return -1;
+            }
+        },
 
         //  自定义数据
         getDataset: function(ele,str) {

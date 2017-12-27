@@ -1,0 +1,27 @@
+{
+    "code": 200,
+    "msg": "Hgl77p26bb",
+    "result": [
+        {
+            "id": 93435,
+            "nickname": "REsbkq7EfK",
+            "isFollow": true,
+            "workCount": 32738,
+            "followCount": 47848
+        },
+        {
+            "id": 93953,
+            "nickname": "tCwEuQ1EGQ",
+            "isFollow": false,
+            "workCount": 4405,
+            "followCount": 78603
+        },
+        {
+            "id": 94765,
+            "nickname": "X4DKK74fP6",
+            "isFollow": true,
+            "workCount": 70145,
+            "followCount": 5165
+        }
+    ]
+}
