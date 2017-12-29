@@ -46,6 +46,17 @@ a,a:hover{color:#333;}
 .m-register span{display: inline-block;margin: 13px 0 0 39px;font-size: 12px;}
 .m-display-register{float: left;width: 87px;height: 36px;margin-top: 25px;color: #fff;border: 1px solid #5ed0ba;background-color: #5ed0ba;border-radius: 5px;cursor: pointer;}
 .m-display-register span{display: inline-block;margin: 13px 0 0 39px;font-size: 12px;}
+
+.m-login-info{display: inline-block;width: 190px;height: 90px;margin-left:35px;background: #fff;position: absolute;z-index: 99;}
+.m-login-info .u-icon-login{float: left;width: 55px;height: 55px;background: url("../img/icon_08.png") no-repeat;margin: 15px 0 0 10px}
+.m-login-info .u-login-name{float: left;width: 64px;height: 20px;margin: 35px 0 0 6px;color: #000;font-size: 15px;font-weight: bold;text-overflow:ellipsis;overflow:hidden;}
+.m-login-info .u-login-sex{float: left;width: 11px;height: 17px;background: url("../img/small.png") no-repeat 0 -15px;margin: 35px 0 0 5px;}
+.m-login-info .u-login-icon{float: left;width: 16px;height: 10px;background: url("../img/small.png") no-repeat 0 -104px;margin: 38px 0 0 10px;}
+.m-login-info .u-login-icon ul{width: 190px;height: 204px;margin: 52px 0 0 -161px;}
+.m-login-info .u-login-icon ul{height: 51px;display: none;}
+.m-login-info .u-login-icon ul li:hover a{background: #eee;display: block;}
+.m-login-info .u-login-icon ul li a{display:inline-block;font-size: 15px;color: #555;font-weight: bold;margin: 20px 0 0 60px}
+
 /* 轮播图 */
 .g-banner{position:relative;left:50%;height:357px;width:100%;min-width:1200px;margin-left:-50%;overflow:hidden;}
 /* 轮播组件 */
@@ -161,7 +172,6 @@ a,a:hover{color:#333;}
 .g-main .section-content .z-follow{background: #fff;color: #5ed0ba;}
 .g-main .section-content .z-follow:hover:after{content: '取消关注';color: #fff;background: #5ed0ba;width: 62px;height: 20px;padding-top: 7px;margin: 22px 0 0 -57px;position: absolute;border-radius: 4px;}
 
-
 /* 最新作品 */
 .g-main .m-section .u-icon-works{float: left;width:160px;height:35px;background: url("../img/shouye.png") no-repeat 0 -86px;margin: 18px 0 20px 27px;}
 .g-main .section-content .m-list3{text-align: center;}
@@ -205,8 +215,8 @@ a,a:hover{color:#333;}
 .m-modal .modal_foot{*zoom:1;border-top:1px solid #eee;}
 .m-modal .modal_foot:before,.m-modal .modal_foot:after{display:table;content:"";line-height:0;}
 .m-modal .modal_foot:after{clear:both;}
-.m-modal .modal_foot .modal_cancel{position:absolute;top:10px;right:8px;width:16px;height:16px;background:url(../img/small.png) no-repeat 0 -88px;}
-.m-modal .modal_foot .modal_cancel:hover{cursor:pointer;}
+.m-modal .modal_wrap .modal_cancel{position:absolute;top:10px;right:8px;width:16px;height:16px;background:url(../img/small.png) no-repeat 0 -88px;}
+.m-modal .modal_wrap .modal_cancel:hover{cursor:pointer;}
 .m-modal .modal_foot a{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;float:left;width:50%;background-color:#fff;padding:8px;cursor:pointer;color:#3498db;text-align:center;text-decoration:none;-webkit-transition:background-color 0.2s ease-in;-moz-transition:background-color 0.2s ease-in;transition:background-color 0.2s ease-in;}
 .m-modal .modal_foot a:hover{background-color:#71b7e6;color:#fff;}
 .m-modal .modal_foot a:active{background-color:#3498db;color:#fff;}
@@ -220,8 +230,8 @@ a,a:hover{color:#333;}
 .u-modal .modal-tt{width: 408px;height:90px;text-align:left;}
 .u-modal .modal-tt strong{display:inline-block;margin: 40px 0 25px 32px;font-size: 20px;color: #5ed0ba;font-weight: normal}
 .u-modal .modal-tt span{display:inline-block;margin: 45px  0 25px 135px;color: #999;}
-.u-modal .modal-tt .modal_cancel{float: right;width:16px;height:16px;margin:10px 10px 0 0;background:url(../img/small.png) no-repeat 0 -88px;}
-.u-modal .modal-tt .modal_cancel:hover{cursor: pointer;}
+.u-modal .modal-tt .modal-cancel{float: right;width:16px;height:16px;margin:10px 10px 0 0;background:url(../img/small.png) no-repeat 0 -88px;}
+.u-modal .modal-tt .modal-cancel:hover{cursor: pointer;}
 .u-modal .modal-tt .u-link{color: #5ed0ba;padding-right: -13px;}
 .u-modal .m-form{width: 408px;height:231px;}
 .u-modal .m-form .u-input{width: 330px;height: 38px;border: 1px solid #a5f1e1;border-radius:3px;margin-bottom: 12px;}
@@ -237,3 +247,4 @@ a,a:hover{color:#333;}
 .u-modal .m-form .u-error{height: 14px;margin: 24px 0 12px 32px;text-align: left;font-weight: bold;color: red;}
 .u-modal .m-form .u-error .u-icon-error{display:inline-block;width: 14px;height: 13px;background: url("../img/small.png") no-repeat 0 -48px;}
 .u-modal .m-form .u-btn-primary{width: 344px;height: 39px;margin:4px;background: #5ed0ba;border-radius:3px;border: 0;color: #fff;font-size: 14px;}
+

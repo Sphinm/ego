@@ -12,13 +12,9 @@
         '<div class="m-modal">\
           <div class="modal_align"></div>\
           <div class="modal_wrap animated">\
+            <i class="modal_cancel"></i>\
             <div class="modal_head">标题</div>\
             <div class="modal_body">内容</div>\
-            <div class="modal_foot">\
-              <i class="modal_cancel"></i>\
-              <a class="confirm" href="#">确认</a>\
-              <a class="cancel" href="#">取消</a>\
-            </div>\
           </div>\
         </div>';
 
@@ -81,25 +77,12 @@
             document.body.removeChild(container);
         },
 
-        // 内部接口
-        // 取消
-        _onConfirm: function(){
-            this.emit('confirm');
-            this.hide();
-        },
         _onCancel: function() {
             this.emit("cancel");
             this.hide();
         },
-
         // 事件初始化
         _initEvent: function() {
-            this.container.querySelector('.confirm').addEventListener(
-                'click', this._onConfirm.bind(this)
-            );
-            this.container.querySelector('.cancel').addEventListener(
-                'click', this._onCancel.bind(this)
-            );
             _.addEvent(this.close, 'click',this._onCancel.bind(this));
         }
     });

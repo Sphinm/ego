@@ -54,19 +54,13 @@
             }
         },
         follow: function (followInfo, replaceNode) {
-            ajax({
-                url: '/api/users?follow',
-                method: 'POST',
-                data: {id: followInfo.id},
-                success: function (data) {
-                    if (data.code === 200) {
-                        followInfo.isFollow  = true;
-                        followInfo.followCount++;
-                        var newNode = _.html2node(this.renderItem(followInfo));
-                        replaceNode.parentNode.replaceChild(newNode, replaceNode);
-                    }
-                }
+            ajax.post('/api/users?follow',followInfo.id, function (data) {
+                followInfo.isFollow  = true;
+                followInfo.followCount++;
+                var newNode = _.html2node(this.renderItem(followInfo));
+                replaceNode.parentNode.replaceChild(newNode, replaceNode);
             })
+
         },
         unFollow: function (followInfo, replaceNode) {
 

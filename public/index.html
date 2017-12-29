@@ -9,7 +9,7 @@
     <script src="js/module/tab.js"></script>
     <script src="js/module/search.js"></script>
     <script src="js/module/slider.js"></script>
-    <script src="js/module/modal.js"></script>
+    <script src="js/module/modal/loginModal.js"></script>
 </head>
 <body>
     <header>
@@ -20,52 +20,24 @@
                 <!-- 将m-tab模板渲染到m-tabs里面 -->
                 <div class="m-tabs"></div>
                 <div class="m-search"></div>
-                <div class="m-login">
+                <div class="m-login" style="display: none">
                     <i class="u-login-logo"></i>
                     <span>登录</span>
                 </div>
 
-                <div class="u-modal" style="display: none">
-                    <div class="modal-cnt">
-                        <div class="modal-tt">
-                            <strong>欢迎回来 </strong>
-                            <i class="modal_cancel"></i>
-                            <span>还没有账号？ <a class="u-link" id="goregister">立即注册</a></span>
-                        </div>
-                        <form class="m-form">
-                            <div class="u-formitem"><input id="username" type="text" placeholder="手机号" class="u-input"> </div>
-                            <div class="u-formitem u-formitem1"><input id="password" type="password" placeholder="密码" class="u-input"> </div>
-                            <div class="u-formitem u-formitem2">
-                                <div class="u-check">
-                                    <input type="checkbox" id="remember" class="u-checkbox">
-                                    <label for="remember"></label>
-                                    <span class="keep-login">保持登录</span>
-                                </div>
-
-                                <span class="f-forget"><a class="u-link">忘记密码？</a></span>
-                            </div>
-                            <div class="u-error">
-                                <span class="u-icon-error"></span>
-                                <span id="errormsg">账号或密码不正确，请重新输入</span>
-                            </div>
-                            <button class="u-btn-primary" type="submit">登&nbsp;&nbsp;录</button>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="m-register">
+                <div class="m-register" style="display: none">
                     <span>注册</span>
                 </div>
                  <div class="m-login-info">
-                    <img src="#" class="u-icon-login">
-                    <div class="u-login-name"></div>
+                    <div class="u-icon-login"></div>
+                    <div class="u-login-name">AmberLine-block</div>
                     <i class="u-login-sex"></i>
                     <div class="u-login-icon">
                         <ul>
-                            <li class="login-info"><a href="#"></a></li>
-                            <li class="login-info"><a href="#"></a></li>
-                            <li class="login-info"><a href="#"></a></li>
-                            <li class="login-info"><a href="#"></a></li>
+                            <li class="login-info"><a href="#">个人中心</a></li>
+                            <li class="login-info"><a href="#">信息</a></li>
+                            <li class="login-info"><a href="#">设置</a></li>
+                            <li class="login-info"><a href="#">退出账号</a></li>
                         </ul>
                     </div>
                 </div>
@@ -511,9 +483,9 @@
         });
 
         register.addEventListener('click',function () {
-            login.className += ' m-display-login';
-            register.className += ' m-display-register';
-        })
+                login.className += ' m-display-login';
+                register.className += ' m-display-register';
+        });
 
         // 轮播图初始化过程
         var cursors = document.querySelectorAll('.m-cursor .cursor');
@@ -558,21 +530,14 @@
         // 从当前页开始轮播
         slider.nav(3);
 
-        // modal登录 注册
-        var modal = new Modal();
-        modal.on('confirm', function(){
-            console.log('confirm')
-        });
-        modal.on('cancel', function(){
-            console.log('cancel')
-        });
-        document.querySelector('.m-login').addEventListener('click', function(){
-            modal.show("《芳华》是一部哀而不伤，藏着锋芒，值得你全程黑着下巴，亮着心扉去看的好电影");
-        })
+        // 登录modal
+        var modal = new LoginModal();
 
-        document.querySelector('.m-register').addEventListener('click', function(){
-            modal.show("永远不要给伍迪可卡因.");
-        })
+        document.querySelector('.m-login').addEventListener('click', function(){
+            modal.show();
+        });
+
+
     </script>
 </body>
 </html>

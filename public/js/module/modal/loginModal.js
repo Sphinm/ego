@@ -1,10 +1,10 @@
 !function (_) {
     
-    var template = ' <div class="u-modal">\
+    var html = ' <div class="u-modal">\
                         <div class="modal-cnt">\
                                <div class="modal-tt">\
                                     <strong>欢迎回来 </strong>\
-                                   <i class="modal_cancel"></i>\
+                                    <i class="modal-cancel"></i>\
                                     <span>还没有账号？ <a class="u-link" id="goregister">立即注册</a></span>\
                                 </div>\
                                 <form class="m-form">\
@@ -18,7 +18,7 @@
                                         </div>\
                                         <span class="f-forget"><a class="u-link">忘记密码？</a></span>\
                                     </div>\
-                                    <div class="u-error">\
+                                    <div class="u-error" style="visibility: hidden">\
                                         <span class="u-icon-error"></span>\
                                         <span id="errormsg">账号或密码不正确，请重新输入</span>\
                                     </div>\
@@ -27,30 +27,62 @@
                             </div>\
                         </div>';
     
-    function LoginModal() {
+    function LoginModal(opt) {
+        opt = opt || {};
+        _.extend(this, opt);
+
         this.container = this._layout.cloneNode(true);
 
-        _.Model.call(this,{});
+        // 标题
+        this.close = this.container.querySelector('.modal-tt .modal-cancel');
+        this.submit = this.container.querySelector('.u-btn-primary');
+
         this.initLoginEvent();
+
     }
 
     // 事件注册
     _.extend( LoginModal.prototype, _.emitter);
 
-    // 继承通用modal
-    LoginModal.prototype = Object.create(_.Model.prototype);
-
     _.extend(LoginModal.prototype,{
-        _layout: _.html2node(template),
+
+        _layout: _.html2node(html),
+
+        show: function() {
+            // 给html的body节点增加整个窗体节点
+            document.body.appendChild(this.container);
+        },
+
+        hide: function() {
+            var container  = this.container;
+            document.body.removeChild(container);
+        },
+
+        onSubmit: function() {
+            this.emit("cancel");
+            this.hide();
+
+        },
+        onload: function () {
+
+        },
+
+        onCancel: function() {
+            this.emit("cancel");
+            this.hide();
+        },
 
         initLoginEvent: function () {
             //    绑定提交事件
             //    绑定跳转注册事件
-            this.container.querySelector('.u-btn-primary').addEventListener('submit',this.submits.bind(this))
+           _.addEvent(this.submit, 'submit', this.onSubmit.bind(this));
+           _.addEvent(this.close, 'click' ,this.onCancel.bind(this));
         },
+
         check: function () {
 
         },
+
         submits: function (event) {
 
         }
