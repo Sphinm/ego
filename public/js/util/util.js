@@ -149,7 +149,66 @@ var util  =(function () {
                 }
                 return this;
             }
+        },
+
+        ajax: function (obj) {
+            var xhr = (function () {
+                if (window.XMLHttpRequest) {
+                    return new XMLHttpRequest();
+                } else {
+                    return new ActiveXobject('Microft.XMLHttp');
+                }
+            })();
+
+            obj.data = (function (data) {
+                var arr = [];
+                for (var i in data) {
+                    arr.push(encodeURIComponent(i) + '=' + encodeURIComponent(data[i]));
+                }
+                return arr.join('&');
+            })(obj.data);
+
+            if (obj.method === 'GET') obj.url += obj.url.indexOf('?') === -1 ? '?'+obj.data : '&'+obj.data;
+            if (obj.async === true) {
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        callback();
+                    }
+                };
+            }
+            xhr.open(obj.method, obj.url, obj.async);
+
+        //
+            if (obj.method === 'POST' || obj.method === 'PATCH' || obj.method === 'DELETE') {
+                console.log(obj.method, obj.url, obj.data)
+                obj.url += obj.url.indexOf('?') === -1 ? '?'+obj.data : '&'+obj.data;
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(obj.data);
+            } else {
+                // console.log(obj.method, obj.url, obj.data)
+                xhr.send(null);
+            }
+
+            if (obj.async === false) {
+                callback();
+            }
+
+            function callback() {
+                if (xhr.status === 200) {
+                    obj.success(xhr.responseText);			//回调传递参数
+                } else {
+                    alert('The error code：' + xhr.status + '，the error msg：' + xhr.statusText);
+                }
+            }
+        },
+        isPhone: function (value) {
+            return  /^1(3|4|5|7|8)\d{9}$/.test(value);
+        },
+
+        isEmpty: function (value) {
+            return /^S+\w+/.test(value);
         }
     }
+
 
 })();

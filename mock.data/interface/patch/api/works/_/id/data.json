@@ -1,49 +1,49 @@
 {
     "code": 200,
-    "msg": "MoTLHkraap",
+    "msg": "qzYWLzaxHQ",
     "result": {
-        "id": 96940,
-        "name": "TijeYfLoQO",
+        "id": 97235,
+        "name": "VI5hltjNaX",
         "tag": "少女系,萌神,萝莉,未来日记",
-        "coverId": 97905,
+        "coverId": 98000,
         "coverUrl": "http://via.placeholder.com/102x158",
         "pictures": [
             {
-                "id": 98166,
-                "name": "PH0wiXthFC",
+                "id": 98654,
+                "name": "GIr6rtH4Aa",
                 "url": "http://via.placeholder.com/100x140",
-                "position": 85271,
-                "worksId": 98868,
-                "creatorId": 99568,
-                "createTime": 1512377121216,
-                "updateTime": 1512378194189
+                "position": 27955,
+                "worksId": 98832,
+                "creatorId": 99486,
+                "createTime": 1512395751508,
+                "updateTime": 1512393592226
             },
             {
-                "id": 100063,
-                "name": "XP0w1n63dD",
+                "id": 100048,
+                "name": "E9qnEp6bMN",
                 "url": "http://via.placeholder.com/100x140",
-                "position": 60070,
-                "worksId": 100503,
-                "creatorId": 100687,
-                "createTime": 1512379024665,
-                "updateTime": 1512378675275
+                "position": 27318,
+                "worksId": 100441,
+                "creatorId": 101322,
+                "createTime": 1512394611265,
+                "updateTime": 1512395687082
             },
             {
-                "id": 100915,
-                "name": "SvlrQNRt2u",
+                "id": 101916,
+                "name": "CVjGueEM79",
                 "url": "http://via.placeholder.com/100x140",
-                "position": 78054,
-                "worksId": 101507,
-                "creatorId": 102146,
-                "createTime": 1512378175742,
-                "updateTime": 1512379440848
+                "position": 24087,
+                "worksId": 101942,
+                "creatorId": 102643,
+                "createTime": 1512395440864,
+                "updateTime": 1512393767215
             }
         ],
-        "category": 0,
-        "description": "jr38M5D5Nh",
-        "privilege": 1,
+        "category": 1,
+        "description": "h6Guh95mK1",
+        "privilege": 0,
         "authorization": 0,
-        "createTime": 1512379514424,
-        "updateTime": 1512378119669
+        "createTime": 1512395819701,
+        "updateTime": 1512395160312
     }
 }

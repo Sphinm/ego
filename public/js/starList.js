@@ -18,8 +18,9 @@
             }.bind(this));
             this.container.innerHTML = html;
         },
+
         renderItem: function (data) {
-            var config = followConfig[Number(!!data.isFollow)];
+            var config = followConfig[Number(data.isFollow)];
             var html  = '<li class="m-card">\
                             <img src="img/icon_01.png" alt="头像" class="card-avatar">\
                             <div class="card-info">\
@@ -54,13 +55,20 @@
             }
         },
         follow: function (followInfo, replaceNode) {
-            ajax.post('/api/users?follow',followInfo.id, function (data) {
-                followInfo.isFollow  = true;
-                followInfo.followCount++;
-                var newNode = _.html2node(this.renderItem(followInfo));
-                replaceNode.parentNode.replaceChild(newNode, replaceNode);
+            _.ajax({
+                url: '/api/users?follow',
+                method: 'POST',
+                data: {id: followInfo.id},
+                success: function (data) {
+                    if (data.code === 200) {
+                        followInfo.isFollow = true;
+                        followInfo.followCount++;
+                        var newNode = _.html2node(this.renderItem(followInfo));
+                        replaceNode.parentNode.replaceChild(newNode, replaceNode);
+                    }
+                }.bind(this),
+                fail: function () {}
             })
-
         },
         unFollow: function (followInfo, replaceNode) {
 

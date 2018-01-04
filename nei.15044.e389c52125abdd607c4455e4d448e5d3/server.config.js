@@ -6,19 +6,19 @@
 var path = require('path');
 module.exports = {
     /* 根目录 */
-    webRoot: 'E:/nei/ego/public/',
+    webRoot: 'H:/nei/ego/public/',
     /* 视图目录 */
-    viewRoot: 'E:/nei/ego/public/html/',
+    viewRoot: 'H:/nei/ego/public/html/',
     /* 路由 */
     routes: {
-        "ALL /api/*": "http://59.111.99.234/",
+        //"ALL /api/*": "代理所有接口, 这里输入代理服务器地址",
         "GET /works/detail/:id": { name: '作品详情页面', index: 0, list: [{"id":13096,"path":"works\\detail"}] },
         "GET /works/create": { name: '作品创建页面', index: 0, list: [{"id":13081,"path":"works\\create"}] },
         "GET /works": { name: '作品列表页面', index: 0, list: [{"id":13079,"path":"works\\list"}] },
-        "GET /uploads/:filename": "http://59.111.99.234/",
+        "GET /uploads/:filename": { path: 'get/uploads/_/filename/data', id: 36427, group: '图画',isFile: true },
         "GET /search": { name: '搜索结果页面', index: 0, list: [{"id":13080,"path":"search"}] },
         "GET /index": { name: '首页', index: 0, list: [{"id":13078,"path":"index"}] },
-        "GET /captcha": "http://59.111.99.234/",
+        "GET /captcha": { path: 'get/captcha/data', id: 29450, group: '验证码',isFile: true },
         "POST /api/works?upload": { path: 'post/api/works/_/upload/data', id: 28719, group: '作品' },
         "PATCH /api/works/:id": { path: 'patch/api/works/_/id/data', id: 28580, group: '作品' },
         "DELETE /api/works/:id": { path: 'delete/api/works/_/id/data', id: 28581, group: '作品' },
@@ -76,9 +76,9 @@ module.exports = {
     /* 项目的 key */
     projectKey: 'e389c52125abdd607c4455e4d448e5d3',
     /* 同步模块mock数据路径 */
-    mockTpl: 'E:/nei/ego/mock.data/template/',
+    mockTpl: 'H:/nei/ego/mock.data/template/',
     /* 异步接口mock数据路径 */
-    mockApi: 'E:/nei/ego/mock.data/interface/',
+    mockApi: 'H:/nei/ego/mock.data/interface/',
     /* 是否修改代理的host */
     changeOrigin: true,
     /* 模板后缀 */
