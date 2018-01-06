@@ -5,13 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
     <title>EGO漫画</title>
     <link rel="stylesheet" href="common/base.css">
-    <script src="js/util/md5.js"></script>
-    <script src="js/util/address_codes.js"></script>
-    <script src="js/util/util.js"></script>
-    <script src="js/tab.js"></script>
-    <script src="js/search.js"></script>
-    <script src="js/slider.js"></script>
-    <script src="js/modal/loginModal.js"></script>
 </head>
 <body>
     <header>
@@ -26,18 +19,16 @@
                     <i class="u-login-logo"></i>
                     <span>登录</span>
                 </div>
-
                 <div class="m-register">
                     <span>注册</span>
                 </div>
-                 <div class="m-login-info" style="display: none">
+                 <div class="m-login-info f-dn">
                      <div class="u-login-area">
                         <div class="u-icon-login"></div>
                         <div class="u-login-name">AmberLine-block</div>
                         <i class="u-login-sex"></i>
                         <i class="u-icon-down"></i>
                      </div>
-
                     <ul class="menus">
                         <li class="login-info"><a href="#">个人中心</a></li>
                         <li class="login-info"><a href="#">信息</a></li>
@@ -100,7 +91,7 @@
             </div>
 
             <!-- 明日之星 -->
-            <div class="g-main g-mains">
+            <div class="g-main g-mains star-list">
                 <div class="m-section m-section-header">
                     <h4 class="section-head">
                         <i class="u-icon-star"></i>
@@ -110,30 +101,8 @@
                         </div>
                     </h4>
                 </div>
-                <div class="section-content">
-                    <ul class="m-list2" id="startList">
-                        <li class="m-card">
-                            <img src="img/icon_01.png" alt="头像" class="card-avatar">
-                            <div class="card-info">
-                                <div class="card-name">Grinch</div>
-                                <div class="card-fans"><span class="works">作品 377</span>粉丝 1706</div>
-                            </div>
-                            <button class="u-btn-follow z-follow" data-userId="10">
-                                <span class="u-icon-ok"></span>已关注
-                            </button>
-                        </li>
-                        <li class="m-card">
-                            <img src="img/icon_02.png" alt="头像" class="card-avatar">
-                            <div class="card-info">
-                                <div class="card-name">苞谷</div>
-                                <div class="card-fans"><span class="works">作品  608</span>粉丝  2498</div>
-                            </div>
-                            <button class="u-btn-follow" data-userId="10">
-                                <span class="u-icon-jia"></span>关注
-                            </button>
-                        </li>
-                    </ul>
-                </div>
+
+                <!-- 明日之星列表 -->
             </div>
 
             <!-- 侧边栏2 -->
@@ -470,78 +439,15 @@
        </div>
     </footer>
 
-    <script>
+    <script src="js/util/md5.js"></script>
+    <script src="js/util/address_codes.js"></script>
+    <script src="js/util/util.js"></script>
+    <script src="js/tab.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/modal/loginModal.js"></script>
+    <script src="js/starList.js"></script>
+    <script src="js/index.js"></script>
 
-    </script>
-    <script>
-        // tab组件和search组件 登录注册点击交互颜色
-        var login = document.querySelector('.m-login');
-        var register =document.querySelector('.m-register');
-
-        new Tabs();
-        new Search();
-
-        login.addEventListener('click',function () {
-            login.className = ' m-login';
-            register.className = ' m-register';
-        });
-
-        register.addEventListener('click',function () {
-                login.className += ' m-display-login';
-                register.className += ' m-display-register';
-        });
-
-
-        // 轮播图初始化过程
-        var cursors = document.querySelectorAll('.m-cursor .cursor');
-        var prev = document.querySelectorAll('.g-banner #prev')[0];
-        var next = document.querySelectorAll('.g-banner #next')[0];
-
-        var slider = new Slider({
-            //视口容器
-            container: document.querySelector('.g-banner'),
-            // 是否允许拖拽
-            drag: true,
-            // 是否自动轮播
-            auto: true
-        });
-
-        cursors.forEach(function(cursor, index){
-            cursor.addEventListener('click', function(){
-                slider.nav(index);
-            })
-        });
-
-        prev.addEventListener('click', function(){
-            slider.prev();
-        });
-        next.addEventListener('click', function(){
-            slider.next();
-        });
-
-        // 每次slider图片位置变化，cursor也变化，增加监听处理
-        slider.on('nav', function( ev ){
-            var pageIndex = ev.pageIndex;
-            cursors.forEach(function(cursor, index){
-                if(index === pageIndex ){
-                    cursor.className = 'z-active';
-                    cursor.style.backgroundColor = '#5ed0ba';
-                }else{
-                    cursor.className = '';
-                    cursor.style.backgroundColor = '#dedfdf';
-                }
-            })
-        });
-        // 从当前页开始轮播
-        slider.nav(3);
-
-        // 登录modal
-        var modal = new LoginModal();
-
-        document.querySelector('.m-login').addEventListener('click', function(){
-            modal.show();
-        });
-
-    </script>
 </body>
 </html>

@@ -48,6 +48,7 @@ a,a:hover{color:#333;}
 .m-display-register span{display: inline-block;margin: 13px 0 0 39px;font-size: 12px;}
 
 .m-login-info{display: inline-block;width: 190px;margin-left:35px;background: #fff;position: absolute;z-index: 99;}
+.f-dn{visibility: hidden;}
 .m-login-info .u-login-area{height: 90px;}
 .m-login-info .u-login-area .u-icon-login{float: left;width: 55px;height: 55px;background: url("../img/icon_08.png") no-repeat;margin: 15px 0 0 10px}
 .m-login-info .u-login-area .u-login-name{float: left;width: 64px;height: 20px;margin: 35px 0 0 6px;color: #000;font-size: 15px;font-weight: bold;text-overflow:ellipsis;overflow:hidden;}
@@ -166,14 +167,14 @@ a,a:hover{color:#333;}
 .g-main .section-content .m-card:nth-child(-n+4){border-bottom: none;}
 .g-main .section-content .m-card .card-avatar{float: left;width: 69px;height: 69px;margin:12px 25px;border-radius: 50%;vertical-align: middle;}
 .g-main .section-content .m-card .card-info{float: left;margin-top:30px; }
-.g-main .section-content .m-card .card-info .card-name{font-size: 14px;color: #000;font-weight: bold;letter-spacing: 3px;}
+.g-main .section-content .m-card .card-info .card-name{font-size: 14px;color: #000;font-weight: bold;letter-spacing: 2px;}
 .g-main .section-content .m-card .card-info .card-fans{font-size: 9px;color: #727171;margin-top: 15px;}
 .g-main .section-content .m-card .card-info .card-fans .works{margin-right: 20px;}
 .g-main .section-content .u-btn-follow{float: right;width: 62px;height: 26px;margin: 33px 27px 33px 0;border: 1px solid #5ed0ba;border-radius: 5px;background-color: #5ed0ba;color: #fff;}
 .g-main .section-content .u-btn-follow .u-icon-jia{display:inline-block;width: 9px;height: 9px;background: url("../img/icon-jia.png") no-repeat;margin-right: 6px;}
 .g-main .section-content .u-btn-follow .u-icon-ok{display:inline-block;width: 9px;height: 8px;background: url("../img/icon_07.png") no-repeat;margin-right: 6px;}
 .g-main .section-content .z-follow{background: #fff;color: #5ed0ba;}
-.g-main .section-content .z-follow:hover:after{content: '取消关注';color: #fff;background: #5ed0ba;width: 62px;height: 20px;padding-top: 7px;margin: 22px 0 0 -57px;position: absolute;border-radius: 4px;}
+.g-main .section-content .z-follow:hover:after{content: '取消关注';color: #fff;background: #5ed0ba;width: 62px;height: 20px;padding-top: 7px;margin: -8px 0 0 -56px;position: absolute;border-radius: 4px;}
 
 /* 最新作品 */
 .g-main .m-section .u-icon-works{float: left;width:160px;height:35px;background: url("../img/shouye.png") no-repeat 0 -86px;margin: 18px 0 20px 27px;}
@@ -238,6 +239,7 @@ a,a:hover{color:#333;}
 .u-modal .modal-tt .u-link{color: #5ed0ba;padding-right: -13px;}
 .u-modal .m-form{width: 408px;height:231px;}
 .u-modal .m-form .u-input{width: 330px;height: 38px;border: 1px solid #a5f1e1;border-radius:3px;margin-bottom: 12px;}
+.u-modal .m-form .u-input.error{border-color: red;}
 .u-modal .m-form input{padding-left: 15px;}
 .u-modal .m-form .u-input::-webkit-input-placeholder{color: #a5f1e1;}
 .u-modal .m-form .u-check{position:relative;display: inline-block;float: left;margin-left: 32px}
@@ -248,6 +250,7 @@ a,a:hover{color:#333;}
 .u-modal .m-form .f-forget{float: right;margin-right: 28px;}
 .u-modal .m-form .f-forget .u-link{color: #999;}
 .u-modal .m-form .u-error{height: 14px;margin: 24px 0 12px 32px;text-align: left;font-weight: bold;color: red;}
+.u-modal .m-form .f-dn{visibility: hidden;}
 .u-modal .m-form .u-error .u-icon-error{display:inline-block;width: 14px;height: 13px;background: url("../img/small.png") no-repeat 0 -48px;}
 .u-modal .m-form .u-btn-primary{width: 344px;height: 39px;margin:4px;background: #5ed0ba;border-radius:3px;border: 0;color: #fff;font-size: 14px;}
 

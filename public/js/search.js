@@ -1,4 +1,4 @@
-(function (_) {
+(function () {
    var template =
    '<div class="m-search-in">\
        <form target="_blank" action="./html/search.html" method="GET">\
@@ -54,4 +54,4 @@
         // 直接暴露到全局
         window.Search = Search;
     }
-})(util);
+})();

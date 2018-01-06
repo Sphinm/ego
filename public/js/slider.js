@@ -1,4 +1,4 @@
-(function(_){
+(function(){
 
     var template =
         '<div class="m-slider" >\
@@ -242,4 +242,4 @@
         window.Slider = Slider;
     }
 
-}(util));
+}());

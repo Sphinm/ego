@@ -1,108 +1,65 @@
-var util  =(function () {
+(function (root) {
+    var _ = Object.create(null);
+    root._ = _;
 
-    return {
 
-        // 绑定事件
-        addEvent: function(elem, type, listener) {
-            document.addEventListener ? elem.addEventListener(type, listener):
-                elem.attachEvent('on' + type, listener);
-        },
+
+    _.addEvent = function(ele, type, fn) {
+        document.addEventListener ? ele.addEventListener(type, fn): ele.attachEvent('on' + type, fn);
+    }
 
         // 事件代理
-        delegateEvent: function(element, tag, eventName, listener) {
-            this.addEvent(element, eventName, function () {
+    _.delegateEvent = function(ele, tag, eventName, fn) {
+            _.addEvent(ele, eventName, function () {
                 var event = arguments[0] || window.event,
                     target = event.target || event.srcElement;
                 if (target && target.tagName === tag.toUpperCase()) {
-                    listener.call(target, event);
+                    fn.call(target, event);
                 }
             });
-        },
+        };
 
         // 添加类名
-        addClassName: function (node, className) {
+    _.addClassName = function (node, className) {
             var current = node.className || "";
             if ((" " + current + " ").indexOf(" " + className + " ") === -1) {
                 node.className = current ? ( current + " " + className ) : className;
             }
-        },
+        };
 
         // 删除类名
-        delClassName: function (node, className){
+    _.delClassName = function (node, className){
             var current = node.className || "";
             node.className = (" " + current + " ").replace(" " + className + " ", " ").trim();
-        },
-        hasClassName: function (node, className){
-            var current = node.className || "";
-            if ((" " + current + " ").indexOf(" " + className + " ") === 1){
-                return 1;}
-            else {
-                return -1;
-            }
-        },
+        };
 
-        //  自定义数据
-        getDataset: function(ele,str) {
-            if(!ele.dataset){
-                var data_attributes ={};
-                var arrs = ele.attributes,
-                    length=arrs.length;
-                for(var i=0;i<length;i++){
-                    if(/^data-/.test(arrs[i].name)){
-                        var key=arrs[i].name.match(/^data-(.+)/)[1];
-                        var value=arrs[i].value;
-                        key=key.replace(/-\w/g,function(match){
-                            return match.substring(1).toUppserCase();
-                        });
-                        data_attributes[key]=value;
-                    }
-                }
-                return data_attributes[str];
-            }else{
-                return ele.dataset[str];
+    _.hasClassName = function (node, className){
+            var current = node.className || "", flag;
+            if ((" " + current + " ").indexOf(" " + className + " ") === -1){
+                flag = false;
+            } else {
+                flag = true;
             }
-        },
-
-        setDataset: function(ele,str,value) {
-            if(!ele.dataset){
-                var finalStr = "data-";
-                var originPos = 0;
-                var pos = 0;
-                do {
-                    pos = str.search(/[A-Z]/);
-                    if (pos === -1) {
-                        finalStr += str.substring(originPos);
-                    } else {
-                        finalStr += str.substring(originPos,pos);
-                        originPos = pos;
-                        str = str.substring(pos);
-                    }
-                } while (pos !== -1);
-
-                ele.setAttribute(finalStr,value);
-            }else{
-                ele.dataset[str] = value;
-            }
-        },
+            return flag;
+        };
 
         // html转node节点
-        html2node:  function (str){
+    _.html2node =  function (str){
             var container = document.createElement('div');
             container.innerHTML = str;
             return container.children[0];
-        },
+        };
 
          // 属性赋值
-        extend: function (o1,o2){
+    _.extend = function (o1,o2){
             // console.log(o1)
         for (var i in o2) if (typeof o1[i] === 'undefined') {
                 o1[i] = o2[i];
             }
             return o1;
-         },
+         };
 
-        //  AOP思想  事件发射器是一个公共服务 可以利用Spring中AOP思想来实现
-        emitter: {
+    _.emitter = {
             // 注册事件
             on: function(event, fn) {
                 var handles = this._handles || (this._handles = {}),
@@ -149,66 +106,75 @@ var util  =(function () {
                 }
                 return this;
             }
-        },
+        };
 
-        ajax: function (obj) {
-            var xhr = (function () {
-                if (window.XMLHttpRequest) {
-                    return new XMLHttpRequest();
-                } else {
-                    return new ActiveXobject('Microft.XMLHttp');
-                }
-            })();
-
-            obj.data = (function (data) {
-                var arr = [];
-                for (var i in data) {
-                    arr.push(encodeURIComponent(i) + '=' + encodeURIComponent(data[i]));
-                }
-                return arr.join('&');
-            })(obj.data);
-
-            if (obj.method === 'GET') obj.url += obj.url.indexOf('?') === -1 ? '?'+obj.data : '&'+obj.data;
-            if (obj.async === true) {
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState === 4) {
-                        callback();
-                    }
-                };
-            }
-            xhr.open(obj.method, obj.url, obj.async);
-
-        //
-            if (obj.method === 'POST' || obj.method === 'PATCH' || obj.method === 'DELETE') {
-                console.log(obj.method, obj.url, obj.data)
-                obj.url += obj.url.indexOf('?') === -1 ? '?'+obj.data : '&'+obj.data;
-                xhr.setRequestHeader('Content-Type', 'application/json');
-                xhr.send(obj.data);
+    _.ajax = function (obj) {
+        var xhr = (function () {
+            if (window.XMLHttpRequest) {
+                return new XMLHttpRequest();
             } else {
-                // console.log(obj.method, obj.url, obj.data)
-                xhr.send(null);
+                return new ActiveXobject('Microft.XMLHttp');
             }
+        })(), data;
 
-            if (obj.async === false) {
-                callback();
-            }
 
-            function callback() {
-                if (xhr.status === 200) {
-                    obj.success(xhr.responseText);			//回调传递参数
-                } else {
-                    alert('The error code：' + xhr.status + '，the error msg：' + xhr.statusText);
+        if (obj.method.toUpperCase() === 'GET') {
+            obj.url += obj.data ? ('?'+ _.serialize(obj.data)) : '';
+        }
+
+
+        if (obj.method.toUpperCase()  === 'POST' || obj.method.toUpperCase()  === 'PATCH') {
+            data = obj.data ? JSON.stringify(obj.data) : null;
+            console.log(obj.data, obj.url, obj.method)
+        }
+
+        xhr.open(obj.method, obj.url, true);
+
+        // 请求头 设置需要放在open方法后面执行，否则会报错
+        xhr.setRequestHeader('Content-Type','application/json');
+
+
+
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4){
+                if((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304){
+                    obj.success(xhr.responseText);
+                }else{
+                    obj.fail(xhr);
+                    console.log('The error code：' + xhr.status + ' and msg is ：' + xhr.statusText);
                 }
             }
-        },
-        isPhone: function (value) {
-            return  /^1(3|4|5|7|8)\d{9}$/.test(value);
-        },
+        };
 
-        isEmpty: function (value) {
-            return /^S+\w+/.test(value);
+
+        xhr.send(data);
+    };
+
+    _.serialize = function (data) {
+        if (!data) return '';
+        var pairs = [];
+        for (var name in data) {
+            if (!data.hasOwnProperty(name)) continue;
+            if (typeof data[name] === 'function') continue;
+            var value  = data[name].toString();
+            name  = encodeURIComponent(name);
+            value = encodeURIComponent(value);
+            pairs.push(name + '=' + value);
         }
+        return pairs.join('&');
+    };
+
+    _.isPhone = function (value) {
+            return  /^1(3|4|5|7|8)\d{9}$/.test(value);
+        };
+
+    _.isNotEmpty = function (value) {
+            return !value.trim();
+        };
+
+    _.pwdLength = function (value) {
+        return /[a-zA-Z0-9]/.test(value) && value.length >= 6;
     }
 
 
-})();
+})(window);

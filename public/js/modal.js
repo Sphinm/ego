@@ -1,4 +1,4 @@
-!function(_){
+!function(){
     // 接口实现
     // 基础modal
 
@@ -122,4 +122,4 @@
         window.Modal = Modal;
     }
 
-}(util);
+}();

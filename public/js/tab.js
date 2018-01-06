@@ -1,4 +1,4 @@
-(function (_) {
+(function () {
 
     // 模板部分
     // 后面需要把链接加上   等把后面页面实现以后
@@ -63,20 +63,20 @@
         }
     });
 
-
+    //          5.Exports
     // ----------------------------------------------------------------------
     // 暴露API:  Amd || Commonjs  || Global
-
     // 支持commonjs
     if (typeof exports === 'object') {
         module.exports = Tabs;
         // 支持amd
     } else if (typeof define === 'function' && define.amd) {
         define(function() {
-            return Tabs
+            return Tabs;
         });
     } else {
         // 直接暴露到全局
         window.Tabs = Tabs;
     }
-}(util));
+
+})();

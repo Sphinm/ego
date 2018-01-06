@@ -1,4 +1,4 @@
-!function(_){
+!function(){
     // 分页指示器接口实现
     // Cursor 主体html模板
     var template =
@@ -210,4 +210,4 @@
         window.Cursor = Cursor;
     }
 
-}(util);
+}();

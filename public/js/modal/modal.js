@@ -1,4 +1,4 @@
-!function(_){
+!function(){
     // 接口实现
     // 基础modal
 
@@ -81,6 +81,7 @@
             this.emit("cancel");
             this.hide();
         },
+
         // 事件初始化
         _initEvent: function() {
             _.addEvent(this.close, 'click',this._onCancel.bind(this));
@@ -103,4 +104,4 @@
         window.Modal = Modal;
     }
 
-}(util);
+}();
