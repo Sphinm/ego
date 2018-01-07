@@ -54,28 +54,27 @@
         },
 
         followHandler: function (event) {
-            console.log(123)
             var target = event.target;
-            if (target.tagName === 'button'){
+            if (target.tagName.toUpperCase() === 'BUTTON'){
                 if(target.dataset.loginstatus === 'false'){
                     // 弹出登录弹窗
                     this.emit('loginModal');
-                    // return;
+                    return;
                 }
 
-                this.data = {
+                var data;
+                // data 就是点击的用户信息，这里使用假数据替代
+                data = {
                     id: target.dataset.userid,
-                    index: target.dataset.index,
-                    nickname: target.dataset.nickname,
-                    workCount: target.dataset.workcount,
-                    followCount: target.dataset.followcount,
+                    nickname: 'moick',
+                    workCount: 68,
+                    followCount: 945
                 };
 
-                // data 就是点击的用户信息
                 if (_.hasClassName(target, 'z-follow')){
-                    this.unFollow(this.data, target.parentNode);
+                    this.unFollow(data, target.parentNode);
                 } else {
-                    this.follow(this.data, target.parentNode);
+                    this.follow(data, target.parentNode);
                 }
             }
         },
@@ -85,12 +84,11 @@
                 url: '/api/users?follow',
                 method: 'POST',
                 data: {id: followInfo.id},
-                header: {'content-type': 'application/json'},
                 success: function (data) {
                     data = JSON.parse(data);
                     if (data.code === 200) {
                         followInfo.isFollow = true;
-                        followInfo.followCount ++;
+                        followInfo.followCount++;
                         var newNode = _.html2node(this.renderItem(followInfo));
                         replaceNode.parentNode.replaceChild(newNode, replaceNode);
                     }
@@ -103,12 +101,10 @@
                 url: '/api/users?unfollow',
                 method: 'POST',
                 data: {id: followInfo.id},
-                header: {'content-type': 'application/json'},
                 success: function(data){
                     data = JSON.parse(data);
                     if(data.code === 200){
                         followInfo.isFollow = false;
-                        followInfo.followCount --;
                         var newNode = _.html2node(this.renderItem(followInfo));
                         replaceNode.parentNode.replaceChild(newNode, replaceNode);
                     }
@@ -132,6 +128,7 @@
         },
 
         initStartList:function () {
+            //初始化时候载入节点
             this.list.appendChild(this.container);
             this.getStarList();
             _.delegateEvent(this.ul, 'button', 'click', this.followHandler.bind(this));
@@ -141,5 +138,20 @@
 
     });
 
-    window.StarList = StarList;
+
+    // ----------------------------------------------------------------------
+    // 暴露API:  Amd || Commonjs  || Global
+
+    // 支持commonjs
+    if (typeof exports === 'object') {
+        module.exports = StarList;
+        // 支持amd
+    } else if (typeof define === 'function' && define.amd) {
+        define(function() {
+            return StarList
+        });
+    } else {
+        // 直接暴露到全局
+        window.StarList = StarList;
+    }
 })();

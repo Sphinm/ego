@@ -16,7 +16,7 @@ label,summary{cursor:default;}
 a,button{cursor:pointer;}
 h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
 del,ins,u,s,a,a:hover{text-decoration:none;}
-body,textarea,input,button,select,keygen,legend{font:12px/1.14 arial,宋体;color:#333;outline:none;}
+body,textarea,input,button,select,keygen,legend{font:12px/1.14 arial,微软雅黑;color:#333;outline:none;}
 body{background-color: #efefef;}
 a,a:hover{color:#333;}
 
@@ -167,7 +167,7 @@ a,a:hover{color:#333;}
 .g-main .section-content .m-card:nth-child(-n+4){border-bottom: none;}
 .g-main .section-content .m-card .card-avatar{float: left;width: 69px;height: 69px;margin:12px 25px;border-radius: 50%;vertical-align: middle;}
 .g-main .section-content .m-card .card-info{float: left;margin-top:30px; }
-.g-main .section-content .m-card .card-info .card-name{font-size: 14px;color: #000;font-weight: bold;letter-spacing: 2px;}
+.g-main .section-content .m-card .card-info .card-name{font-size: 14px;color: #000;font-weight: bold;letter-spacing: 1.5px;}
 .g-main .section-content .m-card .card-info .card-fans{font-size: 9px;color: #727171;margin-top: 15px;}
 .g-main .section-content .m-card .card-info .card-fans .works{margin-right: 20px;}
 .g-main .section-content .u-btn-follow{float: right;width: 62px;height: 26px;margin: 33px 27px 33px 0;border: 1px solid #5ed0ba;border-radius: 5px;background-color: #5ed0ba;color: #fff;}
@@ -239,18 +239,45 @@ a,a:hover{color:#333;}
 .u-modal .modal-tt .u-link{color: #5ed0ba;padding-right: -13px;}
 .u-modal .m-form{width: 408px;height:231px;}
 .u-modal .m-form .u-input{width: 330px;height: 38px;border: 1px solid #a5f1e1;border-radius:3px;margin-bottom: 12px;}
-.u-modal .m-form .u-input.error{border-color: red;}
+.u-modal .m-form .u-input.error{border-color: #fa5b5b;}
 .u-modal .m-form input{padding-left: 15px;}
 .u-modal .m-form .u-input::-webkit-input-placeholder{color: #a5f1e1;}
 .u-modal .m-form .u-check{position:relative;display: inline-block;float: left;margin-left: 32px}
 .u-modal .m-form .u-check .u-checkbox{position:absolute;visibility: hidden;}
-.u-modal .m-form .u-check .u-checkbox+label{display: inline-block;width: 13px;height: 13px;border: 1px solid #a5f1e1;}
-.u-modal .m-form .u-check .u-checkbox:checked+label:after{content: "";position: absolute;left: 0;bottom: 10px;width: 9px;height: 4px; border: 2px solid #5ed0ba;border-top-color: transparent;border-right-color: transparent;  transform: rotate(-45deg);}
+.u-modal .m-form .u-check .u-checkbox+label{display: inline-block;width: 13px;height: 13px;border: 1px solid #a5f1e1;border-radius: 3px;}
+.u-modal .m-form .u-check .u-checkbox:checked+label:after{content: "";position: absolute;left: 1px;bottom: 10px;width: 9px;height: 4px; border: 2px solid #5ed0ba;border-top-color: transparent;border-right-color: transparent;  transform: rotate(-45deg);}
 .u-modal .m-form .u-check .u-checkbox .keep-login{display: inline-block;width:60px;height: 12px;margin: 12px 0 12px 12px;}
 .u-modal .m-form .f-forget{float: right;margin-right: 28px;}
 .u-modal .m-form .f-forget .u-link{color: #999;}
-.u-modal .m-form .u-error{height: 14px;margin: 24px 0 12px 32px;text-align: left;font-weight: bold;color: red;}
+.u-modal .m-form .u-error{height: 14px;margin: 24px 0 12px 32px;text-align: left;color: #fa5b5b;}
 .u-modal .m-form .f-dn{visibility: hidden;}
 .u-modal .m-form .u-error .u-icon-error{display:inline-block;width: 14px;height: 13px;background: url("../img/small.png") no-repeat 0 -48px;}
 .u-modal .m-form .u-btn-primary{width: 344px;height: 39px;margin:4px;background: #5ed0ba;border-radius:3px;border: 0;color: #fff;font-size: 14px;}
 
+/* register modal */
+.u-register{height:100%;width:100%;position:fixed;left:0;top:0;background-color:rgba(255,255,255,0.7);text-align:center;color:#aaa;z-index:100;display: flex;align-items: center;justify-content: center;}
+.u-register .reg-content{width: 587px;height:626px;border-radius:3px;overflow:hidden;background: #fff;box-shadow:2px 2px 5px rgba(0,0,0,0.2);}
+.u-register .close_btn{float: right;width:16px;height:16px;margin:10px 10px 0 0;background:url("../img/small.png") no-repeat 0 -88px;cursor: pointer}
+.u-register .reg-logo{width:214px;height:51px;background: url("../img/shouye.png") no-repeat 0 -257px;margin: 40px 0 0 106px;}
+.u-register .m-form{width:345px;margin-left: 108px}
+.u-register .u-formitem{width: 345px;height: 39px;margin: 10px 15px 0 15px;}
+.u-register .u-formitem .formitem_tt{color: #636161;float: left;margin: 15px 0;}
+.u-register .u-formitem .yuan{width:266px;height:40px;border: 1px solid #a5f1e1;border-radius:3px;float: right;padding-left: 10px;}
+.u-register .u-formitem .yuan::-webkit-input-placeholder{color: #b5b5b6;}
+.u-register .sex_box{height: 40px ;display:flex;justify-content:center;align-items:center;}
+.u-register .sex_box label{width: 155px;display:flex;justify-content:center;align-items:center;color: #727171;}
+.u-register input[type=radio]{display:none;}
+.u-register input[type=radio] ~ .u-icon{margin-right:16px;color:#5ed0ba;}
+.u-register input[type=radio] ~ .u-icon-radio{display:none;}
+.u-register input[type=radio]:checked ~ .u-icon-radio{display:inline-block;}
+.u-register input[type=radio]:checked ~ .u-icon-radiocircle{display:none;}
+.u-register .birthday_select .select_opt{z-index:99;}
+.u-register .location_select .select_opt{z-index:9;}
+.u-register .validate .u-ipt{float:right;padding-left: 10px;height:40px;width:278px;border:1px solid #a5f1e1;border-radius:3px;box-sizing:border-box;}
+.u-register .validate img{position:absolute;float:right;margin-left:60px;height:40px;width:94px;border:1px solid #a5f1e1;box-sizing:border-box;border-radius:0 4px 4px 0;cursor:pointer;}
+.u-register .terms {position:relative;display: inline-block;float: left;margin:20px 0 20px -45px}
+.u-register .terms .u-checkbox{position:absolute;visibility: hidden;}
+.u-register .terms .u-checkbox+label{display: inline-block;width: 13px;height: 13px;border: 1px solid #87dccc;border-radius: 3px;}
+.u-register .terms .u-checkbox:checked+label:after{content: "";position: absolute;left: 1px;bottom: 10px;width: 9px;height: 4px; border: 2px solid #5ed0ba;border-top-color: transparent;border-right-color: transparent;  transform: rotate(-45deg);}
+.u-register .terms .read{color:#2ea7e0;margin-left: 8px}
+.u-register .u-btn-primary{width: 360px;height: 39px;margin:4px;background: #87dccc;border-radius:3px;border: 0;color: #fff;font-size: 14px;}

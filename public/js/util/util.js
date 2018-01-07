@@ -1,9 +1,9 @@
 (function (root) {
-    var _ = Object.create(null);
-    root._ = _;
 
+    // 酱util工具类扩展到全局
+    root._  = Object.create(null);
 
-
+    // 事件兼容
     _.addEvent = function(ele, type, fn) {
         document.addEventListener ? ele.addEventListener(type, fn): ele.attachEvent('on' + type, fn);
     }
@@ -173,7 +173,7 @@
         };
 
     _.pwdLength = function (value) {
-        return /[a-zA-Z0-9]/.test(value) && value.length >= 6;
+        return /[a-zA-Z0-9]/.test(value) && value.length >= 6 && value.length < 16;
     }
 
 

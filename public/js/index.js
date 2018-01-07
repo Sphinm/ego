@@ -58,12 +58,13 @@ slider.on('nav', function( ev ){
 slider.nav(3);
 
 // 登录modal
-var modal = new LoginModal();
 
 document.querySelector('.m-login').addEventListener('click', function(){
-    modal.show();
+    (new LoginModal()).show();
 });
-
+document.querySelector('.m-register').addEventListener('click', function(){
+    (new RegisterModal()).show();
+});
 
 new Tabs();
 new Search();

@@ -33,7 +33,6 @@
 
         this.container = this._layout.cloneNode(true);
 
-        // 标题
 
         this.userName = this.container.querySelector('#username');
         this.password = this.container.querySelector('#password');
@@ -42,12 +41,10 @@
         this.loginInfo = document.querySelector('.m-login-info');
         this.close = this.container.querySelector('.modal-tt .modal-cancel');
         this.submit = this.container.querySelector('.u-btn-primary');
-        this.remember = this.container.querySelector('.u-check');
+        this.remember = this.container.querySelector('.u-checkbox');
         this.ErrorParent = this.container.querySelector('.u-error');
         this.nError = this.container.querySelector('.errorMsg');
         this.goregister = this.container.querySelector('#goregister');
-
-
 
 
         this.initLoginEvent();
@@ -69,16 +66,11 @@
         hide: function() {
             var container  = this.container;
             document.body.removeChild(container);
-            _.addClassName(this.ErrorParent, 'f-dn');
-            _.delClassName(this.userName, 'error');
-            _.delClassName(this.password, 'error');
-            this.userName.value = '';
-            this.password.value = '';
         },
 
         register: function () {
-            this.emit('showRegisterModal');
             this.hide();
+            this.emit('showRegisterModal');
         },
 
         lastSuc: function () {
@@ -109,7 +101,7 @@
             flag ? _.delClassName(this.password, 'error') : _.addClassName(this.password, 'error');
             isValid = isValid && flag;
 
-            isValid || (this.nError.innerText = '账号或密码不正常，请重新输入');
+            isValid || (this.nError.innerText = '账号或密码错误，请输入正确密码~');
 
             this.showError();
 
@@ -138,21 +130,11 @@
                     success: function (data) {
                        var dataOrz = JSON.parse(data);
                         if (dataOrz.code === 200) {
-                            console.log(this)
                             that.hide();
                             that.emit('ok', data.result);
                             that.lastSuc();
-
                         } else {
-                            switch (dataOrz.code) {
-                                case 400:
-                                    this.nError.innerText = '密码错误，请重新输入';
-                                    break;
-                                case 404:
-                                    this.nError.innerText = '用户不存在，请重新输入';
-                                    break;
-                            }
-                            // this.showError();
+                            console.log(data)
                         }
                     },
                     fail: function () {}
@@ -167,10 +149,21 @@
             _.addEvent(this.close, 'click' ,this.onCancel.bind(this));
             _.addEvent(this.goregister, 'click', this.register.bind(this));
             _.addEvent(this.submit, 'click', this._submit.bind(this));
-            // _.addEvent(this.submit, 'submit', this.onCancel.bind(this));
         },
     });
 
-    window.LoginModal = LoginModal;
-
+    // ----------------------------------------------------------------------
+    // 暴露API:  Amd || Commonjs  || Global
+    // 支持commonjs
+    if (typeof exports === 'object') {
+        module.exports = LoginModal;
+        // 支持amd
+    } else if (typeof define === 'function' && define.amd) {
+        define(function() {
+            return LoginModal;
+        });
+    } else {
+        // 直接暴露到全局
+        window.LoginModal = LoginModal;
+    }
 })();
