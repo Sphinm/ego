@@ -1,8 +1,7 @@
-// 选择器组件
 (function(){
-    // 模板
+
     var html = `<div class="m-select">
-		<div class="select_hd">
+		<div class="select_list">
 			<span class="select_val"></span>
 			<span class="u-icon u-icon-down"></span>
 		</div>
@@ -29,7 +28,7 @@
     _.extend(Select.prototype, {
         _layout: _.html2node(html),
 
-        render: function(data, defaultIndex){  // data: [{name:,value:,list:}]
+        render: function(data, defaultIndex){
             // 更新下拉列表
             var optionsHTML = '';
             data = data || []; // 若data为null，则默认空数组
@@ -72,7 +71,8 @@
         },
 
         getValue: function(){
-            return typeof this.options[this.selectedIndex] !== 'undefined' ? this.options[this.selectedIndex].value : '';
+            console.log((typeof this.options[this.selectedIndex] !== 'undefined') ? this.options[this.selectedIndex].value : '')
+            return (typeof this.options[this.selectedIndex] !== 'undefined') ? this.options[this.selectedIndex].value : 'undefined';
         },
 
         toggle: function(){
@@ -110,10 +110,9 @@
         },
 
         initSelect: function(){
-            // 挂载组件
-            this.parent.appendChild(this.container);
-            // 绑定事件
             this.init();
+            this.parent.appendChild(this.container);
+
         }
 
     });

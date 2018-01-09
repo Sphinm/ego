@@ -31,6 +31,7 @@
 
         change: function(index, data){
             // 无关的选择器，不做任何操作，直接退出。
+            console.log(444)
             if(this.selectList[index] !== data.target){return;}
             // 下级选择器，若是末级选择器，则退出
             var next = index + 1;

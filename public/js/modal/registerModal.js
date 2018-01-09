@@ -130,8 +130,7 @@
             this.captchaImg.src = `/captcha?t=${+new Date()}`
         },
         check: function(){
-            var isValid = true,
-                errorMsg = "";
+            var isValid = true;
 
             // 隐藏错误信息框
             _.addClassName(this.errorParent, 'f-dn');
@@ -145,31 +144,17 @@
                 [this.captcha, ['require']]
             ];
             isValid = this.checkRules(checkList);
-            if(!isValid){
-                errorMsg = '您输入的信息不正确哦！';
-            }
-            // 验证两次密码
-            if(isValid && this.pwd.value !== this.confirmpwd.value){
-                isValid = false;
-                errorMsg = '两次密码不一致呀~';
-            }
 
-            // 验证条款是否为空
-            if(isValid && !this.checkbox.checked){
-                isValid = false;
-                errorMsg = '您还没有同意条款呢~';
-            }
-
-            // 显示错误
-            if(!isValid){
-                this.nError.innerText = errorMsg;
-                _.delClassName(this.errorParent, 'f-dn');
-            }
-            // 返回结果
             return isValid;
         },
 
+        showMessage: function (errorMsg) {
+            this.nError.innerText = errorMsg;
+            _.delClassName(this.errorParent, 'f-dn');
+        },
+
         checkRules: function(checkRules){
+            var that = this;
             // 验证结果
             var check_result = true;
 
@@ -181,22 +166,42 @@
 
                 // 去除错误标示
                 _.delClassName(checkItem, 'error');
-
                 for(var j=0;j<rules.length;j++){
                     // 检测规则名称
                     var key = rules[j];
                     switch(key){
                         case 'require':
                             flag = !_.isNotEmpty(checkItem.value);
+                            if (!!flag) {
+                                var a= '您的信息没有输入完整哦!';
+                                that.showMessage(a)
+                            }
                             break;
                         case 'phone':
                             flag = _.isPhone(checkItem.value);
+                            if (!flag) {
+                               var b = '输入的手机号码不正确!';
+                               this.showMessage(b)
+                            }
                             break;
                         case 'nickname':
                             flag = _.isNickName(checkItem.value);
+                            if (!flag) {
+                                var c = '您输入的昵称不符合要求哦!';
+                                this.showMessage(c)
+                            }
                             break;
                         case 'length':
                             flag = _.pwdLength(checkItem.value, 6, 16);
+                            if (!flag) {
+                                var d = '您输入的密码不正确哦!';
+                                this.showMessage(d)
+                            }
+                            if (!!flag && this.confirmpwd.value !== this.pwd.value){
+                                var d = '两次输入的密码不一致!';
+                                this.showMessage(d);
+                                _.addClassName(checkRules[3][0], 'error');
+                            }
                             break;
                     }
                     if(!flag){break;}
@@ -204,15 +209,18 @@
                 // 显示错误
                 flag || _.addClassName(checkItem, 'error');
                 flag || (check_result = false);
+
             }
             // 若无错误
+            flag && _.addClassName(this.errorParent, 'f-dn');
             return check_result;
         },
 
         submit: function(event){
             event.preventDefault();
             // 若验证成功
-            if(this.check()){
+            if(!this.check()){
+
                 // 构造数据
                 var data = {
                     username: this.phone.value.trim(),
@@ -221,7 +229,8 @@
                     sex: this.getRadioValue('registerform', 'sex'),
                     captcha: this.captcha.value.trim()
                 };
-                this.birthday = this.birthdaySelect.getValue().join('-');
+                console.log(data)
+                // this.birthday = this.birthdaySelect.getValue().join('-');
                 this.location = this.locationSelect.getValue();
                 data.province = this.location[0];
                 data.city = this.location[1];
@@ -259,7 +268,7 @@
 
         initRegisterEvent: function(){
             // 订阅显示注册弹窗事件
-            this.on('showRegisterModal', this.show.bind(this));
+            // this.on('showRegisterModal', this.show.bind(this));
             // 为关闭按钮，绑定关闭弹窗事件
             _.addEvent(this.closeBtn, 'click', this.hide.bind(this));
             // 为二维码图片，绑定刷新事件

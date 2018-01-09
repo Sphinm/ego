@@ -20,7 +20,6 @@ body,textarea,input,button,select,keygen,legend{font:12px/1.14 arial,微软雅�
 body{background-color: #efefef;}
 a,a:hover{color:#333;}
 .f-dn{visibility: hidden;}
-.error{border-color: #fa5b5b;}
 
 /* header */
 .maintain-head{width:100%;background-color: #fff;}
@@ -261,6 +260,7 @@ a,a:hover{color:#333;}
 .u-register .reg-logo{width:214px;height:51px;background: url("../img/shouye.png") no-repeat 0 -257px;margin: 40px 0 0 106px;}
 .u-register .m-form{width:345px;margin-left: 108px}
 .u-register .u-formitem{width: 345px;height: 39px;margin: 10px 15px 0 15px;}
+.u-register .u-formitem .u-ipt.error{border-color: #fa5b5b;}
 .u-register .u-formitem .formitem_tt{color: #636161;float: left;margin: 15px 0;}
 .u-register .u-formitem .yuan{width:266px;height:40px;border: 1px solid #a5f1e1;border-radius:3px;float: right;padding-left: 10px;}
 .u-register .u-formitem .yuan::-webkit-input-placeholder{color: #b5b5b6;}
@@ -273,9 +273,9 @@ a,a:hover{color:#333;}
 .u-register .birthday_select .select_opt{z-index:99;}
 .u-register .location_select .select_opt{z-index:9;}
 .u-register .validate .u-ipt{float:right;padding-left: 10px;height:40px;width:278px;border:1px solid #a5f1e1;border-radius:3px;box-sizing:border-box;}
-.u-register .validate img{position:absolute;float:right;margin-left:60px;height:40px;width:94px;border:1px solid #a5f1e1;box-sizing:border-box;border-radius:0 4px 4px 0;cursor:pointer;}
+.u-register .validate img{position:absolute;float:right;margin-left:60px;height:38px;width:93px;margin-top:1px;border-left:1px solid #a5f1e1;box-sizing:border-box;border-radius:0 4px 4px 0;cursor:pointer;}
 .u-register .terms {position:relative;display: inline-block;float: left;margin:20px 0 20px -45px}
-.u-register .terms .u-checkbox{position:absolute;visibility: hidden;}
+.u-register .terms .u-checkbox{position:absolute;-webkit-appearance: none;}
 .u-register .terms .u-checkbox+label{display: inline-block;width: 13px;height: 13px;border: 1px solid #87dccc;border-radius: 3px;}
 .u-register .terms .u-checkbox:checked+label:after{content: "";position: absolute;left: 1px;bottom: 10px;width: 9px;height: 4px; border: 2px solid #5ed0ba;border-top-color: transparent;border-right-color: transparent;  transform: rotate(-45deg);}
 .u-register .terms .read{color:#2ea7e0;margin-left: 5px}
@@ -284,11 +284,9 @@ a,a:hover{color:#333;}
 .u-register .u-btn-primary{width: 360px;height: 39px;margin:4px;background: #87dccc;border-radius:3px;border: 0;color: #fff;font-size: 14px;}
 .u-register .m-cascadeselect{display:flex;justify-content:space-between;height:100%;margin-left: 67px}
 .u-register .m-cascadeselect > .m-select{width: 78px;height: 40px;}
-.u-register .m-cascadeselect .m-select .select_hd{display:flex;justify-content:space-between;align-items:center;height:100%;border:1px solid #a5f1e1;border-radius:4px;box-sizing:border-box;}
-.u-register .m-cascadeselect .m-select .select_hd span{display:block;}
-.u-register .m-cascadeselect .m-select .select_hd .select_val{overflow:hidden;margin-left: 12px;}
-.u-register .m-cascadeselect .m-select .select_hd .u-icon{margin-top: 10px;}
-.u-register .m-cascadeselect .m-select .select_hd .u-icon-down{position:relative;width:0;height:0;margin:5px 5px 0;text-indent:0;border: 6px solid #84dbca;border-color: #84dbca transparent transparent;content: ".";}
+.u-register .m-cascadeselect .m-select .select_list{display:flex;justify-content:space-between;align-items:center;height:100%;border:1px solid #a5f1e1;border-radius:4px;box-sizing:border-box;}
+.u-register .m-cascadeselect .m-select .select_list .select_val{overflow:hidden;margin-left: 15px;}
+.u-register .m-cascadeselect .m-select .select_list .u-icon-down{position:relative;width:0;height:0;margin:5px 5px 0;text-indent:0;border: 6px solid #84dbca;border-color: #84dbca transparent transparent;content: ".";}
 .u-register .m-cascadeselect .m-select .select_opt{position:absolute;top:100%;left:0;width:100%;height:120px;border:1px solid #f4f4f4;background:#fff;overflow-y:auto;}
 .u-register .m-cascadeselect .m-select .select_opt::-webkit-scrollbar{display:block;}
 .u-register .m-cascadeselect .m-select .select_opt li{line-height:30px;overflow-x:hidden;white-space:nowrap;text-overflow:ellipsis;}
