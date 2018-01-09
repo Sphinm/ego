@@ -25,13 +25,13 @@
                 <label for="" class="formitem_tt">性 别</label>
                 <div class="formitem_ct">
                     <div class="sex_box">
-                        <label>
+                        <label class="radio">
                             <input type="radio" name="sex" checked value=0 />
-                            <i class="u-icon u-icon-radio"></i><i class="u-icon u-icon-radiocircle"></i>少男
+                            <i class="u-icon u-icon-radio"></i>少男
                         </label>
-                        <label>
+                        <label class="radio">
                             <input type="radio" name="sex" value=1 />
-                            <i class="u-icon u-icon-radio"></i><i class="u-icon u-icon-radiocircle"></i>少女
+                            <i class="u-icon u-icon-radio"></i>少女
                         </label>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
             <div class="u-formitem">
                 <label for="" class="formitem_tt">验证码</label>
                 <div class="formitem_ct validate">
-                    <img id="captchaimg" src="/captcha" alt="" />
+                    <img class="captchaImg" src="/captcha" alt="" />
                     <input type="text" id="captcha" class="u-ipt" />
                 </div>
             </div>
@@ -60,7 +60,10 @@
                     <label for="remember"></label>
                     <span><a href="#" class="read">我已阅读并同意相关条款</span>
             </div>
-            <div class="u-error-reg f-dn"><span class="u-icon u-icon-errorsquare"></span><span id="errormsg"></span></div>
+            <div class="u-error f-dn">
+                <span class="u-icon-error"></span>
+                <span id="errormsg"></span>
+            </div>
             <button id="submit" class="u-btn u-btn-primary" type="submit">注&nbsp;&nbsp;册</button>
         </form>
         </div>
@@ -71,24 +74,22 @@
         _.extend(this, opt);
 
         this.container = this._layout.cloneNode(true);
-        console.log(this.container)
 
         // 缓存节点
         this.closeBtn =  this.container.querySelector('.close_btn');
-        this.captchaImg = this.container.querySelector('#captchaimg');
+        this.captchaImg = this.container.querySelector('.captchaImg');
         this.phone = this.container.querySelector('#phone');
         this.nick = this.container.querySelector('#nickname');
         this.pwd = this.container.querySelector('#password');
         this.confirmpwd = this.container.querySelector('#comform_password');
         this.captcha = this.container.querySelector('#captcha');
-        this.agree2terms = this.container.querySelector('#agree2terms');
-        this.errorBox = this.container.querySelector('.u-error');
+        this.checkbox = this.container.querySelector('.u-checkbox');
+        this.errorParent = this.container.querySelector('.u-error');
         this.nError = this.container.querySelector('#errormsg');
         this.submitBtn = this.container.querySelector('#submit');
-        console.log(this.nError)
 
         // 初始化
-        // this.initSelect();
+        this.initSelects();
         this.initRegisterEvent();
     }
 
@@ -108,20 +109,20 @@
             var container = this.container;
             document.body.removeChild(container);
         },
-        // initSelect: function(){
-        //     // 生日 级联选择器
-        //     this.birthdaySelect = new CascadeSelect({
-        //         parent: _.getElementsByClassName(this.container, 'birthday_select')[0],
-        //         // 生日数据（为了让 生日和地址 可以共用一个级联选择器组件，则构造相同的数据结构）
-        //         data: _.createDateData()
-        //     });
-        //     // 地址 级联选择器
-        //     this.locationSelect = new CascadeSelect({
-        //         parent: _.getElementsByClassName(this.container, 'location_select')[0],
-        //         // 地址数据
-        //         data: _.toSelectData(ADDRESS_CODES)
-        //     });
-        // };
+        initSelects: function(){
+            // 生日 级联选择器
+            this.birthdaySelect = new Cascade({
+                parent: this.container.querySelector('.birthday_select'),
+                // 生日数据（为了让 生日和地址 可以共用一个级联选择器组件，则构造相同的数据结构）
+                data: _.createDateData()
+            });
+            // 地址 级联选择器
+            this.locationSelect = new Cascade({
+                parent:this.container.querySelector('.location_select'),
+                // 地址数据
+                data: _.toSelectData(ADDRESS_CODES)
+            });
+        },
 
         resetCaptcha : function(){
             // +new Date()  在github上一篇博客上看到一种很巧妙通过'+'号实现隐式转换拿到时间戳的方法
@@ -133,7 +134,7 @@
                 errorMsg = "";
 
             // 隐藏错误信息框
-            _.addClassName(this.errorBox, 'f-dn');
+            _.addClassName(this.errorParent, 'f-dn');
 
             // 验证数据填写 是否符合规范
             var checkList = [
@@ -145,24 +146,24 @@
             ];
             isValid = this.checkRules(checkList);
             if(!isValid){
-                errorMsg = '输入有误';
+                errorMsg = '您输入的信息不正确哦！';
             }
             // 验证两次密码
             if(isValid && this.pwd.value !== this.confirmpwd.value){
                 isValid = false;
-                errorMsg = '2次密码不一致';
+                errorMsg = '两次密码不一致呀~';
             }
 
             // 验证条款是否为空
-            if(isValid && !this.agree2terms.checked){
+            if(isValid && !this.checkbox.checked){
                 isValid = false;
-                errorMsg = '未同意条款';
+                errorMsg = '您还没有同意条款呢~';
             }
 
             // 显示错误
             if(!isValid){
                 this.nError.innerText = errorMsg;
-                _.delClassName(this.errorBox, 'f-dn');
+                _.delClassName(this.errorParent, 'f-dn');
             }
             // 返回结果
             return isValid;
@@ -175,9 +176,7 @@
             for(var i=0;i<checkRules.length;i++){
                 // 被检查的元素节点
                 var checkItem = checkRules[i][0],
-                    // 规则数组
                     rules = checkRules[i][1],
-                    // 错误标示
                     flag;
 
                 // 去除错误标示
@@ -210,9 +209,8 @@
             return check_result;
         },
 
-        submit: function(evt){
-            evt.preventDefault();
-            // ...
+        submit: function(event){
+            event.preventDefault();
             // 若验证成功
             if(this.check()){
                 // 构造数据
@@ -223,8 +221,8 @@
                     sex: this.getRadioValue('registerform', 'sex'),
                     captcha: this.captcha.value.trim()
                 };
-                // this.birthday = this.birthdaySelect.getValue().join('-');
-                // this.location = this.locationSelect.getValue();
+                this.birthday = this.birthdaySelect.getValue().join('-');
+                this.location = this.locationSelect.getValue();
                 data.province = this.location[0];
                 data.city = this.location[1];
                 data.district = this.location[2];
@@ -256,17 +254,18 @@
         },
 
         showError: function(){
-            _.delClassName(this.errorBox, 'f-dn');
+            _.delClassName(this.errorParent, 'f-dn');
         },
+
         initRegisterEvent: function(){
             // 订阅显示注册弹窗事件
             this.on('showRegisterModal', this.show.bind(this));
             // 为关闭按钮，绑定关闭弹窗事件
-            this.closeBtn.addEventListener('click', this.hide.bind(this));
+            _.addEvent(this.closeBtn, 'click', this.hide.bind(this));
             // 为二维码图片，绑定刷新事件
-            this.captchaImg.addEventListener('click', this.resetCaptcha.bind(this));
+            _.addEvent(this.captchaImg, 'click', this.resetCaptcha.bind(this));
             // 绑定提交表单事件
-            this.submitBtn.addEventListener('click', this.submit.bind(this));
+            _.addEvent(this.submitBtn, 'click', this.submit.bind(this));
         }
 
     });

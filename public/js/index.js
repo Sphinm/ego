@@ -69,4 +69,3 @@ document.querySelector('.m-register').addEventListener('click', function(){
 new Tabs();
 new Search();
 new StarList();
-

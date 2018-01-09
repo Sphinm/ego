@@ -19,6 +19,8 @@ del,ins,u,s,a,a:hover{text-decoration:none;}
 body,textarea,input,button,select,keygen,legend{font:12px/1.14 arial,微软雅黑;color:#333;outline:none;}
 body{background-color: #efefef;}
 a,a:hover{color:#333;}
+.f-dn{visibility: hidden;}
+.error{border-color: #fa5b5b;}
 
 /* header */
 .maintain-head{width:100%;background-color: #fff;}
@@ -48,7 +50,6 @@ a,a:hover{color:#333;}
 .m-display-register span{display: inline-block;margin: 13px 0 0 39px;font-size: 12px;}
 
 .m-login-info{display: inline-block;width: 190px;margin-left:35px;background: #fff;position: absolute;z-index: 99;}
-.f-dn{visibility: hidden;}
 .m-login-info .u-login-area{height: 90px;}
 .m-login-info .u-login-area .u-icon-login{float: left;width: 55px;height: 55px;background: url("../img/icon_08.png") no-repeat;margin: 15px 0 0 10px}
 .m-login-info .u-login-area .u-login-name{float: left;width: 64px;height: 20px;margin: 35px 0 0 6px;color: #000;font-size: 15px;font-weight: bold;text-overflow:ellipsis;overflow:hidden;}
@@ -250,7 +251,6 @@ a,a:hover{color:#333;}
 .u-modal .m-form .f-forget{float: right;margin-right: 28px;}
 .u-modal .m-form .f-forget .u-link{color: #999;}
 .u-modal .m-form .u-error{height: 14px;margin: 24px 0 12px 32px;text-align: left;color: #fa5b5b;}
-.u-modal .m-form .f-dn{visibility: hidden;}
 .u-modal .m-form .u-error .u-icon-error{display:inline-block;width: 14px;height: 13px;background: url("../img/small.png") no-repeat 0 -48px;}
 .u-modal .m-form .u-btn-primary{width: 344px;height: 39px;margin:4px;background: #5ed0ba;border-radius:3px;border: 0;color: #fff;font-size: 14px;}
 
@@ -264,13 +264,12 @@ a,a:hover{color:#333;}
 .u-register .u-formitem .formitem_tt{color: #636161;float: left;margin: 15px 0;}
 .u-register .u-formitem .yuan{width:266px;height:40px;border: 1px solid #a5f1e1;border-radius:3px;float: right;padding-left: 10px;}
 .u-register .u-formitem .yuan::-webkit-input-placeholder{color: #b5b5b6;}
-.u-register .sex_box{height: 40px ;display:flex;justify-content:center;align-items:center;}
-.u-register .sex_box label{width: 155px;display:flex;justify-content:center;align-items:center;color: #727171;}
-.u-register input[type=radio]{display:none;}
-.u-register input[type=radio] ~ .u-icon{margin-right:16px;color:#5ed0ba;}
-.u-register input[type=radio] ~ .u-icon-radio{display:none;}
-.u-register input[type=radio]:checked ~ .u-icon-radio{display:inline-block;}
-.u-register input[type=radio]:checked ~ .u-icon-radiocircle{display:none;}
+.u-register .sex_box{height: 40px ;display:flex;justify-content:center;align-items:center;position: relative;}
+.u-register .sex_box .radio{width: 100px;display:flex;justify-content:center;align-items:center;color: #727171;margin-left: 60px;margin-right:-20px;position: relative;cursor: pointer;}
+.u-register .sex_box .radio input{-webkit-appearance: none;}
+.u-register .radio .u-icon-radio{display: block;position: absolute;left: 0;width: 15px;height: 15px;outline: 0;border: 1px solid #a5f1e1;background: #fff;border-radius: 50%;transition: border-color .3s;}
+.u-register .sex_box .radio input+i:after{position: absolute;content: '';top: 3px;left: 3px;width: 9px;height: 9px;border-radius: 50%;background-color: #5ed0ba;opacity: 0;transition: opacity .1s;-webkit-transition: opacity .1s;}
+.u-register .sex_box .radio input:checked+i:after{opacity: 1;}
 .u-register .birthday_select .select_opt{z-index:99;}
 .u-register .location_select .select_opt{z-index:9;}
 .u-register .validate .u-ipt{float:right;padding-left: 10px;height:40px;width:278px;border:1px solid #a5f1e1;border-radius:3px;box-sizing:border-box;}
@@ -279,5 +278,19 @@ a,a:hover{color:#333;}
 .u-register .terms .u-checkbox{position:absolute;visibility: hidden;}
 .u-register .terms .u-checkbox+label{display: inline-block;width: 13px;height: 13px;border: 1px solid #87dccc;border-radius: 3px;}
 .u-register .terms .u-checkbox:checked+label:after{content: "";position: absolute;left: 1px;bottom: 10px;width: 9px;height: 4px; border: 2px solid #5ed0ba;border-top-color: transparent;border-right-color: transparent;  transform: rotate(-45deg);}
-.u-register .terms .read{color:#2ea7e0;margin-left: 8px}
+.u-register .terms .read{color:#2ea7e0;margin-left: 5px}
+.u-register  .u-error{color: #fa5b5b;width:360px; margin-top:25px }
+.u-register  .u-error .u-icon-error{display:inline-block;width: 14px;height: 13px;background: url("../img/small.png") no-repeat 0 -48px;}
 .u-register .u-btn-primary{width: 360px;height: 39px;margin:4px;background: #87dccc;border-radius:3px;border: 0;color: #fff;font-size: 14px;}
+.u-register .m-cascadeselect{display:flex;justify-content:space-between;height:100%;margin-left: 67px}
+.u-register .m-cascadeselect > .m-select{width: 78px;height: 40px;}
+.u-register .m-cascadeselect .m-select .select_hd{display:flex;justify-content:space-between;align-items:center;height:100%;border:1px solid #a5f1e1;border-radius:4px;box-sizing:border-box;}
+.u-register .m-cascadeselect .m-select .select_hd span{display:block;}
+.u-register .m-cascadeselect .m-select .select_hd .select_val{overflow:hidden;margin-left: 12px;}
+.u-register .m-cascadeselect .m-select .select_hd .u-icon{margin-top: 10px;}
+.u-register .m-cascadeselect .m-select .select_hd .u-icon-down{position:relative;width:0;height:0;margin:5px 5px 0;text-indent:0;border: 6px solid #84dbca;border-color: #84dbca transparent transparent;content: ".";}
+.u-register .m-cascadeselect .m-select .select_opt{position:absolute;top:100%;left:0;width:100%;height:120px;border:1px solid #f4f4f4;background:#fff;overflow-y:auto;}
+.u-register .m-cascadeselect .m-select .select_opt::-webkit-scrollbar{display:block;}
+.u-register .m-cascadeselect .m-select .select_opt li{line-height:30px;overflow-x:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.u-register .m-cascadeselect .m-select .select_opt li:hover{background-color:#f4f4f4;}
+.u-register .m-cascadeselect .m-select .select_opt li.z-select{background-color:#f4f4f4;}
