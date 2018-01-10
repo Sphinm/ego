@@ -7,19 +7,19 @@
         <form class="m-form" id="registerform">
             <div class="u-formitem">
                 <label for="phone" class="formitem_tt">手机号</label>
-                <input id="phone" name="phone" placeholder="请输入11位手机号码" class="formitem_ct u-ipt yuan"/>
+                <input id="phone" name="phone" autocomplete="off" placeholder="请输入11位手机号码" class="formitem_ct u-ipt yuan"/>
             </div>
             <div class="u-formitem">
                 <label for="nickname" class="formitem_tt">昵 称</label>
-                <input id="nickname" name="nickname" placeholder="中英文均可，至少8个字符" class="formitem_ct u-ipt yuan"/>
+                <input id="nickname" name="nickname" autocomplete="off" placeholder="中英文均可，至少8个字符" class="formitem_ct u-ipt yuan"/>
             </div>
             <div class="u-formitem">
                 <label for="password" class="formitem_tt">密 码</label>
-                <input type="password" id="password" name="password" placeholder="长度6-16个字符，不包含空格" class="yuan formitem_ct u-ipt"/>
+                <input type="password" id="password" autocomplete="off" name="password" placeholder="长度6-16个字符，不包含空格" class="yuan formitem_ct u-ipt"/>
             </div>
             <div class="u-formitem">
                 <label for="comform_password" class="formitem_tt">确认密码</label>
-                <input type="password" id="comform_password" name="comform_password" placeholder="" class="yuan formitem_ct u-ipt"/>
+                <input type="password" id="comform_password" autocomplete="off" name="comform_password" placeholder="" class="yuan formitem_ct u-ipt"/>
             </div>
             <div class="u-formitem">
                 <label for="" class="formitem_tt">性 别</label>
@@ -52,7 +52,7 @@
                 <label for="" class="formitem_tt">验证码</label>
                 <div class="formitem_ct validate">
                     <img class="captchaImg" src="/captcha" alt="" />
-                    <input type="text" id="captcha" class="u-ipt" />
+                    <input type="text" autocomplete="off" id="captcha" class="u-ipt" />
                 </div>
             </div>
             <div class="terms">
@@ -209,24 +209,23 @@
         },
 
         submit: function(event){
-            var that = this;
             event.preventDefault();
-            if(that.check()){
+            if(this.check()){
                 var data = {
-                    username: that.phone.value.trim(),
-                    nickname: that.nick.value.trim(),
-                    password: hex_md5(that.pwd.value),
-                    sex: that.getRadioValue('registerform', 'sex'),
-                    captcha: that.captcha.value.trim(),
-                    // remember: !!that.remembered.checked
+                    username: this.phone.value.trim(),
+                    nickname: this.nick.value.trim(),
+                    password: hex_md5(this.pwd.value),
+                    sex: this.getRadioValue('registerform', 'sex'),
+                    captcha: this.captcha.value.trim(),
+                    remember: !!this.remembered.checked
                 };
 
-                that.birthday = that.birthdaySelect.getValue().join('-');
-                that.location = that.locationSelect.getValue();
-                data.province = that.location[0];
-                data.city = that.location[1];
-                data.district = that.location[2];
-                data.birthday = that.birthday;
+                this.birthday = this.birthdaySelect.getValue().join('-');
+                this.location = this.locationSelect.getValue();
+                data.province = this.location[0];
+                data.city = this.location[1];
+                data.district = this.location[2];
+                data.birthday = this.birthday;
                 // 发送请求
 
                 _.ajax({
@@ -234,18 +233,16 @@
                     method:'POST',
                     data:data,
                     success:function(data){
-                        console.log(444)
                         data = JSON.parse(data);
                         if(data.code === 200){
-                            console.log(18333633736)
-                            that.hide();
-                            that.emit('showLoginModal');
+                            this.hide();
+                            this.emit('showLoginModal');
                         }
                         else{
-                            that.nError.innerText = data;
-                            that.showError();
+                            this.nError.innerText = data;
+                            this.showError();
                         }
-                    }.bind(that),
+                    }.bind(this),
                     fail:function(){}
                 });
             }

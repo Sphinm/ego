@@ -64,7 +64,6 @@
             on: function(event, fn) {
                 var handles = this._handles || (this._handles = {}),
                     calls = handles[event] || (handles[event] = []);
-
                 // 找到对应名字的栈
                 calls.push(fn);
 
@@ -75,6 +74,7 @@
             emit: function(event){
                 var args = [].slice.call(arguments, 1),
                     handles = this._handles, calls;
+
 
                 if (!handles || !(calls = handles[event])) return this;
                 // 触发所有对应名字的listeners

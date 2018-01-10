@@ -8,7 +8,7 @@
                                     <span>还没有账号？ <a class="u-link" id="goregister">立即注册</a></span>
                                 </div>
                                 <form class="m-form">
-                                    <div class="u-formitem"><input id="username" type="text" placeholder="手机号" class="u-input"> </div>
+                                    <div class="u-formitem"><input id="username" type="text" autocomplete="off" placeholder="手机号" class="u-input"> </div>
                                     <div class="u-formitem u-formitem1"><input id="password" autocomplete="off" type="password" placeholder="密码" class="u-input"> </div>
                                     <div class="u-formitem u-formitem2">
                                         <div class="u-check">

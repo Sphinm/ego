@@ -41,7 +41,7 @@
             ];
             var config = followConfig[Number(data.isFollow)];
             var html  = `<li class="m-card">
-                            <img src="img/icon_01.png" alt="头像" class="card-avatar">
+                            <img src="../img/icon_01.png" alt="头像" class="card-avatar">
                             <div class="card-info">
                                 <div class="card-name">${data.nickname}</div>
                                 <div class="card-fans"><span class="works">作品 ${data.workCount}</span>粉丝 ${data.followCount}</div>
@@ -58,7 +58,7 @@
             if (target.tagName.toUpperCase() === 'BUTTON'){
                 if(target.dataset.loginstatus === 'false'){
                     // 弹出登录弹窗
-                    this.emit('loginModal');
+                    this.emit('showLoginModal');
                     return;
                 }
 
@@ -66,7 +66,7 @@
                 // data 就是点击的用户信息，这里使用假数据替代
                 data = {
                     id: target.dataset.userid,
-                    nickname: 'moick',
+                    nickname: 'Nockle',
                     workCount: 68,
                     followCount: 945
                 };
@@ -128,12 +128,9 @@
         },
 
         initStartList:function () {
-            //初始化时候载入节点
             this.list.appendChild(this.container);
             this.getStarList();
             _.delegateEvent(this.ul, 'button', 'click', this.followHandler.bind(this));
-            this.on('login', this.getStarList.bind(this));
-
         }
 
     });

@@ -64,15 +64,18 @@ var modalLogin = new LoginModal();
 var registerLogin = new RegisterModal();
 
 document.querySelector('.m-login').addEventListener('click', function(){
-    modalLogin.show()
+    modalLogin.show();
     modalLogin.on('showRegisterModal', registerLogin.show.bind(registerLogin))
 });
 
 
 document.querySelector('.m-register').addEventListener('click', function(){
     registerLogin.show();
-    registerLogin.on('showRegisterModal', modalLogin.show.bind(modalLogin));
+    registerLogin.on('showLoginModal', modalLogin.show.bind(modalLogin));
 });
+
+// var star = new StarList();
+// star.on('showLoginModal', this.getStarList.bind(this));
 
 new Tabs();
 new Search();

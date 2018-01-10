@@ -22,7 +22,7 @@ a,a:hover{color:#333;}
 .f-dn{visibility: hidden;}
 
 /* header */
-.maintain-head{width:100%;background-color: #fff;}
+.maintain-head{width:100%;background-color: #fff;overflow: hidden}
 .g-header{width: 1200px;height: 90px;margin:0 auto;}
 .m-logo{float: left;width: 215px;height: 51px;margin-top: 22px;margin-left: 103px;background: url("../img/shouye.png") no-repeat 0 -257px;}
 .m-tab{position: relative;float: left;margin-left: 47px;margin-top: 23px;width: 310px;height: 39px;}
@@ -82,7 +82,7 @@ a,a:hover{color:#333;}
 .g-banner #next:hover{opacity: 1;}
 
 /* body */
-.g-body{width: 1080px;margin:50px auto 0;}
+.g-body{width: 1080px;margin:50px auto 0;overflow: hidden}
 /* main */
 .g-main{float: left;width: 760px;height: 368px;background-color: #fff;border-collapse: collapse;}
 .g-main .m-section{height: 72px;}
