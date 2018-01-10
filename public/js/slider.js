@@ -14,7 +14,7 @@
         this.container.style.overflow = 'hidden';
         // 组件节点，并转换为数组
         this.slider = this._layout.cloneNode(true);
-        this.slides = [].slice.call(this.slider.querySelectorAll('.slide'));
+        this.slides = Array.prototype.slice.call(this.slider.querySelectorAll('.slide'));
         // 根据节点显示当前图片的数量
         this.showNum = this.slides.length;
         // 拖拽相关
@@ -138,7 +138,7 @@
                     img = document.createElement('img');
                     slides[index].appendChild(img);
                 }
-                img.src = 'img/banner' + ( this._normIndex(pageIndex + i, this.pageNum) + 1 ) + '.jpg';
+                img.src = '../img/banner' + ( this._normIndex(pageIndex + i, this.pageNum) + 1 ) + '.jpg';
             }
 
             // 触发nav事件

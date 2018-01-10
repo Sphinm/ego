@@ -6,9 +6,9 @@
         '<div class="m-tab">\
                 <ul class="f-cb">\
                    <li class="z-active"><a href="./index.html">首页</a></li>\
-                   <li><a href="./html/works.html" target="_blank">作品</a></li>\
-                   <li><a href="./html/circle.html" target="_blank">圈子</a></li>\
-                   <li><a href="./html/imagine.html" target="_blank">奇思妙想</a></li>\
+                   <li><a href="../html/myworks.html" target="_blank">作品</a></li>\
+                   <li><a href="../html/circle.html" target="_blank">圈子</a></li>\
+                   <li><a href="../html/imagine.html" target="_blank">奇思妙想</a></li>\
                 </ul>\
                <div class="tabs-track">\
                     <div class="tabs-thumb" style="width: 68px;left: 0;"></div>\

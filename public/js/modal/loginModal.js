@@ -66,6 +66,11 @@
         hide: function() {
             var container  = this.container;
             document.body.removeChild(container);
+            _.addClassName(this.ErrorParent, 'f-dn');
+            _.delClassName(this.userName, 'error');
+            _.delClassName(this.password, 'error');
+            this.userName.value = '';
+            this.password.value = '';
         },
 
         register: function () {

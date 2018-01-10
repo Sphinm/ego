@@ -64,13 +64,13 @@ var modalLogin = new LoginModal();
 var registerLogin = new RegisterModal();
 
 document.querySelector('.m-login').addEventListener('click', function(){
-    (new LoginModal()).show();
+    modalLogin.show()
     modalLogin.on('showRegisterModal', registerLogin.show.bind(registerLogin))
 });
 
 
 document.querySelector('.m-register').addEventListener('click', function(){
-    (new RegisterModal()).show();
+    registerLogin.show();
     registerLogin.on('showRegisterModal', modalLogin.show.bind(modalLogin));
 });
 
