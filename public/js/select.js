@@ -71,8 +71,8 @@
         },
 
         getValue: function(){
-            console.log((typeof this.options[this.selectedIndex] !== 'undefined') ? this.options[this.selectedIndex].value : '')
-            return (typeof this.options[this.selectedIndex] !== 'undefined') ? this.options[this.selectedIndex].value : 'undefined';
+            if (this.selectedIndex === 0)
+            return this.options[this.selectedIndex] !== 0 ? this.options[this.selectedIndex].value : '';
         },
 
         toggle: function(){
@@ -88,9 +88,10 @@
             _.addClassName(this.nOption, 'f-dn');
         },
 
-        clickHandler: function(evt){
+        clickHandler: function(event){
             // 若选中的是li,则触发setSelect
-            evt.target.dataset.index !== undefined ? this.setSelect(evt.target.dataset.index) : null;
+            console.log(event.target.dataset)
+            event.target.dataset.index !== undefined ? this.setSelect(event.target.dataset.index) : null;
             this.toggle();
         },
 

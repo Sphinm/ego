@@ -230,7 +230,7 @@
                     captcha: this.captcha.value.trim()
                 };
                 console.log(data)
-                // this.birthday = this.birthdaySelect.getValue().join('-');
+                this.birthday = this.birthdaySelect.getValue().join('-');
                 this.location = this.locationSelect.getValue();
                 data.province = this.location[0];
                 data.city = this.location[1];
