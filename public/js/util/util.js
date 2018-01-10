@@ -71,6 +71,19 @@
                 return this;
             },
 
+            // 触发事件
+            emit: function(event){
+                var args = [].slice.call(arguments, 1),
+                    handles = this._handles, calls;
+
+                if (!handles || !(calls = handles[event])) return this;
+                // 触发所有对应名字的listeners
+                for (var i = 0, len = calls.length; i < len; i++) {
+                    calls[i].apply(this, args)
+                }
+                return this;
+            },
+
             // 解绑事件
             off: function(event, fn) {
                 if(!event || !this._handles) this._handles = {};
@@ -92,20 +105,8 @@
                     }
                 }
                 return this;
-            },
-
-            // 触发事件
-            emit: function(event){
-                var args = [].slice.call(arguments, 1),
-                    handles = this._handles, calls;
-
-                if (!handles || !(calls = handles[event])) return this;
-                // 触发所有对应名字的listeners
-                for (var i = 0, len = calls.length; i < len; i++) {
-                    calls[i].apply(this, args)
-                }
-                return this;
             }
+
         };
 
     _.ajax = function (obj) {
@@ -196,13 +197,12 @@
                 return result_data;
             });
         }
-        var select_data = mapping(data);
-        return select_data;
+        return mapping(data);
+
     };
-    // 10. 以选择器data格式，生成日期数据 {name:,value:,list:}
+    //  以选择器data格式，生成日期数据 {name:,value:,list:}
     _.createDateData = function(start_year, end_year){
-        // 默认值
-        start_year = start_year || 1970;
+        start_year = start_year || 1970;    // 初始值
         end_year = end_year || new Date().getFullYear();
         // 日模板  (用模板，可以省去第3重循环，提升效率)
         var day_template = [];
@@ -228,12 +228,14 @@
         }
         return select_data;
     };
-    // 11. 计算年龄
+
+    // 计算年龄
     _.calculateAge = function(birthday){
-        birthday = birthday.replace(/-/g,'/'); // Safari Date 不识别 1990-1-1，只识别 1990/1/1
+        birthday = birthday.replace(/-/g,'/');
         return parseInt((new Date().getTime() - new Date(birthday).getTime()) / 1000 / 3600 / 24 / 365, 10);
     };
-    // 12. 查找城市名
+
+    //  查找城市名
     _.searchCity = function(src, target){
         src.some(function(item){
             if(item[0] === target.province){
@@ -248,7 +250,8 @@
         });
         return target.city_name;
     };
-    // 13. 计算星座
+
+    //  计算星座
     _.calculateZodiac = function(birthday){
         birthday = birthday.split('-');
         var month = Number(birthday[1]);
@@ -263,8 +266,8 @@
                 user_zodiac = item[4];
                 return true;
             }
+            return user_zodiac;
         });
-        return user_zodiac;
     };
 
 })(window);

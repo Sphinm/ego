@@ -283,12 +283,11 @@ a,a:hover{color:#333;}
 .u-register  .u-error .u-icon-error{display:inline-block;width: 14px;height: 13px;background: url("../img/small.png") no-repeat 0 -48px;}
 .u-register .u-btn-primary{width: 360px;height: 39px;margin:4px;background: #87dccc;border-radius:3px;border: 0;color: #fff;font-size: 14px;}
 .u-register .m-cascadeselect{display:flex;justify-content:space-between;height:100%;margin-left: 67px}
-.u-register .m-cascadeselect > .m-select{width: 78px;height: 40px;}
-.u-register .m-cascadeselect .m-select .select_list{display:flex;justify-content:space-between;align-items:center;height:100%;border:1px solid #a5f1e1;border-radius:4px;box-sizing:border-box;}
-.u-register .m-cascadeselect .m-select .select_list .select_val{overflow:hidden;margin-left: 15px;}
-.u-register .m-cascadeselect .m-select .select_list .u-icon-down{position:relative;width:0;height:0;margin:5px 5px 0;text-indent:0;border: 6px solid #84dbca;border-color: #84dbca transparent transparent;content: ".";}
+.u-register .m-cascadeselect .m-select{position:relative;text-indent:10px;cursor:pointer;}
+.u-register .m-cascadeselect .m-select .select_list{width: 78px;height: 40px;display:flex;justify-content:space-between;align-items:center;border:1px solid #a5f1e1;border-radius:5px;}
+.u-register .m-cascadeselect .m-select .select_list .u-icon-down{width:0;height:0;margin:5px 5px 0;text-indent:0;border: 6px solid #84dbca;border-color: #84dbca transparent transparent;content: ".";}
 .u-register .m-cascadeselect .m-select .select_opt{position:absolute;top:100%;left:0;width:100%;height:120px;border:1px solid #f4f4f4;background:#fff;overflow-y:auto;}
-.u-register .m-cascadeselect .m-select .select_opt::-webkit-scrollbar{display:block;}
-.u-register .m-cascadeselect .m-select .select_opt li{line-height:30px;overflow-x:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.u-register .m-cascadeselect .m-select .select_opt.f-no{display: none}
+.u-register .m-cascadeselect .m-select .select_opt::-webkit-scrollbar{display:none;}
+.u-register .m-cascadeselect .m-select .select_opt li{line-height:30px;overflow-x:hidden;white-space:nowrap;text-overflow:ellipsis;text-align: left}
 .u-register .m-cascadeselect .m-select .select_opt li:hover{background-color:#f4f4f4;}
-.u-register .m-cascadeselect .m-select .select_opt li.z-select{background-color:#f4f4f4;}

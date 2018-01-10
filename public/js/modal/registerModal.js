@@ -83,9 +83,9 @@
         this.pwd = this.container.querySelector('#password');
         this.confirmpwd = this.container.querySelector('#comform_password');
         this.captcha = this.container.querySelector('#captcha');
-        this.checkbox = this.container.querySelector('.u-checkbox');
         this.errorParent = this.container.querySelector('.u-error');
         this.nError = this.container.querySelector('#errormsg');
+        this.remembered = this.container.querySelector('.u-checkbox');
         this.submitBtn = this.container.querySelector('#submit');
 
         // 初始化
@@ -110,16 +110,12 @@
             document.body.removeChild(container);
         },
         initSelects: function(){
-            // 生日 级联选择器
             this.birthdaySelect = new Cascade({
                 parent: this.container.querySelector('.birthday_select'),
-                // 生日数据（为了让 生日和地址 可以共用一个级联选择器组件，则构造相同的数据结构）
                 data: _.createDateData()
             });
-            // 地址 级联选择器
             this.locationSelect = new Cascade({
                 parent:this.container.querySelector('.location_select'),
-                // 地址数据
                 data: _.toSelectData(ADDRESS_CODES)
             });
         },
@@ -135,7 +131,7 @@
             // 隐藏错误信息框
             _.addClassName(this.errorParent, 'f-dn');
 
-            // 验证数据填写 是否符合规范
+            // 验证数据
             var checkList = [
                 [this.phone, ['require', 'phone']],
                 [this.nick, ['require', 'nickname']],
@@ -155,11 +151,9 @@
 
         checkRules: function(checkRules){
             var that = this;
-            // 验证结果
             var check_result = true;
 
             for(var i=0;i<checkRules.length;i++){
-                // 被检查的元素节点
                 var checkItem = checkRules[i][0],
                     rules = checkRules[i][1],
                     flag;
@@ -167,7 +161,6 @@
                 // 去除错误标示
                 _.delClassName(checkItem, 'error');
                 for(var j=0;j<rules.length;j++){
-                    // 检测规则名称
                     var key = rules[j];
                     switch(key){
                         case 'require':
@@ -206,53 +199,53 @@
                     }
                     if(!flag){break;}
                 }
-                // 显示错误
                 flag || _.addClassName(checkItem, 'error');
                 flag || (check_result = false);
 
             }
-            // 若无错误
+            // 无错误
             flag && _.addClassName(this.errorParent, 'f-dn');
             return check_result;
         },
 
         submit: function(event){
+            var that = this;
             event.preventDefault();
-            // 若验证成功
-            if(!this.check()){
-
-                // 构造数据
+            if(that.check()){
                 var data = {
-                    username: this.phone.value.trim(),
-                    nickname: this.nick.value.trim(),
-                    password: hex_md5(this.pwd.value),
-                    sex: this.getRadioValue('registerform', 'sex'),
-                    captcha: this.captcha.value.trim()
+                    username: that.phone.value.trim(),
+                    nickname: that.nick.value.trim(),
+                    password: hex_md5(that.pwd.value),
+                    sex: that.getRadioValue('registerform', 'sex'),
+                    captcha: that.captcha.value.trim(),
+                    // remember: !!that.remembered.checked
                 };
-                console.log(data)
-                this.birthday = this.birthdaySelect.getValue().join('-');
-                this.location = this.locationSelect.getValue();
-                data.province = this.location[0];
-                data.city = this.location[1];
-                data.district = this.location[2];
-                data.birthday = this.birthday;
+
+                that.birthday = that.birthdaySelect.getValue().join('-');
+                that.location = that.locationSelect.getValue();
+                data.province = that.location[0];
+                data.city = that.location[1];
+                data.district = that.location[2];
+                data.birthday = that.birthday;
                 // 发送请求
+
                 _.ajax({
                     url:'/api/register',
                     method:'POST',
                     data:data,
                     success:function(data){
-                        console.log(data);
+                        console.log(444)
                         data = JSON.parse(data);
                         if(data.code === 200){
-                            this.hide();
-                            this.emit('showLoginModal');
+                            console.log(18333633736)
+                            that.hide();
+                            that.emit('showLoginModal');
                         }
                         else{
-                            this.nError.innerText = data.msg;
-                            this.showError();
+                            that.nError.innerText = data;
+                            that.showError();
                         }
-                    }.bind(this),
+                    }.bind(that),
                     fail:function(){}
                 });
             }
@@ -267,13 +260,8 @@
         },
 
         initRegisterEvent: function(){
-            // 订阅显示注册弹窗事件
-            // this.on('showRegisterModal', this.show.bind(this));
-            // 为关闭按钮，绑定关闭弹窗事件
             _.addEvent(this.closeBtn, 'click', this.hide.bind(this));
-            // 为二维码图片，绑定刷新事件
             _.addEvent(this.captchaImg, 'click', this.resetCaptcha.bind(this));
-            // 绑定提交表单事件
             _.addEvent(this.submitBtn, 'click', this.submit.bind(this));
         }
 

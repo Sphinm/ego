@@ -52,7 +52,7 @@
     }
 
     // 事件注册
-    _.extend( LoginModal.prototype, _.emitter);
+    _.extend(LoginModal.prototype, _.emitter);
 
     _.extend(LoginModal.prototype,{
 
@@ -118,11 +118,11 @@
             var that = this;
             event.preventDefault();
             var data = {
-                username: this.userName.value.trim(),
-                password: hex_md5(this.password.value),
-                remember: !!this.remember.checked
+                username: that.userName.value.trim(),
+                password: hex_md5(that.password.value),
+                remember: !!that.remember.checked
             };
-            if (this.check()) {
+            if (that.check()) {
                 _.ajax({
                     url: '/api/login',
                     method: 'POST',
@@ -145,7 +145,6 @@
         initLoginEvent: function () {
             //    绑定提交事件
             //    绑定跳转注册事件
-            this.on('showLoginModal', this.show.bind(this));
             _.addEvent(this.close, 'click' ,this.onCancel.bind(this));
             _.addEvent(this.goregister, 'click', this.register.bind(this));
             _.addEvent(this.submit, 'click', this._submit.bind(this));
