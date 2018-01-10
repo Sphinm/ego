@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
     <title>上传作品</title>
     <link rel="stylesheet" href="../common/base.css">
+    <link rel="stylesheet" href="../common/upload.css">
 </head>
 <body>
     <!-- 顶栏区 -->
@@ -35,6 +36,79 @@
                     <li class="login-info login-out"><a href="index.html">退出账号</a></li>
                 </ul>
             </div>
+        </div>
+    </div>
+    <div class="g-body f-bd">
+        <!-- 主栏 -->
+        <div class="u-main">
+            <div class="m-classificworks">
+                <label class="classific_title">作品分类</label>
+                <label class="classific_radio">
+                    <input type="radio" name="category" value="0" checked="">
+                    <span class="u-btn">原创</span>
+                </label>
+                <label class="classific_radio">
+                    <input type="radio" name="category" value="1">
+                    <span class="u-btn">临摹</span>
+                </label>
+            </div>
+            <div class="m-uploadpictures">
+                <div class="upload_controller f-cb">
+                    <label class="upload_title">上传图片</label>
+                    <div class="f-oh">
+                        <div class="f-cb">
+                            <label>
+                                <span class="upload_btn u-btn u-btn-primary">选择图片上传</span>
+                                <input class="upload_input" type="file" multiple="" accept="image/*">
+                            </label>
+                            <progress class="f-dn" max="4" value="4"></progress>
+                            <span class="progress_msg"></span>
+                        </div>
+                        <p class="prompt_box">提示：作品可以包含多张图片，一次选择多张图片，最多不超过10张（单张图片大小小于1M）</p>
+                    </div>
+                </div>
+                <ul class="pictures_controller f-cb">
+                </ul>
+            </div>
+            <div class="m-workdescription">
+                <div class="f-cb">
+                    <label class="name_title">作品名称</label><input class="u-ipt" placeholder="给作品起个名字吧"><span class="prompt_msg f-dn">你的作品还没有取名字哦</span>
+                </div>
+                <div class="f-cb">
+                    <label class="description_title">作品说明</label>
+                    <textarea class="u-ipt"></textarea>
+                </div>
+            </div>
+            <button class="subimit u-btn u-btn-primary">创建</button>
+        </div>
+        <!-- 侧边栏 -->
+        <div class="g-side">
+            <div class="m-privilege"><label>权限设置</label><ul class="m-radio"><li>
+                <label class="f-cb">
+                    <input type="radio" name="privilege" value="0">
+                    <i class="u-icon u-icon-radio"></i><i class="u-icon u-icon-radiocircle"></i>所有人可见
+                </label>
+            </li><li>
+                <label class="f-cb">
+                    <input type="radio" name="privilege" value="1">
+                    <i class="u-icon u-icon-radio"></i><i class="u-icon u-icon-radiocircle"></i>关注者／粉丝可见
+                </label>
+            </li><li>
+                <label class="f-cb">
+                    <input type="radio" name="privilege" value="2">
+                    <i class="u-icon u-icon-radio"></i><i class="u-icon u-icon-radiocircle"></i>仅自己可见
+                </label>
+            </li></ul></div><div class="m-authorization"><label>作品授权</label><div class="m-select">
+            <div class="select_hd">
+                <span class="select_val">禁止匿名转载；禁止商业使用</span>
+                <span class="u-icon u-icon-dropdown"></span>
+            </div>
+            <ul class="select_opt f-dn">
+                <li data-index="0" class="">不限制作品用途</li>
+                <li data-index="1" class="z-select">禁止匿名转载；禁止商业使用</li>
+            </ul>
+        </div>
+        </div>
         </div>
     </div>
 
