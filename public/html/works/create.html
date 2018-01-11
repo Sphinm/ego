@@ -52,27 +52,11 @@
                     <span class="u-btn">临摹</span>
                 </label>
             </div>
-            <div class="m-upload">
-                <div class="upload_controller f-cb">
-                    <label class="upload_title">上传图片</label>
-                    <div class="f-oh">
-                        <div class="f-cb">
-                            <label>
-                                <span class="upload_btn u-btn u-btn-primary">选择图片上传</span>
-                                <input class="upload_input" type="file" multiple="" accept="image/*">
-                            </label>
-                            <progress class="progress f-dn" max="4" value="4"></progress>
-                            <span class="progress_msg"></span>
-                        </div>
-                        <p class="prompt_box">提示：作品可以包含多张图片，一次选择多张图片，最多不超过10张（单张图片大小小于1M）</p>
-                    </div>
-                </div>
-                <ul class="pictures_controller f-cb">
-                </ul>
-            </div>
             <div class="m-work-desc">
                 <div class="f-cb">
-                    <label class="name_title">作品名称</label><input class="u-ipt" placeholder="给作品起个名字吧"><span class="prompt_msg f-dn">你的作品还没有取名字哦</span>
+                    <label class="name_title">作品名称</label>
+                    <input class="u-ipt" placeholder="给作品起个名字吧">
+                    <span class="prompt_msg f-dn">你的作品还没有取名字哦</span>
                 </div>
                 <div class="f-cb">
                     <label class="description_title">作品说明</label>
@@ -99,7 +83,7 @@
                     <i class="u-icon u-icon-radio"></i><i class="u-icon u-icon-radiocircle"></i>仅自己可见
                 </label>
             </li></ul></div><div class="m-authorization"><label>作品授权</label><div class="m-select">
-            <div class="select_hd">
+            <div class="select_list">
                 <span class="select_val">禁止匿名转载；禁止商业使用</span>
                 <span class="u-icon u-icon-dropdown"></span>
             </div>
@@ -121,6 +105,8 @@
     <script src="../../js/modal/registerModal.js"></script>
     <script src="../../js/cascade.js"></script>
     <script src="../../js/select.js"></script>
+    <script src="../../js/upload/tag.js"></script>
+    <script src="../../js/upload/uploadPicture.js"></script>
     <script src="../../js/upload/upload.js"></script>
 </body>
 </html>
