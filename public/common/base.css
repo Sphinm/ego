@@ -20,6 +20,7 @@ body,textarea,input,button,select,keygen,legend{font:12px/1.14 arial,微软雅�
 body{background-color: #efefef;}
 a,a:hover{color:#333;}
 .f-dn{visibility: hidden;}
+.f-no{display: none}
 
 /* header */
 .maintain-head{width:100%;background-color: #fff;}
