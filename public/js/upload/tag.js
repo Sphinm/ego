@@ -17,7 +17,7 @@
 
         this.container = _.html2node(html);
         this.tagUrl = this.container.querySelector('.tag_list');
-        this.parent = document.getElementsByClassName('u-main')[0];
+        // this.parent = document.getElementsByClassName('u-main')[0];
         this.tagRecUrl = this.container.querySelector('.tag_rec_list');
         this.tagList = [];
         this.tagListRec = [];
@@ -118,6 +118,7 @@
         },
 
         initTagList: function(){
+            console.log(222)
             // 添加最后的自定义标签
             this.add_tag = _.html2node(`<li class="add_tag"><input class="f-dn" /><span>自定义标签</span></li>`);
             this.tagUrl.appendChild(this.add_tag);
@@ -135,8 +136,6 @@
 
         initTag: function(){
 
-            this.getDataTag();
-
             // 1.检验必传参数
             if(!this.parent){
                 console.log('请传入标签父容器节点');
@@ -149,30 +148,11 @@
             this.addEvent();
 
             // 4.挂载组件
+            console.log(this.parent)
             this.parent.appendChild(this.container);
 
-        },
-
-        getDataTag: function () {
-            _.ajax({
-                url: '/api/tags?recommend',
-                method: 'GET',
-                success: function(data){
-                    data = JSON.parse(data);
-                    if(data.code === 200){
-                        this.tag = new Tag({
-                            parent: document.getElementsByClassName('u-main')[0],
-                            tags_recommend: data.result.split(',')
-                        });
-                        console.log(parent)
-                    }
-                    else{
-                        console.log(data);
-                    }
-                }.bind(this),
-                fail:function(){console.log(123)}
-            });
         }
+
     });
 
     // ----------------------------------------------------------------------

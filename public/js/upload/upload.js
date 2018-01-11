@@ -31,12 +31,28 @@
         registerLogin.on('showRegisterModal', modalLogin.show.bind(modalLogin));
     });
 
+
     new Tabs();
     new Search();
-    new Tag();
     new UploadPicture();
 
-
+    _.ajax({
+        url: '/api/tags?recommend',
+        method: 'GET',
+        success: function(data){
+            console.log(data)
+            data = JSON.parse(data);
+            if(data.code === 200){
+                this.tag = new Tag({
+                    parent: document.getElementsByClassName('u-main')[0],
+                    tags_recommend: data.result.split(',')
+                });
+            } else{
+                console.log(data);
+            }
+        }.bind(this),
+        fail:function(){console.log(123)}
+    });
 
 
 })(window);
