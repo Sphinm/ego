@@ -17,7 +17,6 @@
 
         this.container = _.html2node(html);
         this.tagUrl = this.container.querySelector('.tag_list');
-        // this.parent = document.getElementsByClassName('u-main')[0];
         this.tagRecUrl = this.container.querySelector('.tag_rec_list');
         this.tagList = [];
         this.tagListRec = [];
@@ -118,8 +117,7 @@
         },
 
         initTagList: function(){
-            console.log(222)
-            // 添加最后的自定义标签
+            // 自定义标签
             this.add_tag = _.html2node(`<li class="add_tag"><input class="f-dn" /><span>自定义标签</span></li>`);
             this.tagUrl.appendChild(this.add_tag);
             // 添加默认选中标签
@@ -135,22 +133,10 @@
 
 
         initTag: function(){
-
-            // 1.检验必传参数
-            if(!this.parent){
-                console.log('请传入标签父容器节点');
-                return;
-            }
-            // 2.初始化默认标签（选中标签、推荐标签）
+            if(!this.parent) console.log('请传入标签父容器节点');
             this.initTagList();
-
-            // 3.绑定事件
             this.addEvent();
-
-            // 4.挂载组件
-            console.log(this.parent)
             this.parent.appendChild(this.container);
-
         }
 
     });

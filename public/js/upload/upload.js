@@ -40,7 +40,6 @@
         url: '/api/tags?recommend',
         method: 'GET',
         success: function(data){
-            console.log(data)
             data = JSON.parse(data);
             if(data.code === 200){
                 this.tag = new Tag({
@@ -51,7 +50,7 @@
                 console.log(data);
             }
         }.bind(this),
-        fail:function(){console.log(123)}
+        fail:function(){console.log('data translate fail')}
     });
 
 
