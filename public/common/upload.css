@@ -2,7 +2,7 @@
 .u-main,.g-side{border:1px solid #e0e1e1;}
 .u-main{float:left;position:relative;width:770px;background:#fff;padding-bottom:40px;}
 .g-side{float:right;width:316px;padding-left:20px;box-sizing:border-box;background:#f7f8f8;margin-top: 0;}
-.u-main .submit{position:relative;left:138px;height:40px;width:100px;border: 0;background: #5ed0ba;color: #fff;border-radius: 3px;}
+.u-main .submit{position:absolute;margin:40px 0 0 138px;height:40px;bottom:40px;width:100px;border: 0;background: #5ed0ba;color: #fff;border-radius: 3px;}
 
 .works{margin:0 13px;padding: 15px 0;border-bottom:2px solid #f2f2f2;height: 60px;}
 .works label{float: left}
@@ -13,7 +13,7 @@
 .works input[type=radio]:checked + .u-btn{background:#5ed0ba;color:#fff;}
 
 .m-upload{height: 86px;}
-.m-upload .upload_controller{padding-bottom:35px;}
+.m-upload .upload_controller{position:relative;padding-bottom:35px;}
 .m-upload .upload_title{display:inline-block;margin:27px 0 0 39px;width:88px;height:13px;font-weight:bold;}
 .m-upload .upload_btn{float: left;width:128px;height:27px;margin: -25px 0 0 135px;padding-top:12px;cursor:pointer;border:1px solid #5ed0ba;background: #5ed0ba;text-align: center;color:#fff;border-radius: 5px;}
 .m-upload .upload_input{display:none;}
@@ -21,7 +21,7 @@
 .m-upload progress{display:inline-block;margin-top:-20px;height:30px;}
 .m-upload .progress_msg{float:left;margin-left:10px;height:40px;line-height:40px;font-size:12px;}
 /* 图片控制器 */
-.m-upload .pictures_controller{min-height:160px;padding-left:78px;padding-top:35px;border-top:2px solid #e9eaea;border-bottom:2px solid #e9eaea;background:#f7f8f8;box-sizing:border-box;}
+.m-upload .pictures_controller{float:right;min-height:418px;display:block;padding-left:770px;padding-top:35px;border-top:2px solid #e9eaea;border-bottom:2px solid #e9eaea;background:#f7f8f8;box-sizing:border-box;}
 .m-upload .pictures_controller li{float:left;position:relative;margin-bottom:10px;margin-right:27px;padding-bottom:40px;}
 /* 图片 */
 .m-upload .pictures_controller img{width:101px;height:140px;background: #8b8a8a}
@@ -36,32 +36,26 @@
 .m-upload .pictures_controller li:hover .hover_bg{display:block;}
 .m-upload .pictures_controller .u-icon{position:absolute;top:2px;right:2px;font-weight:900;color:#fff;cursor:pointer;}
 
-/* 作品名称、作品描述组件 */
-.m-work-desc{padding-left:140px;padding-top:66px;}
+/* 作品名称 */
+.m-work-desc{padding:26px 0 0 140px;display: block;float:left}
 .m-work-desc .f-cb + .f-cb{margin-top:25px;}
-.m-work-desc label{float:left;width:77px;font-size:12px;font-weight:600;line-height:38px;}
+.m-work-desc label{float:left;width:77px;font-size:13px;line-height:40px;color: #000;}
 .m-work-desc input,.m-work-desc textarea{-webkit-border-radius:0;border-radius:0;}
 .m-work-desc input{height:38px;width:294px;padding-left: 15px;}
 .m-work-desc textarea{width:404px;height:104px;padding:15px;box-sizing:border-box;}
 .m-work-desc .prompt_msg{margin-left:28px;font-size:11px;color:red;background-color: pink}
 
-/* 标签组件 样式 */
-.m-tag{margin-top:23px;padding-left:161px;}
+.m-tag{margin-top:23px;padding-left:140px;float: left;font-size:13px;line-height:30px;}
 .m-tag li{display:inline-block;border:1px solid #5ed0ba;border-radius:3px;text-align:center;cursor:pointer;}
-/* 选中标签组 */
-.m-tag .tag_title{float:left;width:66px;height:26px;line-height:26px;font-size:12px;font-weight:500;}
+.m-tag .tag_title{float:left;width:66px;height:26px;line-height:26px;font-size:12px;font-weight:500;color: #000;}
 .m-tag .tag_list{overflow:hidden;}
 .m-tag .tag_list li{position:relative;margin-left:10px;margin-bottom:8px;padding:0 10px;height:26px;line-height:26px;font-size:10px;color:#5ed0ba;background-color:#fff;}
 .m-tag .tag_list li:hover::before{content:'x';position:absolute;top:0;right:2px;line-height:1em;font-size:8px;font-weight:500;color:#dcdddd;}
-/* 自定义标签 */
 .m-tag .tag_list li.add_tag{padding:0;width:92px;white-space:nowrap;}
 .m-tag .tag_list li.add_tag:hover::before{content:'';}
-/* 自定义标签输入框 */
 .m-tag .tag_list li.add_tag input{height:100%;width:100%;padding:0;border:none;box-sizing:border-box;text-indent:.5em;}
-/* 自定义标签按钮 */
 .m-tag .tag_list li.add_tag span{display:inline-block;height:100%;width:100%;text-align:center;margin-left: -92px;}
 .m-tag .tag_list li.add_tag span::before{content:'+ ';}
-/* 推荐标签组 */
 .m-tag .tag_rec{display:block;margin-top:30px;margin-bottom:10px;font-size:14px;color:#5ed0ba;line-height:1em;}
 .m-tag .tag_rec_list{margin-bottom:55px;margin-left:-8px;}
 .m-tag .tag_rec_list li{margin-left:8px;margin-bottom:8px;padding:0 12px;height:28px;line-height:28px;font-size:12px;color:#fff;background-color:#5ed0ba;}
@@ -81,9 +75,7 @@
 
 /* 单选框组件 */
 .m-radio li label{margin-top:0;margin-bottom:21px;font-size:11px;line-height:16px;white-space:nowrap;color:#848383;cursor:pointer;}
-/* 隐藏单选按钮 */
-.m-radio li input[type=radio]{display:none;}
-/* 自定义单选按钮样式 */
+/*.m-radio li input[type=radio]{-webkit-appearance: none;}*/
 .m-radio li .u-icon{float:left;margin-right:8px;color:#5ed0ba;}
 .m-radio li input[type=radio] ~ .u-icon-radio{display:none;}
 .m-radio li input[type=radio]:checked ~ .u-icon-radio{display:block;}
