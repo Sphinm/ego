@@ -54,8 +54,6 @@
         },
 
         dropFiles: function (files) {
-            // 从drop事件中，获取files
-            // 检验规格 (不合格，则不上传)
             this._checkFiles(files);
         },
 
@@ -64,18 +62,17 @@
 
             // 每次最多选择10张图片
             if(files.length > 10){
-                this.emit('alert', '每次最多选择10张图片');
-                return;
+               alert('图片数量超过10张了')
+                return false;
             }
 
-            // 过滤出，大小 < 1M 的图片
             [].forEach.call(files, function(item){
-                // 文件类型 非图片格式
+                // 文件类型
                 if(!/^image\//.test(item.type)){
                     typeExceedFiles.push(item);
-                    return;
+                    return false;
                 }
-                // 图片尺寸 < 1M
+                // 图片大小
                 if(item.size < maxSize) sizeOkFiles.push(item);
                 else                    sizeExceedFiles.push(item);
             });
@@ -102,7 +99,7 @@
         _uploadFiles: function (files) {
             // 进度条文案参数
             this.uploadfiles_total = files.length; // 上传文件总数
-            this.uploadfiles_loaded = 0 // 已上传完成文件数
+            this.uploadfiles_loaded = 0; // 已上传完成文件数
             this.uploadfiles_progress = []; // 上传文件 进度数组
             for(var i=0;i<files.length;i++){
                 this.uploadfiles_progress.push(0); // 各文件 初始值进度 为0
@@ -116,7 +113,7 @@
             // 并发各图片上传请求
             files.forEach(function(item, index){
                 uploadRequests.push(new Promise(function(resolve, reject){
-                        // 用于储存 File类型 数据
+                        // // 用于储存 File类型 数据
                         var fd = new FormData();
                         fd.append('file', item, item.name);
 

@@ -22,7 +22,7 @@
             this.select = new Select({parent: this.authorization});
             this.select.render([
                     {name:'不限制作品用途', value:0},
-                    {name:'禁止匿名转载', value:1}
+                    {name:'限制作品用途', value:1}
                 ]);
 
             this.parent.appendChild(this.authorization);

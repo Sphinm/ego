@@ -1,5 +1,8 @@
 (function () {
 
+    // 到上传作品页 必须得是登录成功状态
+
+
     // tab组件和search组件 登录注册点击交互颜色
     var login = document.querySelector('.m-login');
     var register =document.querySelector('.m-register');
@@ -40,7 +43,7 @@
     // 作品授权
     (new Authorization({parent: document.getElementsByClassName('g-side')[0]})).getValue();
 
-
+    // 标签
     _.ajax({
         url: '/api/tags?recommend',
         method: 'GET',
@@ -55,6 +58,22 @@
         }.bind(this),
         fail:function(){console.log('data translate fail')}
     });
+
+    // 判断作品名称不为空
+    // 作品创建完应该提交到别的页面。这里只是简单的加个提示消息
+    var that = this;
+    this.create = document.querySelector('.submit');
+    this.input = document.querySelector('.m-work-desc .u-ipt');
+    this.msg =  document.querySelector('.prompt_msg');
+
+    this.create.addEventListener('click', function () {
+        if (that.input.value.length === 0 || that.input.value.trim() === '') {
+           _.delClassName(that.msg, 'f-dn');
+        } else {
+            _.addClassName(that.msg, 'f-dn');
+            console.log('作品创建成功')
+        }
+    })
 
 
 })(window);
