@@ -287,8 +287,6 @@
         },
 
         initUploadPic: function () {
-
-            // 绑定 选择上传图片后 触发事件
             this.upload_input.addEventListener('change', this.changeHandler.bind(this));
             // 绑定 拖拽上传
             this.pictures_controller.addEventListener('dragover', function(event){
@@ -298,13 +296,9 @@
                 event.preventDefault();
                 this.dropFiles(event.dataTransfer.files);
             }.bind(this));
-            // 绑定 设置封面事件
             this.pictures_controller.addEventListener('click', this.setCoverImg.bind(this));
-            // 绑定 移除图片事件
             this.pictures_controller.addEventListener('click', this.removeImg.bind(this));
 
-            // 挂载组件
-            console.log()
             this.parent.insertBefore(this.container, this.desc);
         }
 

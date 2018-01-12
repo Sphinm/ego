@@ -18,6 +18,7 @@
     _.extend(StarList.prototype,_.emitter);
 
     _.extend(StarList.prototype,{
+
         render: function (data) {
             var html = '';
             data.forEach(function (item) {
@@ -130,6 +131,7 @@
         initStartList:function () {
             this.list.appendChild(this.container);
             this.getStarList();
+            // 通过事件代理触发子节点事件
             _.delegateEvent(this.ul, 'button', 'click', this.followHandler.bind(this));
         }
 
