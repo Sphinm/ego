@@ -16,7 +16,7 @@
     });
 
 
-// 登录modal
+    // 登录 & 注册
     var modalLogin = new LoginModal();
     var registerLogin = new RegisterModal();
 
@@ -36,6 +36,11 @@
     new Search();
     new UploadPicture();
 
+
+    // 作品授权
+    (new Authorization({parent: document.getElementsByClassName('g-side')[0]})).getValue();
+
+
     _.ajax({
         url: '/api/tags?recommend',
         method: 'GET',
@@ -46,9 +51,7 @@
                     parent: document.getElementsByClassName('u-main')[0],
                     tags_recommend: data.result.split(',')
                 });
-            } else{
-                console.log(data);
-            }
+            } else console.log(data);
         }.bind(this),
         fail:function(){console.log('data translate fail')}
     });

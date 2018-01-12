@@ -20,7 +20,7 @@
 .m-upload .prompt_box{position:absolute;display: inline-block;margin:15px  0 5px -140px;color: #727171;}
 .m-upload progress{display:inline-block;margin-top:-20px;height:30px;}
 .m-upload .progress_msg{float:left;margin-left:10px;height:40px;line-height:40px;font-size:12px;}
-.m-upload .pictures_controller{float: left;min-height:84px;width:100%;padding-left:78px;padding-top:35px;border-top:2px solid #e9eaea;border-bottom:2px solid #e9eaea;background:#f7f8f8;box-sizing:border-box;}
+.m-upload .pictures_controller{float: left;min-height:164px;width:100%;padding-left:78px;padding-top:35px;border-top:2px solid #e9eaea;border-bottom:2px solid #e9eaea;background:#f7f8f8;box-sizing:border-box;}
 .m-upload .pictures_controller li{float:left;position:relative;margin-bottom:10px;margin-right:27px;padding-bottom:40px;}
 .m-upload .pictures_controller img{width:101px;height:140px;background: #8b8a8a}
 .m-upload .pictures_controller button,.m-upload .pictures_controller button + button{display:none;position:absolute;bottom:8px;left:5%;width:90%;height:30px;line-height:30px}
@@ -58,16 +58,7 @@
 .m-tag .tag_rec_list li::before{content:'+ ';font-size:12px;line-height:28px;}
 .m-tag .tag_recommend{color: #5ed0ba;}
 
-/* 选择器 */
-.m-select{position:relative;text-indent:10px;cursor:pointer;}
-.m-select .select_list{width: 78px;height: 40px;display:flex;justify-content:space-between;align-items:center;border:1px solid #a5f1e1;border-radius:5px;}
-.m-select .select_list .u-icon-down{width:0;height:0;margin:5px 5px 0;text-indent:0;border: 6px solid;border-color: #84dbca transparent transparent;content: ".";}
-.m-select .select_opt{position:absolute;top:100%;left:0;width:100%;height:120px;border:1px solid #f4f4f4;background:#fff;overflow-y:auto;}
-.m-select .select_opt::-webkit-scrollbar{display:none;}
-.m-select .select_opt li{line-height:30px;overflow-x:hidden;white-space:nowrap;text-overflow:ellipsis;text-align: left}
-.m-select .select_opt li:hover{background-color:#f4f4f4;}
-
-.m-privilege label{display:inline-block;color:#000;font-weight:bold;margin-bottom:20px;margin-top:27px;font-size:13px;}
+.m-privilege label{display:inline-block;color:#000;margin-bottom:20px;margin-top:27px;font-size:13px;}
 .m-radio{width: 100px;color: #727171;position: relative;margin:28px 0}
 .m-radio label{margin-top:0;white-space:nowrap;color:#848383;font-weight:normal;cursor:pointer;padding-left: 20px}
 .m-radio input{-webkit-appearance: none;}
@@ -75,7 +66,15 @@
 .m-radio input+i:after{position:absolute;content: '';top: 3px;left: 3px;width: 9px;height: 9px;border-radius: 50%;background-color: #5ed0ba;opacity: 0;transition: opacity .1s;}
 .m-radio input:checked+i:after{opacity: 1;}
 
-.m-authorization label{display:inline-block;margin-bottom:15px;font-size:13px;}
-.m-authorization .m-select{margin-bottom:42px;height:39px;}
-.m-authorization .m-select .select_hd{background:#fff;}
-.m-authorization .m-select .select_opt{height:60px;}
+/* 选择器 */
+.m-authorization .m-select{position:relative;text-indent:10px;cursor:pointer;margin-bottom:42px;height:39px;}
+.m-authorization label{display:inline-block;color:#000;margin-bottom:20px;font-size:13px;}
+.m-authorization .m-select .select_list{background-color: #fff;width: 270px;height: 40px;display:flex;justify-content:space-between;align-items:center;border:1px solid #a5f1e1;border-radius:3px;}
+.m-authorization .m-select .select_list .u-icon-down{width:0;height:0;margin:5px 5px 0;text-indent:0;border: 6px solid;border-color: #84dbca transparent transparent;content: ".";}
+.m-authorization .m-select .select_opt{position:absolute;top:100%;left:0;width:270px;height:80px;border:1px solid #f4f4f4;background:#fff;overflow-y:auto;}
+.m-authorization .m-select .select_opt::-webkit-scrollbar{display:none;}
+.m-authorization .m-select .select_opt li{line-height:40px;overflow-x:hidden;white-space:nowrap;text-overflow:ellipsis;text-align: left}
+.m-authorization .m-select .select_opt li:hover{background-color:#f4f4f4;}
+
+
+
