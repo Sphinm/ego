@@ -26,6 +26,8 @@
 .m-profile em,.m-profile span{display:inline-block;}
 .m-profile .name{display:inline-block;max-width:75px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:15px;line-height:1em;color:#000;font-weight:900;}
 .m-profile .u-icon{font-size:18px;font-weight:900;}
+.m-profile .u-icon.u-icon-male{width: 20px;height:20px;background: url("../img/man.png") no-repeat}
+.m-profile .u-icon.u-icon-female{background: url("../img/woman.png") no-repeat}
 /* 年龄、星座、地址 */
 .m-profile .constellation{margin-left:3px;}
 .m-profile .u-icon-address{margin-left:13px;font-size:13px;}

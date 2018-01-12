@@ -3,6 +3,15 @@
     function UserInfo(opt) {
         _.extend(this, opt);
 
+        var iconConfig = [
+            {
+                sex: 'u-icon-male'
+            } ,
+            {
+                sex: 'u-icon-female'
+            }
+        ];
+
 
         var user = {
             nickname: 'Amber',  // 昵称
@@ -17,7 +26,7 @@
                 <div class="u-info">
                 <em class="name" title="${user.nickname}">${user.nickname}</em>
                 <span class="sex">
-                    <em class="u-icon ${user.sex}"></em>
+                    <em class="u-icon ${iconConfig.sex}"></em>
                 </span>
             </div>
             <div class="u-info">
