@@ -1,16 +1,16 @@
 {
     "code": 200,
-    "msg": "uqQn06MF2s",
+    "msg": "58myc8jFCr",
     "result": {
-        "id": 63944,
-        "username": "veZ6k4vOjP",
-        "nickname": "gif48ppT6R",
+        "id": 94112,
+        "username": "ztq3kGNHBK",
+        "nickname": "lyBp8FSV8d",
         "sex": 1,
-        "province": 26569,
+        "province": 51113,
         "city": 330200,
         "district": 330000,
         "birthday": "2003-12-03",
-        "createTime": 1512394721096,
-        "updateTime": 1512394779939
+        "createTime": 1515929065924,
+        "updateTime": 1515928771000
     }
 }

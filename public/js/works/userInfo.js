@@ -2,17 +2,17 @@
 
     function UserInfo(opt) {
         _.extend(this, opt);
+        //
+        // var iconConfig = [
+        //     {
+        //         sex: 'u-icon-male'
+        //     } ,
+        //     {
+        //         sex: 'u-icon-female'
+        //     }
+        // ];
 
-        var iconConfig = [
-            {
-                sex: 'u-icon-male'
-            } ,
-            {
-                sex: 'u-icon-female'
-            }
-        ];
-
-
+        // 这里需要判断前一个页面的登录信息后取data中的数据，可是我这里获取不到，暂时使用假数据
         var user = {
             nickname: 'Amber',  // 昵称
             sex: '女',  // 性别icon
@@ -26,7 +26,7 @@
                 <div class="u-info">
                 <em class="name" title="${user.nickname}">${user.nickname}</em>
                 <span class="sex">
-                    <em class="u-icon ${iconConfig.sex}"></em>
+                    <em class="u-icon u-icon-female"></em>
                 </span>
             </div>
             <div class="u-info">
@@ -41,22 +41,13 @@
         this.container = _.html2node(html);
         this.render();
     }
-
     _.extend(UserInfo.prototype, _.emitter);
-
 
     _.extend(UserInfo.prototype, {
 
         render: function () {
 
-            // 这里需要判断前一个页面的登录信息后取data中的数据，可是我这里获取不到，暂时使用假数据
             // this.on('login', function(data) {
-                // 定义数据结构
-                //
-                // var iconConfig = [
-                //     'u-icon-male',
-                //     'u-icon-female'
-                // ];
 
                 this.parent.appendChild(this.container);
 

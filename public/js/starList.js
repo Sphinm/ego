@@ -5,7 +5,7 @@
                     </div>`;
 
     function StarList(option) {
-        // extend set
+        // extend setting
         _.extend(this, option);
 
         this.container = _.html2node(template);
@@ -21,6 +21,7 @@
 
         render: function (data) {
             var html = '';
+
             data.forEach(function (item) {
                 html += this.renderItem(item);
             }.bind(this));
@@ -62,16 +63,20 @@
                     this.emit('showLoginModal');
                     return;
                 }
+                // for (var i in data.result){
+                //     console.log(data.result[i])
+                // }
 
-                var data;
-                // data 就是点击的用户信息，这里使用假数据替代
-                data = {
+
+                // 通过事件代理方式 不能触发同级节点，不知道怎么解决
+                var data = {
                     id: target.dataset.userid,
-                    nickname: 'Nockle',
-                    workCount: 68,
-                    followCount: 945
+                    nickname: 'nickname',
+                    workCount: 0,
+                    followCount: 1
                 };
 
+                console.log(target.dataset)
                 if (_.hasClassName(target, 'z-follow')){
                     this.unFollow(data, target.parentNode);
                 } else {
@@ -104,6 +109,7 @@
                 data: {id: followInfo.id},
                 success: function(data){
                     data = JSON.parse(data);
+
                     if(data.code === 200){
                         followInfo.isFollow = false;
                         var newNode = _.html2node(this.renderItem(followInfo));
@@ -130,6 +136,7 @@
 
         initStartList:function () {
             this.list.appendChild(this.container);
+            // 初始化数据
             this.getStarList();
             // 通过事件代理触发子节点事件
             _.delegateEvent(this.ul, 'button', 'click', this.followHandler.bind(this));

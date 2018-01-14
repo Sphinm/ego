@@ -7950,6 +7950,17 @@
 					"realnamePinyin": "",
 					"paopao": "",
 					"email": "webtestsb@163.com"
+				},
+				{
+					"createTime": 1515588808623,
+					"role": 0,
+					"id": 19038,
+					"username": "m13867726371@163.com",
+					"portrait": "",
+					"realname": "",
+					"realnamePinyin": "",
+					"paopao": "",
+					"email": "m13867726371@163.com"
 				}
 			],
 			"developers": [],
@@ -8173,194 +8184,5 @@
 			"varmaps": [],
 			"jarConfig": []
 		}
-	],
-	"spec": {
-		"docs": [
-			{
-				"id": 24361,
-				"specId": 10562,
-				"parent": 0,
-				"type": 0,
-				"name": "mock.data",
-				"description": "",
-				"mime": "",
-				"content": "",
-				"dataSource": 0,
-				"children": [
-					{
-						"id": 24367,
-						"specId": 10562,
-						"parent": 24361,
-						"type": 0,
-						"name": "interface",
-						"description": "",
-						"mime": "",
-						"content": "",
-						"dataSource": 0,
-						"children": []
-					},
-					{
-						"id": 24368,
-						"specId": 10562,
-						"parent": 24361,
-						"type": 0,
-						"name": "template",
-						"description": "",
-						"mime": "",
-						"content": "",
-						"dataSource": 0,
-						"children": []
-					}
-				]
-			},
-			{
-				"id": 24405,
-				"specId": 10562,
-				"parent": 0,
-				"type": 0,
-				"name": "public",
-				"description": "",
-				"mime": "text/plain",
-				"content": "",
-				"dataSource": 0,
-				"children": [
-					{
-						"id": 24365,
-						"specId": 10562,
-						"parent": 24405,
-						"type": 0,
-						"name": "html",
-						"description": "",
-						"mime": "",
-						"content": "",
-						"dataSource": 0,
-						"children": [
-							{
-								"id": 24376,
-								"specId": 10562,
-								"parent": 24365,
-								"type": 1,
-								"name": "{{template.filename}}.{{spec.viewExt}}",
-								"description": "",
-								"mime": "text/octet-stream",
-								"content": "<!DOCTYPE html>\n<html>\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"user-scalable=no, width=device-width\">\n    <meta name=\"description\" content=\"ego\"/>\n    <meta name=\"keywords\" content=\"ego\"/>\n    <title>ego</title>\n    <link href=\"{{relativePath template.filename}}common/base.css\" rel=\"stylesheet\"/>\n    <link href=\"{{relativePath template.filename}}page/{{template.filename}}.css\" rel=\"stylesheet\"/>\n</head>\n<body>\n<script src=\"{{relativePath template.filename}}page/{{template.filename}}.js\"></script>\n</body>\n</html>",
-								"dataSource": 3,
-								"children": []
-							}
-						]
-					},
-					{
-						"id": 24400,
-						"specId": 10562,
-						"parent": 24405,
-						"type": 0,
-						"name": "page",
-						"description": "",
-						"mime": "text/plain",
-						"content": "",
-						"dataSource": 0,
-						"children": [
-							{
-								"id": 24401,
-								"specId": 10562,
-								"parent": 24400,
-								"type": 1,
-								"name": "{{template.filename}}.js",
-								"description": "",
-								"mime": "text/javascript",
-								"content": "",
-								"dataSource": 3,
-								"children": []
-							},
-							{
-								"id": 24402,
-								"specId": 10562,
-								"parent": 24400,
-								"type": 1,
-								"name": "{{template.filename}}.css",
-								"description": "",
-								"mime": "text/css",
-								"content": "",
-								"dataSource": 3,
-								"children": []
-							}
-						]
-					},
-					{
-						"id": 24403,
-						"specId": 10562,
-						"parent": 24405,
-						"type": 0,
-						"name": "common",
-						"description": "",
-						"mime": "text/plain",
-						"content": "",
-						"dataSource": 0,
-						"children": [
-							{
-								"id": 24404,
-								"specId": 10562,
-								"parent": 24403,
-								"type": 1,
-								"name": "base.css",
-								"description": "",
-								"mime": "text/css",
-								"content": "",
-								"dataSource": 0,
-								"children": []
-							}
-						]
-					}
-				]
-			},
-			{
-				"id": 24409,
-				"specId": 10562,
-				"parent": 0,
-				"type": 1,
-				"name": "handlebars.js",
-				"description": "",
-				"mime": "text/javascript",
-				"content": "/**\n * 用户自定义Handlebars辅助函数，该辅助函数的优先级高于nei-toolkit系统定义的辅助函数。\n *\n * 如何定义Handlebars辅助函数请参考:\n * https://github.com/NEYouFan/nei-toolkit/blob/dev/doc/Handlebars%E8%BE%85%E5%8A%A9%E5%87%BD%E6%95%B0%E9%9B%86.md#\n**/\n// 根据模板路径计算相对静态目录的路径\nHandlebars.registerHelper('relativePath', function (filename) {\n   var paths = filename.split('/');\n   var rp = '';\n   paths.forEach(function(path){\n       if (path) {\n           rp += '../'\n       }\n   });\n   return rp;\n});",
-				"dataSource": 5,
-				"children": []
-			}
-		],
-		"spec": {
-			"id": 10562,
-			"type": 0,
-			"isShare": 0,
-			"isLock": 0,
-			"isSystem": 0,
-			"name": "EgoProject",
-			"namePinyin": "EgoProject",
-			"language": 12,
-			"description": "",
-			"document": null,
-			"creatorId": 11567,
-			"createTime": 1492054862601,
-			"argsConfig": 12997,
-			"helpersConfig": 0,
-			"toolKey": "80643063be972ec86480143d816a0899",
-			"engine": 21,
-			"webRoot": 24405,
-			"viewRoot": 24365,
-			"viewExtension": "html",
-			"mockApiRoot": 24367,
-			"mockViewRoot": 24368,
-			"jarRoot": 0,
-			"attributes": {
-				"specId": 10562,
-				"viewRoot": 24365,
-				"webRoot": 24405,
-				"mockApiRoot": 24367,
-				"mockViewRoot": 24368,
-				"jarRoot": 0,
-				"engine": 21,
-				"viewExtension": "html"
-			}
-		},
-		"varmaps": [],
-		"jarConfig": []
-	}
+	]
 }

@@ -1,48 +1,27 @@
 {
     "code": 200,
-    "msg": "ms15lGjI90",
+    "msg": "uyp0cawYez",
     "result": [
         {
-            "id": 87250,
-            "nickname": "QoC9yBKsz6",
+            "id": 91755,
+            "nickname": "CLIgqunwNL",
             "isFollow": false,
-            "workCount": 71807,
-            "followCount": 67153
+            "workCount": 33965,
+            "followCount": 566
         },
         {
-            "id": 87294,
-            "nickname": "OsfVGRDF2f",
-            "isFollow": false,
-            "workCount": 51381,
-            "followCount": 74058
+            "id": 92037,
+            "nickname": "QmWRtSK0Pn",
+            "isFollow": true,
+            "workCount": 13367,
+            "followCount": 18663
         },
         {
-            "id": 87294,
-            "nickname": "OsfVGRDF2f",
-            "isFollow": false,
-            "workCount": 51381,
-            "followCount": 74058
-        },
-        {
-            "id": 87294,
-            "nickname": "OsfVGRDF2f",
-            "isFollow": false,
-            "workCount": 51381,
-            "followCount": 74058
-        },
-        {
-            "id": 87294,
-            "nickname": "OsfVGRDF2f",
-            "isFollow": false,
-            "workCount": 51381,
-            "followCount": 74058
-        },
-        {
-            "id": 87415,
-            "nickname": "nZ4754KCPx",
-            "isFollow": false,
-            "workCount": 83909,
-            "followCount": 52838
+            "id": 92835,
+            "nickname": "QUjh0yEF0M",
+            "isFollow": true,
+            "workCount": 22677,
+            "followCount": 34759
         }
     ]
 }

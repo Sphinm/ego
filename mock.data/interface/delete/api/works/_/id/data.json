@@ -1,49 +1,49 @@
 {
     "code": 200,
-    "msg": "PZb74d9ozT",
+    "msg": "VQbwGx4mgP",
     "result": {
-        "id": 62328,
-        "name": "RHVq78foeq",
+        "id": 73205,
+        "name": "hw9ngUBh5O",
         "tag": "少女系,萌神,萝莉,未来日记",
-        "coverId": 62970,
+        "coverId": 73828,
         "coverUrl": "http://via.placeholder.com/102x158",
         "pictures": [
             {
-                "id": 63927,
-                "name": "PhZ323TIxn",
+                "id": 73963,
+                "name": "bGCmVEnDBW",
                 "url": "http://via.placeholder.com/100x140",
-                "position": 74172,
-                "worksId": 64798,
-                "creatorId": 64844,
-                "createTime": 1512395775532,
-                "updateTime": 1512394932495
+                "position": 84155,
+                "worksId": 74191,
+                "creatorId": 75025,
+                "createTime": 1515928834664,
+                "updateTime": 1515929198555
             },
             {
-                "id": 64952,
-                "name": "ZtgFGBup09",
+                "id": 75094,
+                "name": "qbdXlDBmrA",
                 "url": "http://via.placeholder.com/100x140",
-                "position": 72015,
-                "worksId": 64973,
-                "creatorId": 65612,
-                "createTime": 1512394587120,
-                "updateTime": 1512395310587
+                "position": 28174,
+                "worksId": 75607,
+                "creatorId": 76336,
+                "createTime": 1515930636596,
+                "updateTime": 1515930185574
             },
             {
-                "id": 65983,
-                "name": "G3m0yG4lDE",
+                "id": 76898,
+                "name": "bCUq5FO5jl",
                 "url": "http://via.placeholder.com/100x140",
-                "position": 93418,
-                "worksId": 66638,
-                "creatorId": 67305,
-                "createTime": 1512395890903,
-                "updateTime": 1512394120916
+                "position": 54133,
+                "worksId": 77609,
+                "creatorId": 77968,
+                "createTime": 1515930584892,
+                "updateTime": 1515930473109
             }
         ],
-        "category": 1,
-        "description": "GTuU500neq",
-        "privilege": 2,
+        "category": 0,
+        "description": "fdtzV2gjXb",
+        "privilege": 0,
         "authorization": 1,
-        "createTime": 1512394173971,
-        "updateTime": 1512394284201
+        "createTime": 1515930135861,
+        "updateTime": 1515929016130
     }
 }

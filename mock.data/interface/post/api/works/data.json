@@ -1,49 +1,49 @@
 {
     "code": 200,
-    "msg": "Lob6nO6Y26",
+    "msg": "lTpgbvYXY0",
     "result": {
-        "id": 83473,
-        "name": "ch7uHsmC3u",
+        "id": 67954,
+        "name": "XrMco5J3K0",
         "tag": "少女系,萌神,萝莉,未来日记",
-        "coverId": 84399,
+        "coverId": 68095,
         "coverUrl": "http://via.placeholder.com/102x158",
         "pictures": [
             {
-                "id": 84581,
-                "name": "hcqgfcuJM8",
+                "id": 68795,
+                "name": "nFqnLB1ao8",
                 "url": "http://via.placeholder.com/100x140",
-                "position": 36383,
-                "worksId": 84831,
-                "creatorId": 85694,
-                "createTime": 1512394742227,
-                "updateTime": 1512393542879
+                "position": 90647,
+                "worksId": 68879,
+                "creatorId": 69434,
+                "createTime": 1515930258603,
+                "updateTime": 1515930164090
             },
             {
-                "id": 86416,
-                "name": "f9Uf44J85f",
+                "id": 70387,
+                "name": "gTM7mT40SU",
                 "url": "http://via.placeholder.com/100x140",
-                "position": 45850,
-                "worksId": 86889,
-                "creatorId": 86924,
-                "createTime": 1512394396823,
-                "updateTime": 1512393911837
+                "position": 77559,
+                "worksId": 71090,
+                "creatorId": 71612,
+                "createTime": 1515930603308,
+                "updateTime": 1515929312551
             },
             {
-                "id": 87349,
-                "name": "NfhNTliKMq",
+                "id": 71857,
+                "name": "rmDm8RtZzM",
                 "url": "http://via.placeholder.com/100x140",
-                "position": 1755,
-                "worksId": 88347,
-                "creatorId": 89195,
-                "createTime": 1512395251731,
-                "updateTime": 1512394372116
+                "position": 15669,
+                "worksId": 72677,
+                "creatorId": 72991,
+                "createTime": 1515928727665,
+                "updateTime": 1515930994240
             }
         ],
         "category": 1,
-        "description": "97y9jUs7BB",
+        "description": "bNxzAulfv9",
         "privilege": 0,
         "authorization": 0,
-        "createTime": 1512395071193,
-        "updateTime": 1512393632952
+        "createTime": 1515928497600,
+        "updateTime": 1515928778369
     }
 }
