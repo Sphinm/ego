@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <title>EGO漫画</title>
+    <link rel="stylesheet" href="../common/base.css">
+</head>
+<body>
+    <header>
+        <!-- 顶栏区 -->
+        <div class="maintain-head">
+            <div class="g-header">
+                <div class="m-logo"></div>
+                <!-- 将m-tab模板渲染到m-tabs里面 -->
+                <div class="m-tabs"></div>
+                <div class="m-search"></div>
+                <div class="m-login">
+                    <i class="u-login-logo"></i>
+                    <span>登录</span>
+                </div>
+                <div class="m-register">
+                    <span>注册</span>
+                </div>
+                 <div class="m-login-info f-dn">
+                     <div class="u-login-area">
+                        <div class="u-icon-login"></div>
+                        <div class="u-login-name">AmberLine-block</div>
+                        <i class="u-login-sex"></i>
+                        <i class="u-icon-down"></i>
+                     </div>
+                    <ul class="menus">
+                        <li class="login-info"><a href="#">个人中心</a></li>
+                        <li class="login-info"><a href="#">信息</a></li>
+                        <li class="login-info"><a href="#">设置</a></li>
+                        <li class="login-info login-out"><a href="../html/index.html">退出账号</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 轮播图 -->
+        <div class="g-banner">
+            <!-- g-banner 轮播区域 -->
+            <!-- 轮播组件 m-slider 及对应的 圆点指示器 m-cursor-->
+            <ul class="m-cursor f-cb">
+                <li class='cursor'></li>
+                <li class='cursor'></li>
+                <li class='cursor'></li>
+            </ul>
+            <div class="arrow" id="prev"><</div>
+            <div class="arrow" id="next">></div>
+        </div>
+    </header>
+
+    <!-- 内容区 -->
+    <content>
+        <div class="g-body f-cb">
+            <!-- 主栏 -->
+            <!-- 精选推荐 -->
+            <div class="g-main">
+                <div class="m-section col-section">
+                    <h4 class="section-head">
+                        <i class="u-icon-diamond"></i>
+                        <div class="section-more">
+                            <span class="more">更多</span>
+                            <i class="u-icon-moreright"></i>
+                        </div>
+                    </h4>
+                </div>
+                <div class="section-cnt">
+                    <ul class="m-list">
+                        <li><a href="#?wd=作品1"><img src="../img/works_01.png" alt="作品1"></a></li>
+                        <li><a href="#?wd=作品2"><img src="../img/works_02.png" alt="作品2"></a></li>
+                        <li><a href="#?wd=作品3"><img src="../img/works_03.png" alt="作品3"></a></li>
+                        <li><a href="#?wd=作品4"><img src="../img/works_04.png" alt="作品4"></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 侧边栏1 -->
+            <div class="g-side">
+                <div class="m-side1">
+                    <div class="side1-top">
+                        <div class="mywork"></div>
+                        <div class="side1-right">
+                            <i class="u-icon-down"></i>
+                        </div>
+                    </div>
+                    <div class="side1-cnt"></div>
+                </div>
+            </div>
+
+            <!-- 明日之星 -->
+            <div class="g-main g-mains star-list">
+                <div class="m-section m-section-header">
+                    <h4 class="section-head">
+                        <i class="u-icon-star"></i>
+                        <div class="section-more">
+                            <span class="more">更多</span>
+                            <i class="u-icon-moreright"></i>
+                        </div>
+                    </h4>
+                </div>
+
+                <!-- 明日之星列表 -->
+            </div>
+
+            <!-- 侧边栏2 -->
+            <div class="g-side">
+                <div class="m-side2">
+                    <div class="side2-top">
+                        <div class="act-circle">
+                            <a href="#?keyword=活跃圈子" class="txt-circle">活跃圈子</a>
+                        </div>
+                        <div class="cre-circle">
+                            <a href="#?keyword=创建圈子" class="txt-circle">创建圈子</a>
+                        </div>
+                    </div>
+                    <div class="side2-cnt">
+                        <div class="side2-cnt-list">
+                            <img src="../img/quan_01.png" class="image">
+                            <div class="cnt-circle">
+                                <span class="cnt-title">门口小贩</span>
+                                <i>已圈  5221人</i>
+                            </div>
+                        </div>
+                        <div class="side2-cnt-list">
+                            <img src="../img/quan_02.png" class="image">
+                            <div class="cnt-circle">
+                                <span class="cnt-title">原画集中营</span>
+                                <i>已圈  5221人</i>
+                            </div>
+                        </div>
+                        <div class="side2-cnt-list">
+                            <img src="../img/quan_03.png" class="image">
+                            <div class="cnt-circle cnt-last">
+                                <span class="cnt-title">-Horizon-</span>
+                                <i>已圈  5221人</i>
+                            </div>
+                        </div>
+
+                        <div class="section-more">
+                            <span class="more">更多</span>
+                            <i class="u-icon-moreright"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 最新作品 -->
+            <div class="g-main g-mains">
+                <div class="m-section m-section-header">
+                    <h4 class="section-head">
+                        <i class="u-icon-works"></i>
+                        <div class="section-more">
+                            <span class="more">更多</span>
+                            <i class="u-icon-moreright"></i>
+                        </div>
+                    </h4>
+                </div>
+                <div class="section-content">
+                    <ul class="m-list3">
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_06.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_06.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 侧边栏3 -->
+            <div class="g-side">
+                <div class="m-side3">
+                    <div class="side3-top">热门话题</div>
+                    <div class="side3-cnt">
+                        <ul class="hot-list">
+                            <li>
+                                <span>1.【萝莉学院】 你不知道的那些事儿</span>
+                                <span>这是标题标题......</span>
+                            </li>
+                            <li>
+                                <span>1.【萝莉学院】 你不知道的那些事儿</span>
+                                <span>这是标题标题......</span>
+                            </li>
+                            <li>
+                                <span>1.【萝莉学院】 你不知道的那些事儿</span>
+                                <span>这是标题标题......</span>
+                            </li>
+                            <li>
+                                <span>1.【萝莉学院】 你不知道的那些事儿</span>
+                                <span>这是标题标题......</span>
+                            </li>
+                            <li>
+                                <span>1.【萝莉学院】 你不知道的那些事儿</span>
+                                <span>这是标题标题......</span>
+                            </li>
+                        </ul>
+                        <div class="section-more">
+                            <span class="more">更多</span>
+                            <i class="u-icon-moreright"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 活动进行时 -->
+            <div class="g-main g-mains section-height">
+                <div class="m-section m-section-header">
+                    <h4 class="section-head">
+                        <i class="u-icon-active"></i>
+                        <div class="section-more">
+                            <span class="more">更多</span>
+                            <i class="u-icon-moreright"></i>
+                        </div>
+                    </h4>
+                </div>
+                <div class="section-content cnt-height">
+                    <ul class="m-list4">
+                        <li>
+                            <img src="../img/active_01.png" alt="活动1">
+                            <button class="u-btn-active1">快来PK</button>
+                            <button class="u-btn-active2">邀请小伙伴</button>
+                        </li>
+                        <li>
+                            <img src="../img/active_02.png" alt="活动2">
+                            <button class="u-btn-active1">快来PK</button>
+                            <button class="u-btn-active2">邀请小伙伴</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 侧边栏4 -->
+            <div class="g-side">
+                <div class="m-side4">
+                    <div class="side4-top">
+                        <div class="ph">排行</div>
+                        <ul>
+                            <li class="z-active"><a href="#?keyword=原创">原创</a></li>
+                            <li><a href="#?keyword=同人">同人</a></li>
+                            <li><a href="#?keyword=临摹">临摹</a></li>
+                        </ul>
+                        <div class="tabs-track">
+                            <div class="tabs-thumb" style="width: 60px;left: 0;"></div>
+                        </div>
+                    </div>
+                    <div class="side4-cnt">
+                            <div class="side4-cnt-list">
+                                <img src="../img/works_05.png" class="image">
+                                <div class="cnt-circle">
+                                    <span class="cnt-title">我是作品名称</span>
+                                    <span class="username">用户名</span>
+                                    <i>查看 2348</i><i>收藏 421</i>
+                                </div>
+                            </div>
+                            <div class="side4-cnt-list">
+                                <img src="../img/works_06.png" class="image">
+                                <div class="cnt-circle">
+                                    <span class="cnt-title">我是作品名称</span>
+                                    <span class="username">用户名</span>
+                                    <i>查看 2348</i><i>收藏 421</i>
+                                </div>
+                            </div>
+                            <div class="side4-cnt-list">
+                                <img src="../img/works_07.png" class="image">
+                                <div class="cnt-circle">
+                                    <span class="cnt-title">我是作品名称</span>
+                                    <span class="username">用户名</span>
+                                    <i>查看 2348</i><i>收藏 421</i>
+                                </div>
+                            </div>
+                            <div class="side4-cnt-list">
+                                <img src="../img/works_09.png" class="image">
+                                <div class="cnt-circle">
+                                    <span class="cnt-title">我是作品名称</span>
+                                    <span class="username">用户名</span>
+                                    <i>查看 2348</i><i>收藏 421</i>
+                                </div>
+                            </div>
+                            <div class="side4-cnt-list line">
+                                <img src="../img/works_10.png" class="image">
+                                <div class="cnt-circle">
+                                    <span class="cnt-title">我是作品名称</span>
+                                    <span class="username">用户名</span>
+                                    <i>查看 2348</i><i>收藏 421</i>
+                                </div>
+                             </div>
+                        <div class="section-more">
+                            <i class="u-icon-down"></i>
+                        </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- 我们都爱原创 -->
+            <div class="g-main g-mains">
+                <div class="m-section m-section-header">
+                    <h4 class="section-head">
+                        <i class="u-icon-yuan"></i>
+                        <div class="section-more">
+                            <span class="more">更多</span>
+                            <i class="u-icon-moreright"></i>
+                        </div>
+                    </h4>
+                </div>
+                <div class="section-content">
+                    <ul class="m-list3">
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_08.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_06.png" alt="作品2"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_06.png" alt="作品2"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 我们都是同人粉 -->
+            <div class="g-main g-mains">
+                <div class="m-section m-section-header">
+                    <h4 class="section-head">
+                        <i class="u-icon-tong"></i>
+                        <div class="section-more">
+                            <span class="more">更多</span>
+                            <i class="u-icon-moreright"></i>
+                        </div>
+                    </h4>
+                </div>
+                <div class="section-content">
+                    <ul class="m-list3">
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_08.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_06.png" alt="作品2"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_06.png" alt="作品2"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 侧边栏5 -->
+            <div class="g-side">
+                <div class="m-side5">
+                    <div class="side5-top">达人排行榜</div>
+                    <div class="side5-cnt">
+                        <div class="side5-cnt-list">
+                            <img src="../img/icon_01.png" class="image">
+                            <div class="cnt-circle">
+                                <span class="cnt-title">Grinch</span>
+                                <i>作品 377</i><i>粉丝 1706</i>
+                            </div>
+                        </div>
+                        <div class="side5-cnt-list">
+                            <img src="../img/icon_01.png" class="image">
+                            <div class="cnt-circle">
+                                <span class="cnt-title">Grinch</span>
+                                <i>作品 377</i><i>粉丝 1706</i>
+                            </div>
+                        </div>
+                        <div class="side5-cnt-list">
+                            <img src="../img/icon_01.png" class="image">
+                            <div class="cnt-circle">
+                                <span class="cnt-title">Grinch</span>
+                                <i>作品 377</i><i>粉丝 1706</i>
+                            </div>
+                        </div>
+                        <div class="side5-cnt-list">
+                            <img src="../img/icon_01.png" class="image">
+                            <div class="cnt-circle">
+                                <span class="cnt-title">Grinch</span>
+                                <i>作品 377</i><i>粉丝 1706</i>
+                            </div>
+                        </div>
+                        <div class="side5-cnt-list line">
+                            <img src="../img/icon_01.png" class="image">
+                            <div class="cnt-circle">
+                                <span class="cnt-title">Grinch</span>
+                                <i>作品 377</i><i>粉丝 1706</i>
+                            </div>
+                        </div>
+                        <div class="section-more">
+                            <i class="u-icon-down"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 看谁临摹的最好 -->
+            <div class="g-main g-mains">
+                <div class="m-section m-section-header">
+                    <h4 class="section-head">
+                        <i class="u-icon-linmo"></i>
+                        <div class="section-more">
+                            <span class="more">更多</span>
+                            <i class="u-icon-moreright"></i>
+                        </div>
+                    </h4>
+                </div>
+                <div class="section-content">
+                    <ul class="m-list3">
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_08.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_06.png" alt="作品2"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_06.png" alt="作品2"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                        <li><a href="#?wd=我是作品名称"><img src="../img/works_05.png" alt="作品1"><div>我是作品名称</div></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </content>
+
+    <!-- 底部区 -->
+    <footer>
+       <div class="g-footer">
+           <div class="g-footer-left">
+               <a href="#?keyword=友情链接" class="cnt-footer">/友情链接/</a>
+           </div>
+           <div class="g-footer-right">
+               <a href="#?keyword=关于我们" class="cnt-footer">/关于我们/</a>
+           </div>
+       </div>
+    </footer>
+
+    <script src="../js/util/md5.js"></script>
+    <script src="../js/util/address_codes.js"></script>
+    <script src="../js/util/util.js"></script>
+    <script src="../js/tab.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/slider.js"></script>
+    <script src="../js/modal/loginModal.js"></script>
+    <script src="../js/starList.js"></script>
+    <script src="../js/modal/registerModal.js"></script>
+    <script src="../js/cascade.js"></script>
+    <script src="../js/select.js"></script>
+    <script src="../js/index.js"></script>
+</body>
+</html>
