@@ -21,6 +21,7 @@ body{background-color: #efefef;}
 a,a:hover{color:#333;}
 .f-dn{visibility: hidden;}
 .f-no{display: none}
+.f-select{pointer-events:none;}
 
 /* header */
 .maintain-head{width:100%;background-color: #fff;}
@@ -209,7 +210,7 @@ a,a:hover{color:#333;}
 
 
 /* modal */
-.m-modal{height:100%;width:100%;position:fixed;left:0;top:0;background-color:rgba(255,255,255,0.6);text-align:center;color:#aaa;z-index:100;}
+.m-modal{height:100%;width:100%;position:fixed;left:0;top:0;background-color:rgba(87,115,135,0.6);text-align:center;color:#aaa;z-index:100;}
 .m-modal .modal_align,.m-modal .modal_wrap{display:inline-block;zoom:1;*display:inline;vertical-align:middle;}
 .m-modal .modal_align{height:100%;width:1px;line-height:100%;}
 .m-modal .modal_wrap{position:relative;text-align:left;width:400px;-webkit-box-shadow:2px 2px 5px rgba(0,0,0,0.4);box-shadow:2px 2px 5px rgba(0,0,0,0.4);border-radius:3px;overflow:hidden;}
@@ -230,7 +231,7 @@ a,a:hover{color:#333;}
 .m-modal .modal_foot .cancel:hover{background-color:#aaa;}
 
 /* login modal */
-.u-modal{height:100%;width:100%;position:fixed;left:0;top:0;background-color:rgba(255,255,255,0.7);text-align:center;color:#aaa;z-index:100;display: flex;align-items: center;justify-content: center;}
+.u-modal{height:100%;width:100%;position:fixed;left:0;top:0;background: -webkit-radial-gradient(rgba(0, 0, 0, 0.1), rgb(0, 0, 0) 85%);;text-align:center;color:#aaa;z-index:100;display: flex;align-items: center;justify-content: center;}
 .u-modal .modal-cnt{width: 408px;height:321px;border-radius:3px;overflow:hidden;background: #fff;box-shadow:2px 2px 5px rgba(0,0,0,0.2);}
 .u-modal .modal-tt{width: 408px;height:90px;text-align:left;}
 .u-modal .modal-tt strong{display:inline-block;margin: 40px 0 25px 32px;font-size: 20px;color: #5ed0ba;font-weight: normal}
@@ -255,7 +256,7 @@ a,a:hover{color:#333;}
 .u-modal .m-form .u-btn-primary{width: 344px;height: 39px;margin:4px;background: #5ed0ba;border-radius:3px;border: 0;color: #fff;font-size: 14px;}
 
 /* register modal */
-.u-register{height:100%;width:100%;position:fixed;left:0;top:0;background-color:rgba(255,255,255,0.7);text-align:center;color:#aaa;z-index:100;display: flex;align-items: center;justify-content: center;}
+.u-register{height:100%;width:100%;position:fixed;left:0;top:0;background: -webkit-radial-gradient( rgba(0, 0, 0, 0.1), rgb(0, 0, 0) 85%);text-align:center;color:#aaa;z-index:100;display: flex;align-items: center;justify-content: center;}
 .u-register .reg-content{width: 587px;height:626px;border-radius:3px;overflow:hidden;background: #fff;box-shadow:2px 2px 5px rgba(0,0,0,0.2);}
 .u-register .close_btn{float: right;width:16px;height:16px;margin:10px 10px 0 0;background:url("../img/small.png") no-repeat 0 -88px;cursor: pointer}
 .u-register .reg-logo{width:214px;height:51px;background: url("../img/shouye.png") no-repeat 0 -257px;margin: 40px 0 0 106px;}

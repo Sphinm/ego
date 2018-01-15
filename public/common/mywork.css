@@ -22,10 +22,9 @@
 .m-profile .u-avatar{height:111px;background:url(../img/avatar.png) 50% 50%/contain no-repeat;}
 /* 用户信息 */
 .m-profile .u-info{margin:10px 5px;line-height:1em;font-size:11px;color:#727171;}
-.m-profile .u-info .age{margin-left:-18px}
 /* 名称与性别 */
 .m-profile em,.m-profile span{display:inline-block;}
-.m-profile .name{display:inline-block;max-width:75px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:15px;line-height:1em;color:#000;font-weight:900;}
+.m-profile .name{display:inline-block;overflow:hidden;margin-left: 15px;white-space:nowrap;text-overflow:ellipsis;font-size:15px;line-height:1em;color:#000;font-weight:900;}
 
 .m-profile .u-icon{font-size:18px;font-weight:900;}
 .m-profile .address-info{margin-top: -2px}
@@ -33,7 +32,7 @@
 .m-profile .u-icon.u-icon-female{width: 11px;height: 17px;background: url("../img/small.png") no-repeat 0 -15px;margin-left: 5px}
 /* 年龄、星座、地址 */
 .m-profile .constellation{margin-left:3px;}
-.m-profile .u-icon-address{margin-left:12px;margin-right: -2px;}
+.m-profile .u-icon-address{margin-left:8px;margin-right: -2px;}
 
 /* 作品列表组件 */
 /* 标题区域 */

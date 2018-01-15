@@ -46,7 +46,10 @@
                             <img src="../img/icon_01.png" alt="头像" class="card-avatar">
                             <div class="card-info">
                                 <div class="card-name">${data.nickname}</div>
-                                <div class="card-fans"><span class="works">作品 ${data.workCount}</span>粉丝 ${data.followCount}</div>
+                                <div class="card-fans">
+                                    <span class="works">作品 ${data.workCount}</span>
+                                    粉丝 ${data.followCount}
+                                </div>
                             </div>
                             <button class="u-btn-follow ${config.class}" data-userid="${data.id}">
                                 <span class="${config.icon}"></span>${config.text}
@@ -63,20 +66,17 @@
                     this.emit('showLoginModal');
                     return;
                 }
-                // for (var i in data.result){
-                //     console.log(data.result[i])
-                // }
-
 
                 // 通过事件代理方式 不能触发同级节点，不知道怎么解决
+                // 只好通过找节点的笨方法去拿到
+
                 var data = {
                     id: target.dataset.userid,
-                    nickname: 'nickname',
-                    workCount: 0,
-                    followCount: 1
+                    nickname: target.parentNode.childNodes[3].childNodes[1].innerText,
+                    workCount: (target.parentNode.childNodes[3].childNodes[3].childNodes[1].innerText).replace(/.*?(\d+)/, '$1'),
+                    followCount: (target.parentNode.childNodes[3].childNodes[3].innerText).replace(/.*?粉丝\s+(\d+)/, '$1')
                 };
 
-                console.log(target.dataset)
                 if (_.hasClassName(target, 'z-follow')){
                     this.unFollow(data, target.parentNode);
                 } else {
@@ -112,6 +112,7 @@
 
                     if(data.code === 200){
                         followInfo.isFollow = false;
+                        followInfo.followCount --;
                         var newNode = _.html2node(this.renderItem(followInfo));
                         replaceNode.parentNode.replaceChild(newNode, replaceNode);
                     }

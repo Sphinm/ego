@@ -136,10 +136,11 @@
                        var dataOrz = JSON.parse(data);
                         if (dataOrz.code === 200) {
                             that.hide();
-                            that.emit('ok', data.result);
+                            that.emit('login', data.result);
                             that.lastSuc();
                         } else {
-                            console.log(data)
+                            that.hide();
+                            alert('您的手机号尚未注册，请先注册~');
                         }
                     },
                     fail: function () {}

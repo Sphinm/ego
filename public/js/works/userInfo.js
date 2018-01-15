@@ -46,12 +46,12 @@
     _.extend(UserInfo.prototype, {
 
         render: function () {
-
-            // this.on('login', function(data) {
-
+            console.log(555)
+            this.on('login', function(data) {
+                console.log(666)
                 this.parent.appendChild(this.container);
 
-            // }.bind(this));
+            }.bind(this));
         }
     });
 

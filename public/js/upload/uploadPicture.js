@@ -90,14 +90,13 @@
             }
 
             // 禁止点击上传按钮
-            _.addClassName(this.upload_btn, 'f-pen');
+            _.addClassName(this.upload_btn, 'f-select');
 
             // 上传图片
             this._uploadFiles(sizeOkFiles);
         },
 
         _uploadFiles: function (files) {
-            // 进度条文案参数
             this.uploadfiles_total = files.length; // 上传文件总数
             this.uploadfiles_loaded = 0; // 已上传完成文件数
             this.uploadfiles_progress = []; // 上传文件 进度数组
@@ -114,8 +113,8 @@
             files.forEach(function(item, index){
                 uploadRequests.push(new Promise(function(resolve, reject){
                         // // 用于储存 File类型 数据
-                        var fd = new FormData();
-                        fd.append('file', item, item.name);
+                        var data = new FormData();
+                        data.append('file', item, item.name);
 
                         // 请求
                         var xhr = new XMLHttpRequest();
@@ -125,8 +124,7 @@
                             if(xhr.readyState === 4){
                                 if((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304){
                                     resolve(JSON.parse(xhr.responseText).result);
-                                }
-                                else{
+                                } else{
                                     reject(xhr.responseText);
                                 }
                             }
@@ -134,8 +132,7 @@
 
                         xhr.upload.addEventListener('progress', this.progressHandler.bind(this, index), false);
                         xhr.open('POST', '/api/works?upload');
-                        // 直接send FormData实例
-                        xhr.send(fd);
+                        xhr.send(data);
 
                     }.bind(this))
                         .then(function(res){
@@ -151,13 +148,10 @@
 
             // 全部请求返回后
             Promise.all(uploadRequests)
-                .then(function(data){
-                    // 隐藏进度条
+                .then(function(){
                     this._hideProgress();
-                    // 清空进度条文案
                     this._updateProgressMsg();
-                    // 上传完毕，恢复按钮状态
-                    _.delClassName(this.upload_btn, 'f-pen');
+                    _.delClassName(this.upload_btn, 'f-select');
                 }.bind(this))
                 .catch(function(e){
                     console.log(e);
@@ -166,8 +160,7 @@
 
         _addImg: function (res) {
             switch(Object.prototype.toString.call(res).slice(8,-1)){
-                case 'String':
-                    return false;
+                case 'String': return false;
                 case 'Array':
                     res.forEach(function(item){
                         _addOneImg.call(this, item);
@@ -206,7 +199,6 @@
             // 并归 进度数组值，传给进度条
             this._showProgress(this.uploadfiles_progress.reduce(function(prev, cur){return prev + cur;}));
         },
-
 
         _showProgress: function (value, max) {
             this.progress.max = max || this.progress.max || 0;
@@ -247,10 +239,7 @@
         },
 
         removeImg: function (event) {
-            // 若不是删除图片按钮，直接忽略
-            if(!_.hasClassName(event.target, 'u-icon')){return;}
-            // 删除图片的id
-            console.log('删除图片');
+            if(!_.hasClassName(event.target, 'u-icon')) return;
 
             // 找到li元素
             var li = event.target.parentNode.parentNode;
@@ -286,9 +275,10 @@
             }
         },
 
+        // 拖拽上传
         initUploadPic: function () {
             this.upload_input.addEventListener('change', this.changeHandler.bind(this));
-            // 绑定 拖拽上传
+            // 绑定
             this.pictures_controller.addEventListener('dragover', function(event){
                 event.preventDefault();
             });

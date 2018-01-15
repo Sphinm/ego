@@ -1,5 +1,36 @@
 (function () {
 
+    // tab组件和search组件 登录注册点击交互颜色
+    var login = document.querySelector('.m-login');
+    var register = document.querySelector('.m-register');
+
+
+    login.addEventListener('click', function () {
+        login.className = ' m-login';
+        register.className = ' m-register';
+    });
+
+    register.addEventListener('click', function () {
+        login.className += ' m-display-login';
+        register.className += ' m-display-register';
+    });
+
+    // 登录modal
+    var modalLogin = new LoginModal();
+    var registerLogin = new RegisterModal();
+
+
+    document.querySelector('.m-login').addEventListener('click', function () {
+        modalLogin.show();
+        modalLogin.on('showRegisterModal', registerLogin.show.bind(registerLogin))
+    });
+
+
+    document.querySelector('.m-register').addEventListener('click', function () {
+        registerLogin.show();
+        registerLogin.on('showLoginModal', modalLogin.show.bind(modalLogin));
+    });
+
     // 到上传作品页 必须得是登录成功状态
 
     new Tabs();
@@ -29,7 +60,7 @@
     });
 
     // 判断作品名称不为空
-    // 作品创建完应该提交到别的页面。这里只是简单的加个提示消息
+    // 作品创建完应该提交到作品列表页面。这里只是简单的加个提示消息
     var that = this;
     this.create = document.querySelector('.submit');
     this.input = document.querySelector('.m-work-desc .u-ipt');
@@ -41,6 +72,7 @@
         } else {
             _.addClassName(that.msg, 'f-dn');
             console.log('作品创建成功')
+            location.href = '../works/myworks.html'
         }
     })
 

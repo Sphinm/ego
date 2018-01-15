@@ -97,7 +97,6 @@
 
             //  添加自定义标签 函数
             var addCustomTag = function(event){
-                // 若自定义input内 有值
                 if(event.target.value.trim()){
                     this.addTag(event.target.value.trim(), this.tagUrl, this.add_tag);
                 }
@@ -120,14 +119,9 @@
             // 自定义标签
             this.add_tag = _.html2node(`<li class="add_tag"><input class="f-dn" /><span>自定义标签</span></li>`);
             this.tagUrl.appendChild(this.add_tag);
-            // 添加默认选中标签
-            this.tags && this.addTag(this.tags, this.tagUrl, this.add_tag);
-            // 添加推荐标签
             this.tags_recommend && this.addTag(this.tags_recommend, this.tagRecUrl);
 
-            // 输入框
             this.add_tag_input = this.add_tag.getElementsByTagName('input')[0];
-            // 自定义标签按钮
             this.add_tag_btn = this.add_tag.getElementsByTagName('span')[0];
         },
 
