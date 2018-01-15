@@ -3,7 +3,7 @@
     // tab组件和search组件 登录注册点击交互颜色
     var login = document.querySelector('.m-login');
     var register = document.querySelector('.m-register');
-
+    var loginInfo = document.querySelector('.m-login-info');
 
     login.addEventListener('click', function () {
         login.className = ' m-login';
@@ -19,6 +19,16 @@
     var modalLogin = new LoginModal();
     var registerLogin = new RegisterModal();
 
+    var cookie = _.getCookie('loginSuc');
+    if (cookie === 'loginSuc') {
+        login.style.display = 'none';
+        register.style.display = 'none';
+        _.delClassName(loginInfo, 'f-dn');
+    }
+
+    document.querySelector('.login-out').addEventListener('click', function () {
+        _.delCookie('loginSuc')
+    });
 
     document.querySelector('.m-login').addEventListener('click', function () {
         modalLogin.show();

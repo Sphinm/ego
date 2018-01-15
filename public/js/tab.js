@@ -6,7 +6,7 @@
         '<div class="m-tab">\
                 <ul class="f-cb">\
                    <li class="z-active"><a href="/html/index.html">首页</a></li>\
-                   <li><a href="/html/works/myworks.html" target="_blank">作品</a></li>\
+                   <li><a class="work" href="/html/works/myworks.html" target="_blank">作品</a></li>\
                    <li><a href="/html/circle.html" target="_blank">圈子</a></li>\
                    <li><a href="/html/imagine.html" target="_blank">奇思妙想</a></li>\
                 </ul>\
@@ -16,7 +16,7 @@
            </div>';
 
     function Tabs(index) {
-
+        _.extend(this, index);
         this.index = this.index || 0;
         // 缓存节点
         this.container = this._layout.cloneNode(true);
@@ -24,10 +24,12 @@
         this.nbody = document.getElementsByClassName('m-tabs')[0];
         this.nTabs = this.nTab.children;
         this.nThumb = this.container.getElementsByClassName('tabs-thumb')[0];
-        _.extend(this, index);
+
         // 动态构建滑动条
         this.init();
     }
+
+    _.extend(Tabs.prototype, _.emitter);
 
     _.extend(Tabs.prototype,{
 
@@ -38,6 +40,7 @@
             this.index = index;
             _.addClassName(this.nTabs[index],'z-active');
             this.highlight(index);
+            this.emit('showLoginModal');
         },
 
         highlight: function (index) {

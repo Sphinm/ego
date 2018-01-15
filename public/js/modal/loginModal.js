@@ -138,6 +138,7 @@
                             that.hide();
                             that.emit('login', data.result);
                             that.lastSuc();
+                            _.setCookie('loginSuc', 'loginSuc');
                         } else {
                             that.hide();
                             alert('您的手机号尚未注册，请先注册~');

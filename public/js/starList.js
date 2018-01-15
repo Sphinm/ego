@@ -60,9 +60,9 @@
 
         followHandler: function (event) {
             var target = event.target;
+            var cookie = _.getCookie('loginSuc');
             if (target.tagName.toUpperCase() === 'BUTTON'){
-                if(target.dataset.loginstatus === 'false'){
-                    // 弹出登录弹窗
+                if(!cookie){
                     this.emit('showLoginModal');
                     return;
                 }
