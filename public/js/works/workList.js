@@ -45,7 +45,7 @@
             // 查询参数 (初始化) 用于删除作品时，为 刷新列表操作 保存默认查询参数
             this.param_total = 1;
             this.param_offset = 0;
-            this.param_limit = 20;
+            this.param_limit = 15;
 
             // 获取列表信息 (初始化)
             this.getWorksList();
@@ -112,16 +112,16 @@
                 this.delWork(target.parentNode.parentNode.dataset);
             }
             // 若点的是编辑按钮
-            else if(_.hasClassName(target, 'u-icon-edit')){
+            if(_.hasClassName(target, 'u-icon-edit')){
                 this.editWork(target.parentNode.parentNode.dataset, target);
             }
         },
 
         delWork: function(data){
 
-            console.log(321)
-            // 发布 显示确认弹窗事件
-            this.emit('confirm', {
+            console.log(data)
+            var alert = new Modal()
+            alert.emit('confirm', {
                 content: `确定要删除作品<span>"${data.name}"</span>吗?`,
                 confirmCallBack: function(){
                     _.ajax({

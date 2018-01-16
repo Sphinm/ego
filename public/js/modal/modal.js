@@ -1,4 +1,4 @@
-!function(){
+(function(){
     // 接口实现
     // 基础modal
 
@@ -8,15 +8,17 @@
     // 确定
     // 取消
 
-    var template =
-        '<div class="m-modal">\
-          <div class="modal_align"></div>\
-          <div class="modal_wrap animated">\
-            <i class="modal_cancel"></i>\
-            <div class="modal_head">标题</div>\
-            <div class="modal_body">内容</div>\
-          </div>\
-        </div>';
+    var template = `<div class="m-alertmodal">
+		<span class="close_btn u-icon u-icon-close"></span>
+		<div class="modal_tt">
+			<strong>提示信息 :</strong>
+		</div>
+		<div class="modal_ct">
+			<p class="alert_msg">确定要删除“唯美的”的吗</p>
+			<button class="u-btn u-btn-primary submit_btn">确定</button>
+			<button class="u-btn u-btn-primary cancel_btn">取消</button>
+		</div>
+	</div>`;
 
     // Modal 实现
     function Modal(options) {
@@ -24,21 +26,14 @@
         // cloneNode方法，设置为 true，如果您需要克隆节点及其属性，以及后代，设置为 false，如果您只需要克隆节点及其后代
         // 即 div.m-modal 节点
         this.container = this._layout.cloneNode(true);
-        // 标题
-        this.head = this.container.querySelector('.modal_head');
-        // body 用于插入自定义内容
-        this.body = this.container.querySelector('.modal_body');
-        // 获得取消节点
-        this.close = this.container.querySelector(".modal_cancel");
+        this.alert_msg = this.container.querySelector('.alert_msg');
+        this.submit_btn = this.container.querySelector('.submit_btn');
+        this.close_btn = this.container.querySelector(".close_btn");
+        this.cancel = this.container.querySelector('.cancel_btn');
 
         // 将options 复制到 组件实例上，让options.content等于this.content，这样使用比较简单
         _.extend(this, options);
 
-        // 初始化标题
-        this.head.innerHTML = this.title;
-        if (this.name) {
-            _.addClassName(this.container,this.name);
-        }
 
         // 初始化事件
         this._initEvent();
@@ -71,6 +66,11 @@
             document.body.appendChild(this.container);
         },
 
+        showMsg: function (msg) {
+            this.alert_msg.innerText = msg;
+            this.show()
+        },
+
         // Modal hide接口
         hide: function() {
             var container = this.container;
@@ -81,10 +81,16 @@
             this.emit("cancel");
             this.hide();
         },
+        _onSubmit:function () {
+
+        },
 
         // 事件初始化
         _initEvent: function() {
-            _.addEvent(this.close, 'click',this._onCancel.bind(this));
+            this.on('confirm', this.showMsg.bind(this));
+            _.addEvent(this.close_btn, 'click',this._onCancel.bind(this));
+            _.addEvent(this.cancel, 'click', this._onCancel.bind(this));
+            _.addEvent(this.submit_btn, 'click', this._onSubmit.bind(this))
         }
     });
 
@@ -104,4 +110,4 @@
         window.Modal = Modal;
     }
 
-}();
+})();

@@ -39,7 +39,6 @@
 .m-work-desc input,.m-work-desc textarea{-webkit-border-radius:0;border-radius:0;}
 .m-work-desc input{height:38px;width:294px;padding-left: 15px;}
 .m-work-desc textarea{width:404px;height:104px;padding:15px;box-sizing:border-box;}
-
 .m-work-desc .prompt_msg{margin-left:28px;font-size:11px;color:red;}
 
 .m-tag{margin-top:23px;padding-left:140px;float: left;font-size:13px;line-height:30px;}

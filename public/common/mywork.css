@@ -36,23 +36,20 @@
 .m-workslist .item img{position:absolute;top:5px;right:5px;bottom:-7px;left:-7px;width:103px;height:160px;border:1px solid #d7d7d7;border-top:none;border-right:none;box-sizing:border-box;}
 .m-workslist .item h3{position:absolute;bottom:-6px;left:-6px;right:6px;height:30px;line-height:30px;background:rgba(255,255,255,.8);text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:12px;}
 .m-workslist .item .icons{display:none;top:5px;right:5px;bottom:-7px;left:-7px;background:rgba(0,0,0,0.5);font-weight:700;text-align:right;color:#fff;}
-.m-workslist .item .icons .u-icon{cursor:pointer;position:absolute;top:2px;right:2px;color:#fff;height:16px;width:16px;background:url("../img/delete.png") no-repeat;}
+.m-workslist .item .icons .u-icon-delete{cursor:pointer;position:absolute;top:5px;right:3px;color:#fff;height:16px;width:16px;background:url("../img/delete.png") no-repeat;}
+.m-workslist .item .icons .u-icon-edit{cursor:pointer;position:absolute;top:5px;right:5px;margin-right: 20px;color:#fff;height:16px;width:16px;background:url("../img/edit.png") no-repeat;}
 .m-workslist .item .icons .u-icon:last-child{margin-right:4px;}
 .m-workslist .item:hover .icons{display:block;}
 .m-workslist .cnt{font-size:13px;}
 
-.m-modal{position:fixed;z-index:999;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.5);}
-.m-modal > div{position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);border:1px solid #e4e4e2;background:#fff;}
-
-.m-confirmmodal{position:relative;width:408px;padding:10px 12px;border:1px solid #a8a8a8;box-sizing:border-box;}
-.m-confirmmodal .close_btn{position:absolute;right:9px;top:9px;font-size:15px;color:#c0c0c1;cursor:pointer;}
-.m-confirmmodal .modal_tt{margin-bottom:10px;line-height:1em;color:#5ed0ba;font-size:15px;}
-.m-confirmmodal .modal_ct{border-top:1px solid #e9eaea;text-align:center;}
-.m-confirmmodal .modal_ct .confirm_msg{margin-top:24px;font-size:14px;}
-.m-confirmmodal .modal_ct .confirm_msg span{color:#5ed0ba;}
-.m-confirmmodal .modal_ct .confirm_msg input{width:200px;height:35px;box-sizing:border-box;line-height:35px;border-color:#d7d7d7;}
-.m-confirmmodal .modal_ct .u-btn{width:90px;margin-top:24px;margin-bottom:5px;}
-.m-confirmmodal .modal_ct .u-btn + .u-btn{margin-left:20px;}
+.m-alertmodal{height:100%;width:100%;position:fixed;left:0;top:0;background: -webkit-radial-gradient(rgba(0, 0, 0, 0.1), rgb(0, 0, 0) 85%);;text-align:center;color:#aaa;z-index:100;display: flex;align-items: center;justify-content: center;}
+.m-alertmodal .close_btn{cursor: pointer;position:relative;top:-58px;left:314px;width:16px;height:16px;background:url(../img/small.png) no-repeat 0 -88px;}
+.m-alertmodal .modal_tt{width: 100%;margin: -55px 0 0 -110px;position: absolute;line-height:1em;color:#5ed0ba;font-size:15px;}
+.m-alertmodal .modal_ct{width: 320px;height:150px;border-radius:3px;overflow:hidden;background: #fff;box-shadow:2px 2px 5px rgba(0,0,0,0.2);}
+.m-alertmodal .modal_ct .alert_msg{font-size:14px;font-family: 黑体;margin:50px 0 0 -35px;color: #333}
+.m-alertmodal .modal_ct .u-btn{width:80px;height:30px;margin:30px 20px 0 15px;border-radius: 5px}
+.m-alertmodal .modal_ct .u-btn.submit_btn{color: #fff;background: #5ed0ba;outline: none;border: 1px solid #5ed0ba}
+.m-alertmodal .modal_ct .u-btn.cancel_btn{color: #5ed0ba;background: #fff;outline: none;border: 1px solid #5ed0ba}
 
 .m-pagination{margin-top:27px;text-align:center;}
 .m-pagination li{display:inline-block;margin-left:25px;font-size:11px;line-height:32px;text-align:center;color:#5eccb6;cursor:pointer;}

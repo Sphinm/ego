@@ -42,6 +42,7 @@
     });
 
 
+
     var tab = new Tabs();
     document.querySelector('.work').addEventListener('click', function (event) {
         var cookie = _.getCookie('loginSuc');
@@ -64,9 +65,6 @@
         parent: document.querySelector('.g-wrap')
     })
 
-    //
-    // var list = new WorkList();
-    // list.on('confirm')
 
 
 })(window)

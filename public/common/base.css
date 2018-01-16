@@ -212,7 +212,6 @@ a,a:hover{color:#333;}
 /* modal */
 .m-modal{height:100%;width:100%;position:fixed;left:0;top:0;background-color:rgba(87,115,135,0.6);text-align:center;color:#aaa;z-index:100;}
 .m-modal .modal_align,.m-modal .modal_wrap{display:inline-block;zoom:1;*display:inline;vertical-align:middle;}
-.m-modal .modal_align{height:100%;width:1px;line-height:100%;}
 .m-modal .modal_wrap{position:relative;text-align:left;width:400px;-webkit-box-shadow:2px 2px 5px rgba(0,0,0,0.4);box-shadow:2px 2px 5px rgba(0,0,0,0.4);border-radius:3px;overflow:hidden;}
 .m-modal .close{position:absolute;right:8px;top:8px;font-size:18px;color:#ddd;cursor:pointer;}
 .m-modal .close:hover{color:#999;}

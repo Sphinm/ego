@@ -19,6 +19,7 @@
     var modalLogin = new LoginModal();
     var registerLogin = new RegisterModal();
 
+
     var cookie = _.getCookie('loginSuc');
     if (cookie === 'loginSuc') {
         login.style.display = 'none';
