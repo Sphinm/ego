@@ -119,21 +119,67 @@
             _.delClassName(this.ErrorParent, 'f-dn');
         },
 
+        loginInfo: function (data) {
+            // var that = this;
+            // var data = {
+            //     username: that.userName.value.trim(),
+            //     password: hex_md5(that.password.value),
+            //     remember: !!that.remember.checked
+            // };
+            //
+            // // 设置选中状态时设置cookie失效时间为半小时
+            // if (!!data.remember) {
+            //     _.setCookie('loginSuc','loginSuc', 30)
+            // }
+            //
+            // if (that.check()) {
+            //     _.ajax({
+            //         url: '/api/login',
+            //         method: 'POST',
+            //         data: data,
+            //         success: function (data) {
+            //             var dataOrz = JSON.parse(data);
+            //             console.log(data)
+            //             if (dataOrz.code === 200) {
+            //                 that.hide();
+            //                 that.emit('login', data.result);
+            //                 that.lastSuc();
+            //                 _.setCookie('loginSuc', 'loginSuc');
+            //             } else {
+            //                 that.hide();
+            //                 alert('您的手机号尚未注册，请先注册~');
+            //             }
+            //         },
+            //         fail: function () {}
+            //     })
+            // }
+            console.log(data)
+
+        },
+
         _submit: function (event) {
             var that = this;
             event.preventDefault();
-            var data = {
+
+            var user = {
                 username: that.userName.value.trim(),
                 password: hex_md5(that.password.value),
                 remember: !!that.remember.checked
             };
+
+            // 设置选中状态时设置cookie失效时间为半小时
+            if (!!user.remember) {
+                _.setCookie('loginSuc','loginSuc', 30)
+            }
+
             if (that.check()) {
                 _.ajax({
                     url: '/api/login',
                     method: 'POST',
-                    data: data,
+                    data: user,
                     success: function (data) {
                        var dataOrz = JSON.parse(data);
+                       console.log(data)
                         if (dataOrz.code === 200) {
                             that.hide();
                             that.emit('login', data.result);
@@ -143,6 +189,7 @@
                             that.hide();
                             alert('您的手机号尚未注册，请先注册~');
                         }
+                        return data;
                     },
                     fail: function () {}
                 })
@@ -150,8 +197,7 @@
         },
 
         initLoginEvent: function () {
-            //    绑定提交事件
-            //    绑定跳转注册事件
+            //  绑定事件
             _.addEvent(this.close, 'click' ,this.onCancel.bind(this));
             _.addEvent(this.goregister, 'click', this.register.bind(this));
             _.addEvent(this.submit, 'click', this._submit.bind(this));

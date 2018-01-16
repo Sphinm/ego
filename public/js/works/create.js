@@ -42,16 +42,31 @@
     });
 
 
-    new Tabs();
+    var tab = new Tabs();
+    document.querySelector('.work').addEventListener('click', function (event) {
+        var cookie = _.getCookie('loginSuc');
+        if(cookie !== 'loginSuc'){
+            event.preventDefault();
+            tab.on('showLoginModal', modalLogin.show.bind(modalLogin));
+            return false
+        } else {
+            tab.off('showLoginModal',modalLogin.hide.bind(modalLogin));
+        }
+    });
+
     new Search();
 
     // 作品列表页的用户信息
     new UserInfo({
         parent: document.querySelector('.g-profile')
+    });
+    new WorkList({
+        parent: document.querySelector('.g-wrap')
     })
 
-    // (new UserInfo).on('login', function (data) {
-    //     console.log(data)
-    // })
+    //
+    // var list = new WorkList();
+    // list.on('confirm')
+
 
 })(window)

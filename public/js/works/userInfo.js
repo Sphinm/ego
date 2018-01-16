@@ -2,7 +2,7 @@
 
     function UserInfo(opt) {
         _.extend(this, opt);
-        //
+
         // var iconConfig = [
         //     {
         //         sex: 'u-icon-male'
@@ -12,7 +12,7 @@
         //     }
         // ];
 
-        // 这里需要判断前一个页面的登录信息后取data中的数据，可是我这里获取不到，暂时使用假数据
+        // 这里需要判断前一个页面的登录信息后取data中的数据，可是我这里不能把登录信息写入cookie，所以暂时使用假数据
         var user = {
             nickname: 'Amber',  // 昵称
             sex: '女',  // 性别icon
@@ -46,12 +46,8 @@
     _.extend(UserInfo.prototype, {
 
         render: function () {
-            console.log(555)
-            this.on('login', function(data) {
-                console.log(666)
-                this.parent.appendChild(this.container);
 
-            }.bind(this));
+                this.parent.appendChild(this.container);
         }
     });
 

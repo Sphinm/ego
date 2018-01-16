@@ -2,7 +2,7 @@
 
     var template_cnt = `<div class="m-workscnt"></div>`;
 
-    var template = `
+    var template = Handlebars.compile(`
 		<ul class="m-workslist">
 			{{#if total}}
 				{{#each data}}
@@ -20,20 +20,16 @@
 			{{else}}
 				<div class="cnt">你还没有创建过作品</div>
 			{{/if}}
-		</ul>`;
+		</ul>`);
 
-    /**
-     *  options = {
-	*    parent: dom节点,  父容器
-	*  }
-     */
+
     function WorkList(options){
-
-        // 继承配置
         _.extend(this, options);
 
-        // 初始化
         this.init();
+        // 缓存节点
+
+
     }
 
     // 混入事件管理器
@@ -42,17 +38,14 @@
     _.extend(WorkList.prototype,{
         init: function(){
 
-            // 添加Loading图标
-            this.loading = _.html2node(`<img class="f-dn" src="../../res/images/loading.gif" />`);
-            this.title.appendChild(this.loading);
-            // 渲染作品内容
+            this.loading = document.querySelector('.u-icon-load');
             this.cnt = _.html2node(template_cnt);
             this.parent.appendChild(this.cnt);
 
             // 查询参数 (初始化) 用于删除作品时，为 刷新列表操作 保存默认查询参数
             this.param_total = 1;
             this.param_offset = 0;
-            this.param_limit = 10;
+            this.param_limit = 20;
 
             // 获取列表信息 (初始化)
             this.getWorksList();
@@ -62,10 +55,9 @@
         },
 
         getWorksList: function(options){
-            // 防止options undefined
             options = options || {};
             // 隐藏已有数据列表
-            this.workList && _.addClassName(this.workList, 'f-vh');
+            this.workList && _.addClassName(this.workList, 'f-dn');
             // 显示Loading图标
             _.delClassName(this.loading, 'f-dn');
 
@@ -86,9 +78,7 @@
                     data = JSON.parse(data);
                     if(data.code === 200){
                         _.addClassName(this.loading, 'f-dn');
-                        // 更新作品列表
                         this.renderList(data.result);
-                        // 渲染分页器
                         this.renderPagination(data.result);
                     }
                 }.bind(this),
@@ -97,25 +87,19 @@
         },
 
         renderList: function(data){
-            // 是否已存在作品列表
             if(this.workList){
-                // 若存在，则更新数据
                 var oldWorkList = this.workList;
                 this.workList = _.html2node(template(data));
                 oldWorkList.parentNode.replaceChild(this.workList, oldWorkList);
-            }
-            else{
-                // 若不存在，则新增
+            } else{
                 this.workList = _.html2node(template(data));
                 this.cnt.appendChild(this.workList);
             }
         },
 
         renderPagination: function(data){
-            // 若没有数据，则不渲染分页器
-            if(data.total === 0){return;}
-            // 单例模式
-            this.pagination = this.pagination || new Pagination({  // 若不存在则新建
+            if(data.total.length === 0) return;
+            this.pagination = this.pagination || new Pagination({
                 parent: this.parent,
                 total: data.total,
                 togglePageNum: this.getWorksList.bind(this)
@@ -124,7 +108,6 @@
 
         clickHandler: function(evt){
             var target = evt.target;
-            // 若点的是删除按钮
             if(_.hasClassName(target, 'u-icon-delete')){
                 this.delWork(target.parentNode.parentNode.dataset);
             }
@@ -136,6 +119,7 @@
 
         delWork: function(data){
 
+            console.log(321)
             // 发布 显示确认弹窗事件
             this.emit('confirm', {
                 content: `确定要删除作品<span>"${data.name}"</span>吗?`,
@@ -144,7 +128,6 @@
                         url: `/api/works/${data.id}`,
                         method: 'DELETE',
                         success: function(){
-                            // 刷新列表
                             this.getWorksList();
                         }.bind(this),
                         fail: function(e){
@@ -156,7 +139,6 @@
         },
 
         editWork: function(data, work_target){
-
             // 发布 显示确认弹窗事件
             this.emit('confirm', {
                 title: '请输入新的作品名称',
@@ -172,14 +154,11 @@
                             url: `/api/works/${data.id}`,
                             method: 'PATCH',
                             data: {name: new_name},
-                            success: function(res){
-                                res = JSON.parse(res);
-                                console.log(res);
-                                // 要修改的作品的名称 dom节点
+                            success: function(data){
+                                data = JSON.parse(data);
                                 var name_node = work_target.parentNode.parentNode.getElementsByTagName('h3')[0];
-                                // 修改作品名称
                                 name_node.innerHTML = new_name;
-                                work_target.parentNode.parentNode.dataset.name = new_name; // 同步更新 data- 上属性值
+                                work_target.parentNode.parentNode.dataset.name = new_name;
                             }.bind(this),
                             fail: function(e){
                                 console.log(e);

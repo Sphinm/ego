@@ -24,7 +24,7 @@
         this.nbody = document.getElementsByClassName('m-tabs')[0];
         this.nTabs = this.nTab.children;
         this.nThumb = this.container.getElementsByClassName('tabs-thumb')[0];
-
+        this.work = this.container.querySelector('.work');
         // 动态构建滑动条
         this.init();
     }
@@ -36,11 +36,13 @@
         _layout: _.html2node(template),
 
         setCurrent: function (index) {
+
             _.delClassName(this.nTabs[this.index],'z-active');
             this.index = index;
             _.addClassName(this.nTabs[index],'z-active');
             this.highlight(index);
-            this.emit('showLoginModal');
+
+
         },
 
         highlight: function (index) {
@@ -50,6 +52,7 @@
         },
 
         init : function () {
+            var that = this;
             this.nbody.appendChild(this.container);
             for (var i = 0; i<this.nTabs.length; i++) {
                 _.addEvent(this.nTabs[i],'mouseenter', function (index) {
@@ -59,6 +62,14 @@
                     this.setCurrent(index)
                 }.bind(this,[i]))
             }
+
+            _.addEvent(this.work, 'click', function () {
+                var cookie = _.getCookie('loginSuc');
+                if (cookie !== 'loginSuc') {
+                    that.emit('showLoginModal');
+                }
+            });
+
             _.addEvent(this.nTab,'mouseleave',function () {
                 this.highlight(this.index);
             }.bind(this));
