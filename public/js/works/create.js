@@ -42,7 +42,6 @@
     });
 
 
-
     var tab = new Tabs();
     document.querySelector('.work').addEventListener('click', function (event) {
         var cookie = _.getCookie('loginSuc');

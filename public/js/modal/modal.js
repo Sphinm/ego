@@ -8,13 +8,13 @@
     // 确定
     // 取消
 
-    var template = `<div class="m-alertmodal">
+    var template = `<div class="m-confirm">
 		<span class="close_btn u-icon u-icon-close"></span>
 		<div class="modal_tt">
 			<strong>提示信息 :</strong>
 		</div>
 		<div class="modal_ct">
-			<p class="alert_msg">确定要删除“唯美的”的吗</p>
+			<p class="confirm_msg"></p>
 			<button class="u-btn u-btn-primary submit_btn">确定</button>
 			<button class="u-btn u-btn-primary cancel_btn">取消</button>
 		</div>
@@ -26,10 +26,12 @@
         // cloneNode方法，设置为 true，如果您需要克隆节点及其属性，以及后代，设置为 false，如果您只需要克隆节点及其后代
         // 即 div.m-modal 节点
         this.container = this._layout.cloneNode(true);
-        this.alert_msg = this.container.querySelector('.alert_msg');
+
+        this.title = this.container.querySelector('.modal_tt');
+        this.confirm_msg = this.container.querySelector('.confirm_msg');
         this.submit_btn = this.container.querySelector('.submit_btn');
         this.close_btn = this.container.querySelector(".close_btn");
-        this.cancel = this.container.querySelector('.cancel_btn');
+        this.cancel_btn = this.container.querySelector('.cancel_btn');
 
         // 将options 复制到 组件实例上，让options.content等于this.content，这样使用比较简单
         _.extend(this, options);
@@ -67,8 +69,10 @@
         },
 
         showMsg: function (msg) {
-            this.alert_msg.innerText = msg;
-            this.show()
+            msg.title && (this.title.innerHTML = msg.title);
+            this.confirm_msg.innerHTML = msg.content || '';
+            this.confirmCallBack = msg.confirmCallBack || function(){console.log('未绑定回调事件');};
+            this.show();
         },
 
         // Modal hide接口
@@ -81,16 +85,17 @@
             this.emit("cancel");
             this.hide();
         },
-        _onSubmit:function () {
-
-        },
 
         // 事件初始化
         _initEvent: function() {
             this.on('confirm', this.showMsg.bind(this));
-            _.addEvent(this.close_btn, 'click',this._onCancel.bind(this));
-            _.addEvent(this.cancel, 'click', this._onCancel.bind(this));
-            _.addEvent(this.submit_btn, 'click', this._onSubmit.bind(this))
+            _.addEvent(this.close_btn, 'click',this.hide.bind(this));
+            _.addEvent(this.cancel_btn, 'click', this._onCancel.bind(this));
+            _.addEvent(this.submit_btn, 'click', function (event) {
+                this.confirmCallBack(event);
+                this.hide();
+            }.bind(this));
+
         }
     });
 

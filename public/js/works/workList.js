@@ -29,7 +29,6 @@
         this.init();
         // 缓存节点
 
-
     }
 
     // 混入事件管理器
@@ -106,20 +105,18 @@
             });
         },
 
-        clickHandler: function(evt){
-            var target = evt.target;
+        clickHandler: function(event){
+            var target = event.target;
             if(_.hasClassName(target, 'u-icon-delete')){
                 this.delWork(target.parentNode.parentNode.dataset);
             }
-            // 若点的是编辑按钮
             if(_.hasClassName(target, 'u-icon-edit')){
                 this.editWork(target.parentNode.parentNode.dataset, target);
             }
         },
 
         delWork: function(data){
-
-            console.log(data)
+            // 这里需要调用别的组件来触发组件
             var alert = new Modal()
             alert.emit('confirm', {
                 content: `确定要删除作品<span>"${data.name}"</span>吗?`,
@@ -139,16 +136,13 @@
         },
 
         editWork: function(data, work_target){
-            // 发布 显示确认弹窗事件
-            this.emit('confirm', {
-                title: '请输入新的作品名称',
+            var alert = new Modal()
+            alert.emit('confirm', {
+                title: '输入新名称',
                 content: `<input class="u-ipt new_name" value="${data.name}" />`,
-                confirmCallBack: function(evt){
-                    // 弹窗组件节点
-                    var confirm_modal = evt.target.parentNode.parentNode;
-                    // 编辑后的 新的 作品名称
+                confirmCallBack: function(event){
+                    var confirm_modal = event.target.parentNode.parentNode;
                     var new_name = confirm_modal.querySelector('.new_name').value.trim();
-                    // 若新名称 不为空
                     if(new_name){
                         _.ajax({
                             url: `/api/works/${data.id}`,
@@ -156,6 +150,7 @@
                             data: {name: new_name},
                             success: function(data){
                                 data = JSON.parse(data);
+                                console.log(data)
                                 var name_node = work_target.parentNode.parentNode.getElementsByTagName('h3')[0];
                                 name_node.innerHTML = new_name;
                                 work_target.parentNode.parentNode.dataset.name = new_name;
@@ -165,7 +160,6 @@
                             },
                         });
                     }
-                    console.log(new_name);
                 }.bind(this)
             });
         }

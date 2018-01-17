@@ -149,7 +149,7 @@
                             _.setCookie('loginSuc', 'loginSuc');
                         } else {
                             that.hide();
-                            alert('您的手机号尚未注册，请先注册~');
+                            alert('账号或密码错误');
                         }
                         return data;
                     },

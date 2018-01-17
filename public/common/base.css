@@ -166,7 +166,6 @@ a,a:hover{color:#333;}
 .g-main .section-content{height: 307px;border: 1px solid #e4e5e5;border-top: none;}
 .g-main .section-content .m-card{float:left;width: 360px;height: 94px;border: 1px solid #dfe0e0;margin-left:11px;}
 .g-main .section-content .m-card:nth-child(-n+2){margin-top: 9px;}
-.g-main .section-content .m-card:nth-child(-n+4){border-bottom: none;}
 .g-main .section-content .m-card .card-avatar{float: left;width: 69px;height: 69px;margin:12px 25px;border-radius: 50%;vertical-align: middle;}
 .g-main .section-content .m-card .card-info{float: left;margin-top:30px; }
 .g-main .section-content .m-card .card-info .card-name{font-size: 14px;color: #000;font-weight: bold;letter-spacing: 1.5px;}

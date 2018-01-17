@@ -42,14 +42,15 @@
 .m-workslist .item:hover .icons{display:block;}
 .m-workslist .cnt{font-size:13px;}
 
-.m-alertmodal{height:100%;width:100%;position:fixed;left:0;top:0;background: -webkit-radial-gradient(rgba(0, 0, 0, 0.1), rgb(0, 0, 0) 85%);;text-align:center;color:#aaa;z-index:100;display: flex;align-items: center;justify-content: center;}
-.m-alertmodal .close_btn{cursor: pointer;position:relative;top:-58px;left:314px;width:16px;height:16px;background:url(../img/small.png) no-repeat 0 -88px;}
-.m-alertmodal .modal_tt{width: 100%;margin: -55px 0 0 -110px;position: absolute;line-height:1em;color:#5ed0ba;font-size:15px;}
-.m-alertmodal .modal_ct{width: 320px;height:150px;border-radius:3px;overflow:hidden;background: #fff;box-shadow:2px 2px 5px rgba(0,0,0,0.2);}
-.m-alertmodal .modal_ct .alert_msg{font-size:14px;font-family: 黑体;margin:50px 0 0 -35px;color: #333}
-.m-alertmodal .modal_ct .u-btn{width:80px;height:30px;margin:30px 20px 0 15px;border-radius: 5px}
-.m-alertmodal .modal_ct .u-btn.submit_btn{color: #fff;background: #5ed0ba;outline: none;border: 1px solid #5ed0ba}
-.m-alertmodal .modal_ct .u-btn.cancel_btn{color: #5ed0ba;background: #fff;outline: none;border: 1px solid #5ed0ba}
+.m-confirm{height:100%;width:100%;position:fixed;left:0;top:0;background: -webkit-radial-gradient(rgba(0, 0, 0, 0.1), rgb(0, 0, 0) 85%);;text-align:center;color:#aaa;z-index:100;display: flex;align-items: center;justify-content: center;}
+.m-confirm .close_btn{cursor: pointer;position:relative;top:-65px;left:314px;width:16px;height:16px;background:url(../img/small.png) no-repeat 0 -88px;}
+.m-confirm .modal_tt{margin: -55px 0 0 -100px;position: absolute;line-height:1em;color:#5ed0ba;font-size:15px;}
+.m-confirm .modal_ct{width: 320px;height:150px;border-radius:3px;overflow:hidden;background: #fff;box-shadow:2px 2px 5px rgba(0,0,0,0.2);}
+.m-confirm .modal_ct .confirm_msg{font-size:14px;margin-top:50px;color: #333}
+.m-confirm .modal_ct .confirm_msg .new_name{width: 150px;height: 20px;border:1px solid #5ed0ba;border-radius: 3px;padding-left: 10px}
+.m-confirm .modal_ct .u-btn{width:80px;height:30px;margin:30px 20px 0 15px;border-radius: 5px;outline: none;border: 1px solid #5ed0ba}
+.m-confirm .modal_ct .u-btn.submit_btn{color: #fff;background: #5ed0ba;}
+.m-confirm .modal_ct .u-btn.cancel_btn{color: #5ed0ba;background: #fff;}
 
 .m-pagination{margin-top:27px;text-align:center;}
 .m-pagination li{display:inline-block;margin-left:25px;font-size:11px;line-height:32px;text-align:center;color:#5eccb6;cursor:pointer;}

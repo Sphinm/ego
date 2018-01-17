@@ -137,15 +137,15 @@
                 [this.nick, ['require', 'nickname']],
                 [this.pwd, ['require', 'length']],
                 [this.confirmpwd, ['require', 'length']],
-                [this.captcha, ['require']]
+                [this.captcha, ['require']],
             ];
             isValid = this.checkRules(checkList);
 
             return isValid;
         },
 
-        showMessage: function (errorMsg) {
-            this.nError.innerText = errorMsg;
+        showMessage: function (msg) {
+            this.nError.innerText = msg;
             _.delClassName(this.errorParent, 'f-dn');
         },
 
@@ -158,8 +158,9 @@
                     rules = checkRules[i][1],
                     flag;
 
-                // 去除错误标示
+
                 _.delClassName(checkItem, 'error');
+
                 for(var j=0;j<rules.length;j++){
                     var key = rules[j];
                     switch(key){
@@ -168,6 +169,7 @@
                             if (!!flag) {
                                 var a= '您的信息没有输入完整哦!';
                                 that.showMessage(a)
+                                console.log(checkItem.value)
                             }
                             break;
                         case 'phone':
@@ -191,8 +193,8 @@
                                 this.showMessage(d)
                             }
                             if (!!flag && this.confirmpwd.value !== this.pwd.value){
-                                var d = '两次输入的密码不一致!';
-                                this.showMessage(d);
+                                var e = '两次输入的密码不一致!';
+                                this.showMessage(e);
                                 _.addClassName(checkRules[3][0], 'error');
                             }
                             break;
@@ -203,21 +205,25 @@
                 flag || (check_result = false);
 
             }
+
             // 无错误
             flag && _.addClassName(this.errorParent, 'f-dn');
+
+
             return check_result;
         },
 
+        // 这里如何比对图片中验证码是否输入准确呢？
         submit: function(event){
             event.preventDefault();
             if(this.check()){
+
                 var data = {
                     username: this.phone.value.trim(),
                     nickname: this.nick.value.trim(),
                     password: hex_md5(this.pwd.value),
                     sex: this.getRadioValue('registerform', 'sex'),
                     captcha: this.captcha.value.trim(),
-                    remember: !!this.remembered.checked
                 };
 
                 this.birthday = this.birthdaySelect.getValue().join('-');
