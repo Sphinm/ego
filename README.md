@@ -8,8 +8,10 @@
 + 作品创建页：设置作品风格标签、作品分类、作品权限、上传作品(支持单个上传、批量上传以及拖拽上传)
 
 
-> 备注：原本有一个后端接口提供数据支持，但是github上必须要https的链接，访问http接口会被block，查找资料添加了一个这样的
+> 备注：原本有一个后端接口提供数据支持，但是github上必须要https的链接，访问http接口会被block，查找资料添加了一个
 `<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">`，但是网易这边又不给过，就先凑合看吧，如果想要完整的演示效果需要安装nei，访问[http://59.111.103.100/](http://59.111.103.100/)。
+
+> 对于组件我打算再重新梳理一下，之前有的部分为了省事没有考虑到继承或者更优化的方法，所以尽量写的健壮、可复用一点。  [传送门](https://github.com/suminhohu/Component/)
 
 ## 实现的功能
 
