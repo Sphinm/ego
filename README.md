@@ -8,6 +8,9 @@
 + 作品创建页：设置作品风格标签、作品分类、作品权限、上传作品(支持单个上传、批量上传以及拖拽上传)
 
 
+> 备注：原本有一个后端接口提供数据支持，但是github上必须要https的链接，访问http接口会被block，查找资料添加了一个这样的
+`<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">`，但是网易这边又不给过，就先凑合看吧，如果想要完整的演示效果需要安装nei，访问[http://59.111.103.100/](http://59.111.103.100/)。
+
 ## 实现的功能
 
 ### 首页 
@@ -86,3 +89,20 @@
    +  表单可正常提交
        +  不丢失任何数据信息
        +  提交前需要检查作品名称是否为空
+
+
+## 预览效果
+
++ 首页：[https://suminhohu.github.io/ego/html/index.html](https://suminhohu.github.io/ego/html/index.html)
++ 作品列表页：[https://suminhohu.github.io/ego/html/works/myworks.html](https://suminhohu.github.io/ego/html/works/myworks.html)
++ 上传作品页：[https://suminhohu.github.io/ego/html/works/upload.html](https://suminhohu.github.io/ego/html/works/upload.html)
+
+
+> 这里访问的时候有些地方就看不了，所以我也截图存放在'showImg'文件夹中，方便对比。如果你想看完整的交互你可以安装nei服务，具体步骤如下：
+
+1. 通过npm安装nei，命令为 `npm install nei -g`
+2. 然后在你的目录下创建ego项目，命令为 `nei build -k e389c52125abdd607c4455e4d448e5d3 -o ./ego`
+3. 将源码放进public文件夹即可，修改server.config.js，然后启动nei，`nei server`
+
+
+
