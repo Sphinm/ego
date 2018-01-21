@@ -25,9 +25,9 @@ module.exports = {
 
         // 本地接口
       
-        "GET /works/detail/:id": { name: '作品详情页面', index: 0, list: [{"id":13096,"path":"works\\detail"}] },
-        "GET /works/create": { name: '作品创建页面', index: 0, list: [{"id":13081,"path":"works\\create"}] },
-        "GET /works": { name: '作品列表页面', index: 0, list: [{"id":13079,"path":"works\\list"}] },
+        "GET /works/detail/:id": { name: '作品详情页面', index: 0, list: [{"id":13096,"path":"works/detail"}] },
+        "GET /works/create": { name: '作品创建页面', index: 0, list: [{"id":13081,"path":"works/create"}] },
+        "GET /works": { name: '作品列表页面', index: 0, list: [{"id":13079,"path":"works/list"}] },
         "GET /uploads/:filename": { path: 'get/uploads/_/filename/data', id: 36427, group: '图画',isFile: true },
         "GET /search": { name: '搜索结果页面', index: 0, list: [{"id":13080,"path":"search"}] },
         "GET /index": { name: '首页', index: 0, list: [{"id":13078,"path":"index"}] },
