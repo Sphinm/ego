@@ -126,6 +126,7 @@
 
         if (obj.method.toUpperCase() === 'GET') {
             obj.url += obj.data ? ('?'+ _.serialize(obj.data)) : '';
+            obj.url = 'http://59.111.103.100' + obj.url;
         }
 
 
