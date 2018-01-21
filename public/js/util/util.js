@@ -123,10 +123,15 @@
             }
         })(), data;
 
+        // 若需身份认证，带上cookie
+		if(obj.withCredentials){
+			// 跨域请求
+			xhr.withCredentials = true;
+		}
 
         if (obj.method.toUpperCase() === 'GET') {
             obj.url += obj.data ? ('?'+ _.serialize(obj.data)) : '';
-            obj.url = 'http://59.111.103.100' + obj.url;
+//             obj.url = 'http://59.111.103.100' + obj.url;
         }
 
 
