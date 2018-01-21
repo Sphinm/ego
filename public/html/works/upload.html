@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <title>上传作品</title>
+    <link rel="stylesheet" href="../../common/base.css">
+    <link rel="stylesheet" href="../../common/upload.css">
+</head>
+<body>
+    <!-- 顶栏区 -->
+    <div class="maintain-head">
+        <div class="g-header">
+            <div class="m-logo"></div>
+            <!-- 将m-tab模板渲染到m-tabs里面 -->
+            <div class="m-tabs"></div>
+            <div class="m-search"></div>
+            <div class="m-login">
+                <i class="u-login-logo"></i>
+                <span>登录</span>
+            </div>
+            <div class="m-register">
+                <span>注册</span>
+            </div>
+            <div class="m-login-info f-dn">
+                <div class="u-login-area">
+                    <div class="u-icon-login"></div>
+                    <div class="u-login-name">AmberLine-block</div>
+                    <i class="u-login-sex"></i>
+                    <i class="u-icon-down"></i>
+                </div>
+                <ul class="menus">
+                    <li class="login-info"><a href="#">个人中心</a></li>
+                    <li class="login-info"><a href="#">信息</a></li>
+                    <li class="login-info"><a href="#">设置</a></li>
+                    <li class="login-info login-out"><a href="../index.html">退出账号</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="g-body f-bd">
+        <!-- 主栏 -->
+        <div class="u-main">
+            <div class="works">
+                <label class="works_title">作品分类</label>
+                <label class="works_radio">
+                    <input type="radio" name="category" value="0" checked>
+                    <span class="u-btn">原创</span>
+                </label>
+                <label class="works_radio">
+                    <input type="radio" name="category" value="1">
+                    <span class="u-btn">临摹</span>
+                </label>
+            </div>
+            <div class="m-work-desc">
+                <div class="f-cb">
+                    <label class="name_title">作品名称</label>
+                    <input class="u-ipt" placeholder="给作品起个名字吧">
+                    <span class="prompt_msg f-dn">你的作品还没有取名字哦</span>
+                </div>
+                <div class="f-cb">
+                    <label class="description_title">作品说明</label>
+                    <textarea class="u-ipt" placeholder="对作品的描述性说明(可选填)"></textarea>
+                </div>
+            </div>
+            <button class="submit u-btn u-btn-primary">创&nbsp;&nbsp;建</button>
+        </div>
+        <!-- 侧边栏 -->
+        <div class="g-side">
+            <div class="m-privilege"><label>权限设置</label>
+                <ul class="m-radio">
+                    <li>
+                        <label class="f-cb">
+                            <input type="radio" checked name="privilege" value="0">
+                            <i class="u-icon u-icon-radio"></i>
+                            所有人可见
+                        </label>
+                    </li>
+                    <li>
+                        <label class="f-cb">
+                            <input type="radio" name="privilege" value="1">
+                            <i class="u-icon u-icon-radio"></i>
+                            关注者／粉丝可见
+                        </label>
+                    </li>
+                    <li>
+                        <label class="f-cb">
+                            <input type="radio" name="privilege" value="2">
+                            <i class="u-icon u-icon-radio"></i>
+                            仅自己可见
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/util/md5.js"></script>
+    <script src="../../js/util/address_codes.js"></script>
+    <script src="../../js/util/util.js"></script>
+    <script src="../../js/tab.js"></script>
+    <script src="../../js/search.js"></script>
+    <script src="../../js/modal/loginModal.js"></script>
+    <script src="../../js/modal/registerModal.js"></script>
+    <script src="../../js/cascade.js"></script>
+    <script src="../../js/select.js"></script>
+    <script src="../../js/upload/tag.js"></script>
+    <script src="../../js/upload/authorization.js"></script>
+    <script src="../../js/upload/uploadPicture.js"></script>
+    <script src="../../js/upload/upload.js"></script>
+</body>
+</html>

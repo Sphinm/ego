@@ -1,0 +1,88 @@
+/* 上传页主体布局 */
+.g-body.f-bd{width:1098px;margin:50px auto 50px;overflow: hidden}
+.u-main,.g-side{border:1px solid #e0e1e1;}
+.u-main{float:left;position:relative;width:770px;background:#fff;padding-bottom:40px;}
+.g-side{float:right;width:316px;padding-left:20px;box-sizing:border-box;background:#f7f8f8;margin-top: 0;}
+.u-main .submit{position:absolute;margin:40px 0 0 138px;height:40px;bottom:40px;width:100px;border: 0;background: #5ed0ba;color: #fff;border-radius: 3px;}
+
+
+/* 作品分类 */
+.works{margin:0 13px;padding: 15px 0;border-bottom:2px solid #f2f2f2;height: 60px;}
+.works label{float: left}
+.works .works_title{margin:27px 0 27px 31px;width:90px;height:13px;font-weight:bold;}
+.works input{-webkit-appearance: none;}
+.works .works_radio{margin-top: 10px;margin-right:32px;}
+.works .u-btn{display: inline-block;;width:90px;height:25px;padding-top:15px;letter-spacing: 3px;border:1px solid #5ed0ba;color:#5ed0ba;cursor:pointer;border-radius: 5px;text-align: center}
+.works input[type=radio]:checked + .u-btn{background:#5ed0ba;color:#fff;}
+
+
+/* 图片上传 */
+.m-upload{height: 86px;}
+.m-upload .upload_controller{padding-bottom:35px;}
+.m-upload .upload_title{display:inline-block;margin:27px 0 0 39px;width:88px;height:13px;font-weight:bold;}
+.m-upload .upload_btn{float: left;width:128px;height:27px;margin: -25px 0 0 135px;padding-top:12px;cursor:pointer;border:1px solid #5ed0ba;background: #5ed0ba;text-align: center;color:#fff;border-radius: 5px;}
+.m-upload .upload_input{display:none;}
+.m-upload .prompt_box{position:absolute;display: inline-block;margin:15px  0 5px -130px;color: #727171;}
+.m-upload  progress{display:inline-block;margin:-10px 0 7px 17px;height:15px;}
+.m-upload .progress_msg{float:right;margin:-22px 22px 0 15px;height:40px;line-height:40px;font-size:12px;}
+.m-upload .pictures_controller{float: left;min-height:164px;width:100%;padding-left:78px;padding-top:35px;border-top:2px solid #e9eaea;border-bottom:2px solid #e9eaea;background:#f7f8f8;box-sizing:border-box;}
+.m-upload .pictures_controller li{float:left;position:relative;margin-bottom:10px;margin-right:27px;padding-bottom:40px;}
+.m-upload .pictures_controller img{width:101px;height:140px;background: #8b8a8a}
+.m-upload .pictures_controller button,.m-upload .pictures_controller button + button{border-radius: 3px;color: #fff;background-color: #5ed0ba;border: 1px solid #5ed0ba;display:none;position:absolute;bottom:8px;left:5%;width:90%;height:30px;line-height:30px}
+.m-upload .pictures_controller li:hover button{display:block;color: #5ed0ba;background-color: #fff;border: 1px solid #5ed0ba;border-radius: 3px}
+.m-upload .pictures_controller li:hover button + button{display:none;}
+.m-upload .pictures_controller li.z-active{pointer-events:none;}
+.m-upload .pictures_controller li.z-active button + button{display:block;}
+.m-upload .pictures_controller li .hover_bg{display:none;position:absolute;top:0;left:0;width:101px;height:140px;background:rgba(0,0,0,0.1);}
+.m-upload .pictures_controller li:hover .hover_bg{display:block;}
+.m-upload .pictures_controller .u-icon{position:absolute;top:2px;right:2px;color:#fff;cursor:pointer;height:16px;width:16px;background:url("../img/delete.png") no-repeat;}
+
+
+/* 作品描述 */
+.m-work-desc{padding:26px 0 0 140px;display: block;float:left}
+.m-work-desc .f-cb + .f-cb{margin-top:25px;}
+.m-work-desc label{width:77px;font-size:13px;line-height:40px;color: #000;float: left}
+.m-work-desc .u-ipt{border: 1px solid #5ed0ba}
+.m-work-desc input,.m-work-desc textarea{-webkit-border-radius:0;border-radius:0;}
+.m-work-desc input{height:38px;width:294px;padding-left: 15px;}
+.m-work-desc textarea{width:404px;height:104px;padding:15px;box-sizing:border-box;}
+.m-work-desc .prompt_msg{margin-left:28px;font-size:11px;color:red;}
+
+
+/* tag 自定义标签 */
+.m-tag{margin-top:23px;padding-left:140px;float: left;font-size:13px;line-height:30px;}
+.m-tag li{display:inline-block;border:1px solid #5ed0ba;border-radius:3px;text-align:center;cursor:pointer;}
+.m-tag .tag_title{float:left;width:66px;height:26px;line-height:26px;font-size:12px;font-weight:500;color: #000;}
+.m-tag .tag_list{overflow:hidden;}
+.m-tag .tag_list li{position:relative;margin-left:10px;margin-bottom:8px;padding:0 10px;height:26px;line-height:26px;font-size:10px;color:#5ed0ba;background-color:#fff;}
+.m-tag .tag_list li:hover::before{content:'x';position:absolute;top:0;right:2px;line-height:1em;font-size:8px;font-weight:500;color:#dcdddd;}
+.m-tag .tag_list li.add_tag{padding:0;width:92px;white-space:nowrap;}
+.m-tag .tag_list li.add_tag:hover::before{content:'';}
+.m-tag .tag_list li.add_tag input{height:100%;width:100%;padding:0;border:none;box-sizing:border-box;text-indent:.5em;}
+.m-tag .tag_list li.add_tag span{display:inline-block;height:100%;width:100%;text-align:center;margin-left: -92px;}
+.m-tag .tag_list li.add_tag span::before{content:'+ ';}
+.m-tag .tag_rec{display:block;margin-top:30px;margin-bottom:10px;font-size:14px;color:#5ed0ba;line-height:1em;}
+.m-tag .tag_rec_list{margin-bottom:55px;margin-left:-8px;}
+.m-tag .tag_rec_list li{margin-left:8px;margin-bottom:8px;padding:0 12px;height:28px;line-height:28px;font-size:12px;color:#fff;background-color:#5ed0ba;}
+.m-tag .tag_rec_list li::before{content:'+ ';font-size:12px;line-height:28px;}
+.m-tag .tag_recommend{color: #5ed0ba;}
+
+
+/* radio单选 */
+.m-privilege label{display:inline-block;color:#000;margin-bottom:20px;margin-top:27px;font-size:13px;}
+.m-radio{width: 100px;color: #727171;position: relative;margin:28px 0}
+.m-radio label{margin-top:0;white-space:nowrap;color:#848383;font-weight:normal;cursor:pointer;padding-left: 20px}
+.m-radio input{-webkit-appearance: none;}
+.m-radio .u-icon-radio{display: inline-block;margin-top: -2px;position: absolute;left: 0;width: 15px;height: 15px;outline: 0;border: 1px solid #a5f1e1;background: #fff;border-radius: 50%;transition: border-color .3s;}
+.m-radio input+i:after{position:absolute;content: '';top: 3px;left: 3px;width: 9px;height: 9px;border-radius: 50%;background-color: #5ed0ba;opacity: 0;transition: opacity .1s;}
+.m-radio input:checked+i:after{opacity: 1;}
+
+/* 作品授权select选择器 */
+.m-authorization .m-select{position:relative;text-indent:10px;cursor:pointer;margin-bottom:42px;height:39px;}
+.m-authorization label{display:inline-block;color:#000;margin-bottom:20px;font-size:13px;}
+.m-authorization .m-select .select_list{background-color: #fff;width: 270px;height: 40px;display:flex;justify-content:space-between;align-items:center;border:1px solid #a5f1e1;border-radius:3px;}
+.m-authorization .m-select .select_list .u-icon-down{width:0;height:0;margin:5px 5px 0;text-indent:0;border: 6px solid;border-color: #84dbca transparent transparent;content: ".";}
+.m-authorization .m-select .select_opt{position:absolute;top:100%;left:0;width:270px;height:80px;border:1px solid #f4f4f4;background:#fff;overflow-y:auto;}
+.m-authorization .m-select .select_opt::-webkit-scrollbar{display:none;}
+.m-authorization .m-select .select_opt li{line-height:40px;overflow-x:hidden;white-space:nowrap;text-overflow:ellipsis;text-align: left}
+.m-authorization .m-select .select_opt li:hover{background-color:#f4f4f4;}
