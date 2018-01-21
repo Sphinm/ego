@@ -24,7 +24,7 @@ module.exports = {
 
 
         // 本地接口
-        "ALL /api/*": 'https://suminhohu.github.io/ego/',
+      
         "GET /works/detail/:id": { name: '作品详情页面', index: 0, list: [{"id":13096,"path":"works\\detail"}] },
         "GET /works/create": { name: '作品创建页面', index: 0, list: [{"id":13081,"path":"works\\create"}] },
         "GET /works": { name: '作品列表页面', index: 0, list: [{"id":13079,"path":"works\\list"}] },
