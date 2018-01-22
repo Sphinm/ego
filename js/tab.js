@@ -41,9 +41,9 @@
 
         // 设置选中tab状态
         setCurrent: function (index) {
-            _.delClassName(this.nTabs[this.index],'z-active');
+            _.delClassName(this.nTabs[this.index], 'z-active');
             this.index = index;
-            _.addClassName(this.nTabs[index],'z-active');
+            _.addClassName(this.nTabs[index], 'z-active');
             this.highlight(index);
 
 
@@ -62,7 +62,7 @@
             this.nbody.appendChild(this.container);
             // 循环触发mouseenter和click 事件
             for (var i = 0; i<this.nTabs.length; i++) {
-                _.addEvent(this.nTabs[i],'click', function (index) {
+                _.addEvent(this.nTabs[i], 'click', function (index) {
                     this.setCurrent(index)
                 }.bind(this,[i]));
                 _.addEvent(this.nTabs[i],'mouseenter', function (index) {
