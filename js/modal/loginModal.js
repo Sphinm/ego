@@ -143,10 +143,6 @@
                 remember: !!that.remember.checked
             };
 
-            // 设置选中状态时设置cookie失效时间为半小时
-            if (!!user.remember) {
-                _.setCookie('loginSuc','loginSuc', 30)
-            }
 
             if (that.check()) {
                 _.ajax({
