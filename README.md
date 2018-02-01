@@ -1,20 +1,22 @@
 # EGO项目
 
 ## 项目介绍
-> Ego 项目是一款动漫类的产品，本身有很多功能，这里主要做了五个功能模块，分别是首页、登录、注册、我的作品和创建作品，整体采用组件来搭建页面，通过原生JavaScript实现，简单看一下用到的组件和功能点。
+ Ego 项目是一款动漫类的产品，本身有很多功能，这里主要做了五个功能模块，分别是首页、登录、注册、我的作品和创建作品，整体采用组件来搭建页面，通过原生JavaScript实现，简单看一下用到的组件和功能点。
 
 + 首页：Tab导航栏组件、搜索框、明日之星关注、登录和注册
 + 作品列表页：分页组件、用户创建的作品列表、作品编辑/删除组件、根据用户信息(注册模块需要写入生日和地所在地)计算用户星座和城市 
 + 作品创建页：设置作品风格标签、作品分类、作品权限、上传作品(支持单个上传、批量上传以及拖拽上传)
 
 
-> 备注：原本有一个后端接口提供数据支持，但是github上必须要https的链接，访问http接口会被block，查找资料添加了一个
+ 备注：原本有一个后端接口提供数据支持，但是github上必须要https的链接，访问http接口会被block，查找资料添加了一个
 `<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">`转成https，也行不通，如果想要完整的演示效果需要安装nei。
 直接访问的时候有些地方就看不了，所以我也截图存放在'showImg'文件夹中，方便对比。如果你想看完整的交互你可以安装nei服务，具体步骤如下：
 
-1. 通过npm安装nei，命令为 `npm install nei -g`
-2. 然后在你的目录下创建ego项目，命令为 `nei build -k e389c52125abdd607c4455e4d448e5d3 -o ./ego`
-3. 将源码放进public文件夹即可，修改server.config.js，然后启动nei，`nei server`
+* 通过npm安装nei，命令为 `npm install nei -g`
+* 然后在你的目录下创建ego项目，命令为 `nei build -k e389c52125abdd607c4455e4d448e5d3 -o ./ego`
+* 将源码放进public文件夹即可，修改server.config.js，然后启动nei，`nei server` 
+
+ 
 
 ## 预览效果
 
