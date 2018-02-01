@@ -1,4 +1,4 @@
-# EGO项目——网易前端微专业
+# EGO项目
 
 ## 项目介绍
 > Ego 项目是一款动漫类的产品，本身有很多功能，这里主要做了五个功能模块，分别是首页、登录、注册、我的作品和创建作品，整体采用组件来搭建页面，通过原生JavaScript实现，简单看一下用到的组件和功能点。
@@ -9,7 +9,13 @@
 
 
 > 备注：原本有一个后端接口提供数据支持，但是github上必须要https的链接，访问http接口会被block，查找资料添加了一个
-`<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">`转成https，但是网易这边又不给过，就先凑合看吧，如果想要完整的演示效果需要安装nei，访问[http://59.111.103.100/](http://59.111.103.100/)。
+`<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">`转成https，也行不通，如果想要完整的演示效果需要安装nei，访问[http://59.111.103.100/](http://59.111.103.100/)。
+
+## 预览效果
+
++ 首页：[https://suminhohu.github.io/ego/html/index.html](https://suminhohu.github.io/ego/html/index.html)
++ 作品列表页：[https://suminhohu.github.io/ego/html/works/myworks.html](https://suminhohu.github.io/ego/html/works/myworks.html)
++ 上传作品页：[https://suminhohu.github.io/ego/html/works/upload.html](https://suminhohu.github.io/ego/html/works/upload.html)
 
 > 对于组件我打算再重新梳理一下，之前有的部分为了省事没有考虑到继承或者更优化的方法，所以尽量写的健壮、可复用一点。  [传送门](https://github.com/suminhohu/Component/)
 
@@ -152,11 +158,7 @@ hover出现下拉列表
 
 > 4、页面之间的通信最好不要用cookie来做
 
-## 预览效果
 
-+ 首页：[https://suminhohu.github.io/ego/html/index.html](https://suminhohu.github.io/ego/html/index.html)
-+ 作品列表页：[https://suminhohu.github.io/ego/html/works/myworks.html](https://suminhohu.github.io/ego/html/works/myworks.html)
-+ 上传作品页：[https://suminhohu.github.io/ego/html/works/upload.html](https://suminhohu.github.io/ego/html/works/upload.html)
 
 
 > 这里访问的时候有些地方就看不了，所以我也截图存放在'showImg'文件夹中，方便对比。如果你想看完整的交互你可以安装nei服务，具体步骤如下：
