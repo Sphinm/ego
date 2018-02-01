@@ -9,7 +9,12 @@
 
 
 > 备注：原本有一个后端接口提供数据支持，但是github上必须要https的链接，访问http接口会被block，查找资料添加了一个
-`<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">`转成https，也行不通，如果想要完整的演示效果需要安装nei，访问[http://59.111.103.100/](http://59.111.103.100/)。
+`<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">`转成https，也行不通，如果想要完整的演示效果需要安装nei。
+直接访问的时候有些地方就看不了，所以我也截图存放在'showImg'文件夹中，方便对比。如果你想看完整的交互你可以安装nei服务，具体步骤如下：
+
+1. 通过npm安装nei，命令为 `npm install nei -g`
+2. 然后在你的目录下创建ego项目，命令为 `nei build -k e389c52125abdd607c4455e4d448e5d3 -o ./ego`
+3. 将源码放进public文件夹即可，修改server.config.js，然后启动nei，`nei server`
 
 ## 预览效果
 
@@ -161,11 +166,7 @@ hover出现下拉列表
 
 
 
-> 这里访问的时候有些地方就看不了，所以我也截图存放在'showImg'文件夹中，方便对比。如果你想看完整的交互你可以安装nei服务，具体步骤如下：
 
-1. 通过npm安装nei，命令为 `npm install nei -g`
-2. 然后在你的目录下创建ego项目，命令为 `nei build -k e389c52125abdd607c4455e4d448e5d3 -o ./ego`
-3. 将源码放进public文件夹即可，修改server.config.js，然后启动nei，`nei server`
 
 
 
