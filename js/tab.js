@@ -7,7 +7,7 @@
     var template =
         '<div class="m-tab">\
                 <ul class="f-cb">\
-                   <li class="z-active"><a href="/index.html">首页</a></li>\
+                   <li class="z-active"><a href="/ego/html/index.html">首页</a></li>\
                    <li><a class="work" href="/html/works/myworks.html" target="_blank">作品</a></li>\
                    <li><a href="#" target="_blank">圈子</a></li>\
                    <li><a href="#" target="_blank">奇思妙想</a></li>\
