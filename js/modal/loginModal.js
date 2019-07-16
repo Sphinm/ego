@@ -60,18 +60,18 @@
     // 事件发射器
     _.extend(LoginModal.prototype, _.emitter);
 
-    _.extend(LoginModal.prototype,{
+    _.extend(LoginModal.prototype, {
 
         _layout: _.html2node(html),
 
-        show: function() {
+        show: function () {
             // 给html的body节点增加整个窗体节点
             document.body.appendChild(this.container);
         },
 
         // 隐藏时候需要把用户填写的数据清空
-        hide: function() {
-            var container  = this.container;
+        hide: function () {
+            var container = this.container;
             document.body.removeChild(container);
             _.addClassName(this.ErrorParent, 'f-dn');
             _.delClassName(this.userName, 'error');
@@ -94,7 +94,7 @@
         },
 
         // 和hide方法类似，多了一个触发cancel事件
-        onCancel: function() {
+        onCancel: function () {
             this.emit("cancel");
             this.hide();
         },
@@ -122,7 +122,7 @@
 
             this.showError();
 
-            isValid ? _.addClassName(this.ErrorParent, 'f-dn'): this.showError();
+            isValid ? _.addClassName(this.ErrorParent, 'f-dn') : this.showError();
 
             return isValid;
         },
@@ -162,7 +162,7 @@
                             alert('账号可能未注册');
                         }
                     },
-                    fail: function () {}
+                    fail: function () { }
                 })
             }
         },
@@ -170,7 +170,7 @@
         // 初始化登录弹窗组件并绑定事件
         initLoginEvent: function () {
             //  绑定事件
-            _.addEvent(this.close, 'click' ,this.onCancel.bind(this));
+            _.addEvent(this.close, 'click', this.onCancel.bind(this));
             _.addEvent(this.goregister, 'click', this.register.bind(this));
             _.addEvent(this.submit, 'click', this._submit.bind(this));
         },
@@ -183,7 +183,7 @@
         module.exports = LoginModal;
         // 支持amd
     } else if (typeof define === 'function' && define.amd) {
-        define(function() {
+        define(function () {
             return LoginModal;
         });
     } else {
