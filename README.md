@@ -20,9 +20,9 @@
 
 ## 预览效果
 
-+ 首页：[https://Sphinm.github.io/ego/html/index.html](https://Sphinm.github.io/ego/html/index.html)
-+ 作品列表页：[https://Sphinm.github.io/ego/html/works/myworks.html](https://Sphinm.github.io/ego/html/works/myworks.html)
-+ 上传作品页：[https://Sphinm.github.io/ego/html/works/upload.html](https://Sphinm.github.io/ego/html/works/upload.html)
++ 首页：[https://sphinm.github.io/ego/html/index.html](https://sphinm.github.io/ego/html/index.html)
++ 作品列表页：[https://sphinm.github.io/ego/html/works/myworks.html](https://sphinm.github.io/ego/html/works/myworks.html)
++ 上传作品页：[https://sphinm.github.io/ego/html/works/upload.html](https://sphinm.github.io/ego/html/works/upload.html)
 
 > 对于组件我打算再重新梳理一下，之前有的部分为了省事没有考虑到继承或者更优化的方法，所以尽量写的健壮、可复用一点。  [传送门](https://github.com/Sphinm/Component/)
 
